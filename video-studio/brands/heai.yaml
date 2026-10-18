@@ -1,0 +1,41 @@
+# Home Estimator (HEAI) — house style from the heai-videos skill (references/house-style.md).
+name: Home Estimator
+font: Inter
+logo: assets/heai-logo.png          # the original logo only — never redraw it
+colors:
+  bg: "#1a1a2e"        # navy ground, solid fill
+  accent: "#d4af37"    # gold: CTA, active caption word
+  secondary: "#c9a96e" # sand: kickers, sub lines
+  text: "#ffffff"
+captions:
+  font: Inter
+  color: "#ffffff"
+  active_color: "#d4af37"
+  outline_color: "#1a1a2e"
+  uppercase: false
+  size_vertical: 0.050     # fraction of frame height
+  size_landscape: 0.050
+  margin_vertical: 0.22    # keeps captions clear of the Reels/Shorts UI
+  margin_landscape: 0.07
+  words_vertical: 4        # house rule for reels: <= 5 words per chunk
+  words_landscape: 7
+fill:                      # how 16:9 footage sits in other frames
+  landscape: crop
+  vertical: brand          # solid navy, app window centred (reel layout)
+  square: brand
+watermark: {}              # full-bleed demos carry no corner logo
+trim:
+  mode: speech
+  silence_max: 0.7         # pauses longer than this...
+  gap: 0.5                 # ...become a ~0.5 s turn gap
+  fillers: true
+  stutters: true
+intro:
+  seconds: 3.5
+outro:
+  seconds: 4.5
+  cta: "Visit HomeEstimator.ai to learn more — or book a demo."
+music:
+  under: cards             # demo rule: music under hook/title + closing card only
+  bed_db: -60
+lufs: -14

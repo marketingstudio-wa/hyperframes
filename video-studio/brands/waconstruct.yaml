@@ -1,0 +1,46 @@
+# WA Construct — PLACEHOLDER brand values. Replace the colors and add the real logo file
+# (brands/assets/waconstruct-logo.png) before publishing anything.
+name: WA Construct
+font: Inter
+logo: assets/waconstruct-logo.png   # until this file exists, a text wordmark is used
+colors:
+  bg: "#1f2933"        # PLACEHOLDER charcoal
+  accent: "#f5a623"    # PLACEHOLDER safety orange
+  secondary: "#cbd2d9"
+  text: "#ffffff"
+captions:
+  font: Inter
+  color: "#ffffff"
+  active_color: "#f5a623"
+  outline_color: "#111111"
+  uppercase: true
+  size_vertical: 0.052
+  size_landscape: 0.050
+  margin_vertical: 0.22
+  margin_landscape: 0.07
+  words_vertical: 3
+  words_landscape: 6
+fill:
+  landscape: crop
+  vertical: blur           # jobsite footage: blurred fill instead of bars
+  square: blur
+watermark:
+  all: true
+  position: top-right
+  opacity: 0.85
+trim:
+  mode: speech             # set to "none" for b-roll with no talking
+  silence_max: 0.8
+  gap: 0.5
+  fillers: true
+  stutters: true
+intro:
+  seconds: 3.0
+outro:
+  seconds: 4.0
+  cta: "Ready to build? Get a quote from WA Construct."
+  sub: "Call or visit waconstruct.com"
+music:
+  under: all               # a low bed under the whole video
+  bed_db: -24
+lufs: -14

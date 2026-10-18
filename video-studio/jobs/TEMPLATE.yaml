@@ -1,0 +1,21 @@
+# Copy this file per video, then:  python3 vstudio.py jobs/<name>.yaml
+brand: waconstruct              # waconstruct | heai
+source: ../inbox/raw.mp4        # path relative to this job file
+name: kitchen-remodel           # output file prefix (defaults to the job file name)
+title: "Kitchen remodel, start to finish"   # intro card headline
+hook: null                      # overrides title on the intro card (HEAI: the hook line)
+subtitle: null
+cta: null                       # overrides the brand's default CTA
+formats: [landscape, vertical]  # landscape 16:9, vertical 9:16, square 1:1
+music: null                     # e.g. ../inbox/track.mp3 (music is looped/trimmed to fit)
+captions: true
+lower_third:                    # optional name strap over the first seconds
+  name: null
+  role: null
+  start: 0.5
+  duration: 4
+trim:                           # anything here overrides the brand's trim settings
+  remove: []                    # manual cuts in SOURCE seconds, e.g. [[12.4, 15.0]]
+  drop_words: []                # extra words to cut wherever they occur, e.g. ["basically"]
+crop_x: 0.5                     # 0 = keep left edge, 1 = right edge, when cropping
+keep_work: false
