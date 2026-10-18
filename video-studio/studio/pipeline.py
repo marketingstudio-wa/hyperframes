@@ -248,7 +248,10 @@ def run(job_path, only=None):
         W, H = FORMATS[fmt]
         vertical = H > W
         print(f"[5/6] {fmt} {W}x{H}")
-        logo_png = cards.wordmark(brand, int(W * (0.3 if vertical else 0.14)), int(H * 0.06), os.path.join(work, f"logo_{fmt}.png"))
+        wm = brand.get("watermark", {})
+        logo_png = cards.wordmark(brand, int(W * wm.get("width_vertical" if vertical else "width_landscape",
+                                                        0.3 if vertical else 0.14)),
+                                  int(H * wm.get("max_height", 0.06)), os.path.join(work, f"logo_{fmt}.png"))
         ass = None
         if job.get("captions", True) and new_words:
             ass = os.path.join(work, f"captions_{fmt}.ass")

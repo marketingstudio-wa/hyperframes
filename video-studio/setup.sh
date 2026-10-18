@@ -9,5 +9,6 @@ if [ ! -d models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8 ]; then
     | tar xj -C models
 fi
 command -v ffmpeg >/dev/null || { echo "ffmpeg missing: apt-get install -y ffmpeg"; exit 1; }
-fc-list | grep -qi "Inter" || echo "warning: Inter font not installed (apt-get install -y fonts-inter)"
+mkdir -p ~/.fonts && cp brands/assets/fonts/*.ttf ~/.fonts/ && fc-cache -f >/dev/null
+fc-list : family | grep -i "Inter" >/dev/null || echo "warning: Inter font not installed (apt-get install -y fonts-inter)"
 echo "video studio ready"

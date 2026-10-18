@@ -55,9 +55,13 @@ Brand profiles live in `brands/*.yaml`; a job can override any key with `brand_o
 - `heai.yaml` follows the Home Estimator house style: navy `#1a1a2e`, gold `#d4af37`, sand
   `#c9a96e`, Inter, the original logo, no corner logo on full-bleed demos, music under cards only,
   and the approved CTA.
-- `waconstruct.yaml` holds **placeholder** colors and CTA. Replace them with the real brand
-  values and add `brands/assets/waconstruct-logo.png`. Until the logo exists, a text wordmark
-  is used.
+- `waconstruct.yaml` follows the WA Construct brand guide: Blue `#3e4d6b` ground with Gold
+  `#b7964e` (two colours per asset), Roboto (the guide's fallback for Univers; fonts are in
+  `brands/assets/fonts` and installed by `setup.sh`), and the real logo. The logo is black and may
+  never be recoloured or placed bare on footage, so it always sits in a white box with a safe area
+  of 3x the height of "CONSTRUCT" (`logo_container`), on cards and as the corner mark. The end
+  card reads "Schedule your consultation / waconstruct.com | 201-485-8887". Never put pricing in
+  WA Construct videos, and never connect WA Construct to Home Estimator.
 
 ## When to use the HyperFrames workflow instead
 

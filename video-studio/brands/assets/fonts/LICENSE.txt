@@ -1,0 +1,2 @@
+Roboto by Christian Robertson / Google, licensed under the Apache License 2.0.
+Converted from the @fontsource/roboto 5.1.0 package (latin subset).

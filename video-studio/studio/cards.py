@@ -33,8 +33,27 @@ def _logo(brand, base_dir, max_w, max_h):
     if not os.path.exists(path):
         return None
     img = Image.open(path).convert("RGBA")
+    box = brand.get("logo_container")
+    if box:
+        img = boxed(img, box)
     scale = min(max_w / img.width, max_h / img.height)
     return img.resize((max(1, int(img.width * scale)), max(1, int(img.height * scale))), Image.LANCZOS)
+
+
+def boxed(img, box):
+    """Logo on a solid box: the brand rule for marks that may never sit bare on footage.
+
+    Padding on every side is safe_area x the height of the logo's smallest word line
+    (word_height, as a fraction of the trimmed logo height)."""
+    img = img.crop(img.getbbox())
+    pad = round(box.get("safe_area", 3.0) * box.get("word_height", 0.17) * img.height)
+    out = Image.new("RGBA", (img.width + 2 * pad, img.height + 2 * pad), box.get("color", "#ffffff"))
+    out.alpha_composite(img, (pad, pad))
+    return out
+
+
+def _weights(brand):
+    return {"headline": "black", "sub": "semibold", "small": "medium", **brand.get("font_weights", {})}
 
 
 def wordmark(brand, W, H, out_path):
@@ -62,10 +81,13 @@ def render_card(brand, W, H, out_path, headline, sub=None, small=None):
     margin = int(W * 0.1)
     unit = H if not vertical else W * 1.1
 
-    logo = _logo(brand, brand["_dir"], int(W * (0.55 if vertical else 0.32)), int(H * 0.16))
-    head_font = ImageFont.truetype(font_file(brand["font"], "black"), int(unit * 0.075))
-    sub_font = ImageFont.truetype(font_file(brand["font"], "semibold"), int(unit * 0.038))
-    small_font = ImageFont.truetype(font_file(brand["font"], "medium"), int(unit * 0.026))
+    boxed_logo = bool(brand.get("logo_container"))
+    logo = _logo(brand, brand["_dir"], int(W * (0.62 if vertical else 0.36)),
+                 int(H * (0.22 if boxed_logo else 0.16)))
+    wt = _weights(brand)
+    head_font = ImageFont.truetype(font_file(brand["font"], wt["headline"]), int(unit * 0.075))
+    sub_font = ImageFont.truetype(font_file(brand["font"], wt["sub"]), int(unit * 0.038))
+    small_font = ImageFont.truetype(font_file(brand["font"], wt["small"]), int(unit * 0.026))
     head_lines = _wrap(d, headline, head_font, W - 2 * margin)
     sub_lines = _wrap(d, sub, sub_font, W - 2 * margin) if sub else []
 
