@@ -25,8 +25,8 @@ def _wrap(draw, text, font, max_w):
     return lines
 
 
-def _logo(brand, base_dir, max_w, max_h):
-    path = brand.get("logo")
+def _logo(brand, base_dir, max_w, max_h, key="logo"):
+    path = brand.get(key) or brand.get("logo")
     if not path:
         return None
     path = os.path.join(base_dir, path)
@@ -74,6 +74,8 @@ def wordmark(brand, W, H, out_path):
 
 
 def render_card(brand, W, H, out_path, headline, sub=None, small=None):
+    if brand.get("card_layout") == "left":
+        return render_card_left(brand, W, H, out_path, headline, sub, small)
     c = brand["colors"]
     img = Image.new("RGB", (W, H), c["bg"])
     d = ImageDraw.Draw(img)
@@ -116,5 +118,49 @@ def render_card(brand, W, H, out_path, headline, sub=None, small=None):
         y += int(sub_font.size * 1.35)
     if small:
         d.text((W // 2, H - int(H * 0.06)), small, font=small_font, fill=c["secondary"], anchor="mb")
+    img.save(out_path)
+    return out_path
+
+
+def render_card_left(brand, W, H, out_path, headline, sub=None, small=None):
+    """Left-aligned card (WA Construct blog-cover system): solid ground, ALL-CAPS headline,
+    short rule, light subline, logo bottom-left on the text's left edge. Ground + text colour only."""
+    c = brand["colors"]
+    img = Image.new("RGB", (W, H), c["bg"])
+    d = ImageDraw.Draw(img)
+    vertical = H > W
+    x = int(W * (0.1 if vertical else 0.08))
+    unit = W * 1.1 if vertical else H
+    wt = _weights(brand)
+    head_font = ImageFont.truetype(font_file(brand["font"], wt["headline"]), int(unit * 0.075))
+    sub_font = ImageFont.truetype(font_file(brand["font"], wt["sub"]), int(unit * 0.036))
+    small_font = ImageFont.truetype(font_file(brand["font"], wt["small"]), int(unit * 0.026))
+    max_w = W - 2 * x if vertical else int(W * 0.5)  # short stacked lines, like the blog cover
+    head_lines = _wrap(d, headline.upper(), head_font, max_w)
+    sub_lines = (_wrap(d, sub, sub_font, max_w) if sub else [])[:2]
+
+    logo = _logo(brand, brand["_dir"], int(W * (0.5 if vertical else 0.24)), int(H * 0.12), key="card_logo")
+    bottom = H - int(H * (0.1 if vertical else 0.09))
+    if logo:
+        img.paste(logo, (x, bottom - logo.height), logo)
+        bottom -= logo.height + int(unit * 0.06)
+
+    lead = int(head_font.size * 1.12)
+    rule_gap, rule_h = int(unit * 0.035), max(3, round(H / 360))
+    block = lead * len(head_lines) + (rule_gap * 2 + rule_h + int(sub_font.size * 1.3) * len(sub_lines)
+                                      if sub_lines else 0)
+    y = max(int(H * 0.08), (bottom - block) // 2 + int(H * 0.02))
+    for line in head_lines:
+        d.text((x, y), line, font=head_font, fill=c["text"], anchor="lt")
+        y += lead
+    if sub_lines:
+        y += rule_gap
+        d.rectangle([x, y, x + int(W * (0.09 if vertical else 0.052)), y + rule_h], fill=c["text"])
+        y += rule_h + rule_gap
+        for line in sub_lines:
+            d.text((x, y), line, font=sub_font, fill=c["text"], anchor="lt")
+            y += int(sub_font.size * 1.3)
+    if small:
+        d.text((x, H - int(H * 0.04)), small, font=small_font, fill=c["text"], anchor="lb")
     img.save(out_path)
     return out_path

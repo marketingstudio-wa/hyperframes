@@ -28,6 +28,6 @@ The pipeline lives in `video-studio/` at the repo root (see `video-studio/README
 
 ## Rules
 
-- **Brand:** `brands/waconstruct.yaml` follows the WA Construct brand guide: Blue + Gold only, Roboto, and the real logo always inside its white box (never bare on footage, never recoloured). WA Construct videos never mention pricing and never connect WA Construct to Home Estimator.
+- **Brand:** `brands/waconstruct.yaml` follows the WA Construct Blog & Creative Context v1.0: Roboto, navy + white left-aligned cards with the white logo bottom-left, logo never boxed and never bare on footage (no corner logo), block-letter captions. WA Construct videos never mention pricing and never connect WA Construct to Home Estimator.
 - **Not for HEAI demo re-edits:** a re-voiced presenter, highlight boxes, chapter subtitles or name patches go through the `heai-videos` skill (HyperFrames). This pipeline can produce the trimmed cut and transcript that feed it.
 - **Large files:** keep media out of git (`inbox/`, `jobs/out/` and `models/` are gitignored).

@@ -21,15 +21,15 @@ python3 vstudio.py jobs/my-video.yaml --only vertical
 
 Outputs land in `jobs/out/<name>/`:
 
-| File | What it is |
-|---|---|
-| `<name>_landscape.mp4` / `_vertical.mp4` / `_square.mp4` | Masters (YouTube, Reels/Shorts/TikTok, feed) |
-| `*_share.mp4` | Same video under 30 MB, for chat or email |
-| `*.srt` | Caption file for platform upload (timed to the finished video) |
-| `*_contact.png` | 12-frame contact sheet for a quick visual check |
-| `transcript.txt` | What's said in the finished cut |
-| `edit_plan.json` | Kept spans and dropped words, in source time — tweak `trim.remove` and re-run |
-| `report.json` | Duration, loudness, true peak, black gaps, size, and any warnings |
+| File                                                     | What it is                                                                    |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `<name>_landscape.mp4` / `_vertical.mp4` / `_square.mp4` | Masters (YouTube, Reels/Shorts/TikTok, feed)                                  |
+| `*_share.mp4`                                            | Same video under 30 MB, for chat or email                                     |
+| `*.srt`                                                  | Caption file for platform upload (timed to the finished video)                |
+| `*_contact.png`                                          | 12-frame contact sheet for a quick visual check                               |
+| `transcript.txt`                                         | What's said in the finished cut                                               |
+| `edit_plan.json`                                         | Kept spans and dropped words, in source time — tweak `trim.remove` and re-run |
+| `report.json`                                            | Duration, loudness, true peak, black gaps, size, and any warnings             |
 
 Re-runs reuse the cached transcription (`work/words.json`), so tweaking a job is fast.
 
@@ -55,13 +55,13 @@ Brand profiles live in `brands/*.yaml`; a job can override any key with `brand_o
 - `heai.yaml` follows the Home Estimator house style: navy `#1a1a2e`, gold `#d4af37`, sand
   `#c9a96e`, Inter, the original logo, no corner logo on full-bleed demos, music under cards only,
   and the approved CTA.
-- `waconstruct.yaml` follows the WA Construct brand guide: Blue `#3e4d6b` ground with Gold
-  `#b7964e` (two colours per asset), Roboto (the guide's fallback for Univers; fonts are in
-  `brands/assets/fonts` and installed by `setup.sh`), and the real logo. The logo is black and may
-  never be recoloured or placed bare on footage, so it always sits in a white box with a safe area
-  of 3x the height of "CONSTRUCT" (`logo_container`), on cards and as the corner mark. The end
-  card reads "Schedule your consultation / waconstruct.com | 201-485-8887". Never put pricing in
-  WA Construct videos, and never connect WA Construct to Home Estimator.
+- `waconstruct.yaml` follows the WA Construct Blog & Creative Context v1.0 (which overrides the
+  older brand guide): Roboto only (vendored in `brands/assets/fonts`, installed by `setup.sh`), navy
+  `#3e4d6b` cards with white left-aligned ALL-CAPS type (`card_layout: left`, the blog-cover system),
+  the white-converted logo bottom-left on cards, captions in block letters with the active word in
+  gold `#b7964e`. The logo never gets a box or bar and never sits bare on footage, so there is no
+  corner logo. End card: "Tell us about your project / waconstruct.com". Never put pricing in WA
+  Construct videos, and never connect WA Construct to Home Estimator.
 
 ## When to use the HyperFrames workflow instead
 

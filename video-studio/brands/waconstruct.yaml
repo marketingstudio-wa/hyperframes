@@ -1,30 +1,27 @@
-# WA Construct, from the brand guide (project knowledge: WA_Construct_Brand_Guide.md).
-# Rules that shape this file:
-#   - max 2 colours per asset: Blue ground + Gold accent, white type
-#   - the logo is black and is never recoloured or placed straight on footage or colour:
-#     it always sits in a solid White box with a safe area of 3x the height of "CONSTRUCT"
-#   - Univers LT Std isn't licensed here, so Roboto (the guide's fallback): Medium headlines,
-#     Light subheads, Regular body (fonts vendored in brands/assets/fonts, installed by setup.sh)
-#   - no pricing, ever; phone is 201-485-8887; URL is waconstruct.com
+# WA Construct, from the Blog & Creative Context v1.0 (2026-10-19), which overrides the brand guide:
+#   - Roboto only; max 2 colours per asset plus the logo's own gold; text left-aligned
+#   - logo used as-is with NO box or bar behind it; the white-converted logo only on navy panels,
+#     bottom-left, aligned with the text. So cards are navy + white with the white logo, and there is
+#     no corner logo over footage (a bare logo on busy footage isn't an approved use)
+#   - on-screen captions in block letters
+#   - no pricing, no HomeEstimator.ai, waconstruct.com, 201-485-8887
 name: WA Construct
 font: Roboto
-font_weights: {headline: medium, sub: light, small: regular}
+font_weights: { headline: bold, sub: light, small: regular }
+card_layout: left
 logo: assets/waconstruct-logo.png
-logo_container:
-  color: "#ffffff"
-  safe_area: 3.0
-  word_height: 0.166     # "CONSTRUCT" is 32 px of the 193 px trimmed logo
+card_logo: assets/waconstruct-logo-white.png # navy cards only
 colors:
-  bg: "#3e4d6b"          # Blue (primary)
-  accent: "#b7964e"      # Gold (secondary)
-  secondary: "#b7964e"   # sub lines in Gold too, to stay within two colours
+  bg: "#3e4d6b" # Blue (primary)
+  accent: "#b7964e" # Gold (secondary)
+  secondary: "#ffffff"
   text: "#ffffff"
 captions:
   font: Roboto
   color: "#ffffff"
   active_color: "#b7964e"
   outline_color: "#000000"
-  uppercase: false
+  uppercase: true # block letters
   size_vertical: 0.042
   size_landscape: 0.050
   margin_vertical: 0.22
@@ -33,17 +30,11 @@ captions:
   words_landscape: 6
 fill:
   landscape: crop
-  vertical: blur           # jobsite footage: blurred fill instead of bars
+  vertical: blur # jobsite footage: blurred fill instead of bars
   square: blur
-watermark:
-  all: true
-  position: top-right
-  opacity: 1.0             # no transparency or effects on the mark
-  width_landscape: 0.15    # the whole white box, as a fraction of frame width
-  width_vertical: 0.32
-  max_height: 0.15
+watermark: {} # no corner logo: it may not sit bare on footage or in a box
 trim:
-  mode: speech             # set to "none" for b-roll with no talking
+  mode: speech # set to "none" for b-roll with no talking
   silence_max: 0.8
   gap: 0.5
   fillers: true
@@ -52,9 +43,9 @@ intro:
   seconds: 3.0
 outro:
   seconds: 4.0
-  cta: "Schedule your consultation"
-  sub: "waconstruct.com  |  201-485-8887"
+  cta: "Tell us about your project"
+  sub: "waconstruct.com"
 music:
-  under: all               # a low bed under the whole video
+  under: all # a low bed under the whole video
   bed_db: -24
 lufs: -14
