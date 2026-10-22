@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Option A vs B Cover</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #171a2e;
+        --card: #2d2d44;
+        --sand: #c9a96e;
+        --gold: #d4af37;
+        --gray: #a0aab2;
+        --white: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      body { font-family: "Inter", sans-serif; color: var(--white); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #bg { position: absolute; inset: 0; background: var(--navy); }
+      #logo { position: absolute; left: 449px; top: 236px; width: 182px; height: 127.5px; overflow: hidden; }
+      #logo img { position: absolute; width: 295.6px; height: 295.6px; left: -57.6px; top: -73.3px; max-width: none; }
+      #h1 { position: absolute; left: 0; top: 400px; width: 1080px; text-align: center; font-size: 150px; font-weight: 900;
+        letter-spacing: -4px; line-height: 1.02; white-space: nowrap; }
+      #h1 .a { color: var(--gold); }
+      #h1 .b { color: var(--sand); }
+      #shot { position: absolute; left: 130px; top: 750px; width: 820px; height: 560px; border-radius: 28px; overflow: hidden;
+        border: 5px solid var(--gold); transform: rotate(-2.5deg); background: #eef0f6; }
+      #shot img { position: absolute; left: -40px; top: -340px; width: 900px; height: 900px; }
+      #pill { position: absolute; left: 120px; top: 1380px; width: 840px; padding: 28px 30px 32px; border-radius: 26px;
+        background: var(--navy); border: 4px solid var(--gold); text-align: center; }
+      #pill .k { font-size: 38px; font-weight: 900; letter-spacing: 4px; color: var(--white); }
+      #pill .v { margin-top: 8px; font-size: 128px; font-weight: 900; letter-spacing: -3px; line-height: 1; color: var(--gold); }
+      #note { position: absolute; left: 0; top: 1640px; width: 1080px; text-align: center; font-size: 32px; color: var(--gray); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="1" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="1" data-track-index="0"></div>
+      <div id="logo" data-layout-allow-overflow><img src="assets/logo.png" alt="Home Estimator" /></div>
+      <div id="h1"><span class="a">OPTION A.</span><br /><span class="b">OPTION B.</span></div>
+      <div id="shot" data-layout-allow-overflow><img src="assets/shot.jpg" alt="Updated estimate total" /></div>
+      <div id="pill"><div class="k">SAME PROJECT. TWO PRICES.</div><div class="v">+$16,703</div></div>
+      <div id="note">Example project &mdash; every project&rsquo;s estimate differs.</div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
