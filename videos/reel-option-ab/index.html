@@ -17,140 +17,628 @@
         --ink: #171a2e;
         --muted: #586074;
       }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
-      body { font-family: "Inter", sans-serif; color: var(--white); }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
-      #bg { position: absolute; inset: 0; background: var(--navy); }
-      .lg { position: relative; overflow: hidden; }
-      .lg img { position: absolute; max-width: none; }
-      #top { position: absolute; left: 494px; top: 226px; opacity: 0; }
-      .step { position: absolute; left: 0; top: 300px; width: 1080px; text-align: center; opacity: 0; }
-      .step .k { display: block; font-size: 32px; font-weight: 800; letter-spacing: 6px; color: var(--gold); }
-      .step .t { display: block; margin-top: 4px; font-size: 52px; font-weight: 900; letter-spacing: -1px; }
-      #win { position: absolute; left: 0; top: 412px; width: 1080px; height: 1080px; overflow: hidden; background: #eef0f6; }
-      .scr { position: absolute; inset: 0; opacity: 0; }
-      .bar { position: absolute; left: 0; top: 0; width: 1080px; height: 110px; background: #ffffff;
-        border-bottom: 2px solid #dfe2ea; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
-      .bar .ti { font-size: 40px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
-      .bar .tag { font-size: 32px; font-weight: 600; color: var(--muted); }
-      .kick { position: absolute; left: 48px; top: 138px; font-size: 32px; font-weight: 800; letter-spacing: 3px; color: var(--muted); }
-      .row { position: absolute; left: 48px; width: 984px; height: 132px; background: #ffffff; border-radius: 20px;
-        border: 2px solid #e1e4ec; padding: 22px 34px; }
-      .rt { font-size: 40px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
-      .rd { margin-top: 8px; font-size: 32px; font-weight: 500; color: var(--muted); white-space: nowrap; }
-      .tot { position: absolute; left: 48px; top: 800px; width: 984px; height: 160px; background: var(--navy); border-radius: 20px;
-        padding: 26px 34px; }
-      .tot .tl { font-size: 32px; font-weight: 800; letter-spacing: 4px; color: var(--gray); }
-      .chip { position: absolute; left: 34px; top: 82px; height: 52px; padding: 0 22px; border-radius: 26px; font-size: 32px;
-        font-weight: 900; letter-spacing: 2px; display: flex; align-items: center; opacity: 0; }
-      .chip.b { border: 3px solid var(--sand); color: var(--sand); }
-      .chip.a { background: var(--gold); color: var(--navy); }
-      .tot .tv { position: absolute; right: 34px; top: 34px; font-size: 88px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
-      .tot .upd { position: absolute; right: 34px; top: 52px; font-size: 48px; font-weight: 700; color: var(--gray); }
-      .fine { position: absolute; left: 0; top: 994px; width: 1080px; text-align: center; font-size: 32px; font-weight: 500; color: var(--muted); }
-      .opt { height: 112px; display: flex; align-items: center; gap: 30px; padding: 0 34px; }
-      .cb { width: 56px; height: 56px; border-radius: 12px; border: 3px solid #c3c8d6; display: flex; align-items: center;
-        justify-content: center; font-size: 38px; font-weight: 900; color: #ffffff; }
-      .cb span { opacity: 0; }
-      .ot { font-size: 40px; font-weight: 700; color: var(--ink); }
-      .side { height: 150px; display: flex; align-items: center; justify-content: space-between; }
-      .sv { text-align: right; font-size: 40px; font-weight: 800; color: var(--ink); line-height: 1.15; }
-      .sv small { display: block; font-size: 32px; font-weight: 700; color: #8a6a14; }
-      .gbox { position: absolute; border: 5px solid var(--gold); border-radius: 12px; opacity: 0; }
-      #hook { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: flex; flex-direction: column;
-        align-items: center; justify-content: center; text-align: center; }
-      .hs { font-size: 64px; font-weight: 800; letter-spacing: -1px; }
-      .hb { font-size: 132px; font-weight: 900; letter-spacing: -3px; line-height: 1.02; margin-bottom: 36px; }
-      #h2, #hb2, #h3, #h4 { opacity: 0; }
-      #hb1 { color: var(--gold); }
-      #hb2 { color: var(--sand); }
-      #h3 { font-size: 64px; font-weight: 900; margin-top: 10px; }
-      #h4 { margin-top: 14px; font-size: 44px; font-weight: 600; color: var(--gray); }
-      .cap { position: absolute; left: 40px; top: 1502px; width: 1000px; text-align: center; font-size: 56px; font-weight: 900;
-        letter-spacing: -1px; line-height: 1.1; white-space: nowrap; opacity: 0; }
-      #cmp { position: absolute; inset: 0; background: var(--navy); opacity: 0; }
-      .pnl { position: absolute; left: 80px; width: 920px; height: 236px; background: var(--card); border: 2px solid var(--line);
-        border-radius: 24px; padding: 34px 44px; opacity: 0; }
-      .pnl .pk { font-size: 36px; font-weight: 800; letter-spacing: 1px; }
-      .pnl .pv { margin-top: 12px; font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: 1; }
-      #pB { top: 420px; }
-      #pB .pk, #pB .pv { color: var(--sand); }
-      #pA { top: 690px; }
-      #pA .pk { color: var(--white); }
-      #pA .pv { color: var(--white); }
-      #dif { position: absolute; left: 0; top: 980px; width: 1080px; text-align: center; opacity: 0; }
-      #dif .dk { font-size: 36px; font-weight: 800; letter-spacing: 5px; color: var(--gray); }
-      #dif .dv { margin-top: 6px; font-size: 132px; font-weight: 900; letter-spacing: -3px; color: var(--gold); line-height: 1.05; }
-      #cfine { position: absolute; left: 0; top: 1220px; width: 1080px; text-align: center; font-size: 32px; font-weight: 500;
-        color: var(--gray); opacity: 0; }
-      #outro { position: absolute; inset: 0; background: var(--navy); }
-      #outro-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-      #outro-rule { width: 300px; height: 4px; background: var(--gold); margin: 70px 0 56px; }
-      #outro-line { font-size: 54px; font-weight: 500; }
-      #outro-cta { margin-top: 30px; font-size: 72px; font-weight: 900; color: var(--gold); letter-spacing: 1px; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--white);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: var(--navy);
+      }
+      .lg {
+        position: relative;
+        overflow: hidden;
+      }
+      .lg img {
+        position: absolute;
+        max-width: none;
+      }
+      #top {
+        position: absolute;
+        left: 494px;
+        top: 226px;
+        opacity: 0;
+      }
+      .step {
+        position: absolute;
+        left: 0;
+        top: 300px;
+        width: 1080px;
+        text-align: center;
+        opacity: 0;
+      }
+      .step .k {
+        display: block;
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 6px;
+        color: var(--gold);
+      }
+      .step .t {
+        display: block;
+        margin-top: 4px;
+        font-size: 52px;
+        font-weight: 900;
+        letter-spacing: -1px;
+      }
+      #win {
+        position: absolute;
+        left: 0;
+        top: 412px;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #eef0f6;
+      }
+      .scr {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+      .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1080px;
+        height: 110px;
+        background: #ffffff;
+        border-bottom: 2px solid #dfe2ea;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+      }
+      .bar .ti {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: -0.5px;
+      }
+      .bar .tag {
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .kick {
+        position: absolute;
+        left: 48px;
+        top: 138px;
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: var(--muted);
+      }
+      .row {
+        position: absolute;
+        left: 48px;
+        width: 984px;
+        height: 132px;
+        background: #ffffff;
+        border-radius: 20px;
+        border: 2px solid #e1e4ec;
+        padding: 22px 34px;
+      }
+      .rt {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: -0.5px;
+      }
+      .rd {
+        margin-top: 8px;
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .tot {
+        position: absolute;
+        left: 48px;
+        top: 800px;
+        width: 984px;
+        height: 160px;
+        background: var(--navy);
+        border-radius: 20px;
+        padding: 26px 34px;
+      }
+      .tot .tl {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        color: var(--gray);
+      }
+      .chip {
+        position: absolute;
+        left: 34px;
+        top: 82px;
+        height: 52px;
+        padding: 0 22px;
+        border-radius: 26px;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+      }
+      .chip.b {
+        border: 3px solid var(--sand);
+        color: var(--sand);
+      }
+      .chip.a {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .tot .tv {
+        position: absolute;
+        right: 34px;
+        top: 34px;
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: -2px;
+        line-height: 1;
+      }
+      .tot .upd {
+        position: absolute;
+        right: 34px;
+        top: 52px;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--gray);
+      }
+      .fine {
+        position: absolute;
+        left: 0;
+        top: 994px;
+        width: 1080px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .opt {
+        height: 112px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 0 34px;
+      }
+      .cb {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        border: 3px solid #c3c8d6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        font-weight: 900;
+        color: #ffffff;
+      }
+      .cb span {
+        opacity: 0;
+      }
+      .ot {
+        font-size: 40px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .side {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .sv {
+        text-align: right;
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--ink);
+        line-height: 1.15;
+      }
+      .sv small {
+        display: block;
+        font-size: 32px;
+        font-weight: 700;
+        color: #8a6a14;
+      }
+      .gbox {
+        position: absolute;
+        border: 5px solid var(--gold);
+        border-radius: 12px;
+        opacity: 0;
+      }
+      #hook {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1080px;
+        height: 1920px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hs {
+        font-size: 64px;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .hb {
+        font-size: 132px;
+        font-weight: 900;
+        letter-spacing: -3px;
+        line-height: 1.02;
+        margin-bottom: 36px;
+      }
+      #h2,
+      #hb2,
+      #h3,
+      #h4 {
+        opacity: 0;
+      }
+      #hb1 {
+        color: var(--gold);
+      }
+      #hb2 {
+        color: var(--sand);
+      }
+      #h3 {
+        font-size: 64px;
+        font-weight: 900;
+        margin-top: 10px;
+      }
+      #h4 {
+        margin-top: 14px;
+        font-size: 44px;
+        font-weight: 600;
+        color: var(--gray);
+      }
+      .cap {
+        position: absolute;
+        left: 40px;
+        top: 1502px;
+        width: 1000px;
+        text-align: center;
+        font-size: 56px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height: 1.1;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      #cmp {
+        position: absolute;
+        inset: 0;
+        background: var(--navy);
+        opacity: 0;
+      }
+      .pnl {
+        position: absolute;
+        left: 80px;
+        width: 920px;
+        height: 236px;
+        background: var(--card);
+        border: 2px solid var(--line);
+        border-radius: 24px;
+        padding: 34px 44px;
+        opacity: 0;
+      }
+      .pnl .pk {
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+      .pnl .pv {
+        margin-top: 12px;
+        font-size: 104px;
+        font-weight: 900;
+        letter-spacing: -3px;
+        line-height: 1;
+      }
+      #pB {
+        top: 420px;
+      }
+      #pB .pk,
+      #pB .pv {
+        color: var(--sand);
+      }
+      #pA {
+        top: 690px;
+      }
+      #pA .pk {
+        color: var(--white);
+      }
+      #pA .pv {
+        color: var(--white);
+      }
+      #dif {
+        position: absolute;
+        left: 0;
+        top: 980px;
+        width: 1080px;
+        text-align: center;
+        opacity: 0;
+      }
+      #dif .dk {
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: 5px;
+        color: var(--gray);
+      }
+      #dif .dv {
+        margin-top: 6px;
+        font-size: 132px;
+        font-weight: 900;
+        letter-spacing: -3px;
+        color: var(--gold);
+        line-height: 1.05;
+      }
+      #cfine {
+        position: absolute;
+        left: 0;
+        top: 1220px;
+        width: 1080px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--gray);
+        opacity: 0;
+      }
+      #outro {
+        position: absolute;
+        inset: 0;
+        background: var(--navy);
+      }
+      #outro-in {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      #outro-rule {
+        width: 300px;
+        height: 4px;
+        background: var(--gold);
+        margin: 70px 0 56px;
+      }
+      #outro-line {
+        font-size: 54px;
+        font-weight: 500;
+      }
+      #outro-cta {
+        margin-top: 30px;
+        font-size: 72px;
+        font-weight: 900;
+        color: var(--gold);
+        letter-spacing: 1px;
+      }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="39.50" data-width="1080" data-height="1920">
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="39.50"
+      data-width="1080"
+      data-height="1920"
+    >
       <div id="bg" class="clip" data-start="0" data-duration="39.50" data-track-index="0"></div>
-      <audio id="mix" src="assets/reel_mix.m4a" data-start="0" data-duration="39.50" data-track-index="10" data-volume="1"></audio>
+      <audio
+        id="mix"
+        src="assets/reel_mix.m4a"
+        data-start="0"
+        data-duration="39.50"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <section id="main-sec" class="clip" data-start="0" data-duration="35.90" data-track-index="1">
-        <div id="top"><div class="lg" data-layout-allow-overflow style="width:91px;height:63.7px"><img src="assets/logo.png" alt="Home Estimator" style="width:147.8px;height:147.8px;left:-28.8px;top:-36.6px" /></div></div>
-        <div class="step" id="st1"><span class="k">STEP 1</span><span class="t">Start with the base scope</span></div>
-        <div class="step" id="st2"><span class="k">STEP 2</span><span class="t">Add it by voice</span></div>
-        <div class="step" id="st3"><span class="k">STEP 3</span><span class="t">Change the siding</span></div>
-        <div class="step" id="st4"><span class="k">RESULT</span><span class="t">Updated price</span></div>
+        <div id="top">
+          <div class="lg" data-layout-allow-overflow style="width: 91px; height: 63.7px">
+            <img
+              src="assets/logo.png"
+              alt="Home Estimator"
+              style="width: 147.8px; height: 147.8px; left: -28.8px; top: -36.6px"
+            />
+          </div>
+        </div>
+        <div class="step" id="st1">
+          <span class="k">STEP 1</span><span class="t">Start with the base scope</span>
+        </div>
+        <div class="step" id="st2">
+          <span class="k">STEP 2</span><span class="t">Add it by voice</span>
+        </div>
+        <div class="step" id="st3">
+          <span class="k">STEP 3</span><span class="t">Change the siding</span>
+        </div>
+        <div class="step" id="st4">
+          <span class="k">RESULT</span><span class="t">Updated price</span>
+        </div>
         <div id="win" data-layout-allow-occlusion data-layout-allow-overlap>
           <div class="scr" id="scr1">
-            <div class="bar"><div class="ti">Project estimate</div><div class="tag">Option B</div></div>
+            <div class="bar">
+              <div class="ti">Project estimate</div>
+              <div class="tag">Option B</div>
+            </div>
             <div class="kick">SCOPE &middot; RANCH HOUSE</div>
-              <div class="row" style="top:196px"><div class="rt">Second-story addition</div><div class="rd">3 bed &middot; primary bath &middot; full bath &middot; laundry</div></div>
-              <div class="row" style="top:344px"><div class="rt">First floor + basement</div><div class="rd">Gut remodel</div></div>
-              <div class="row" style="top:492px"><div class="rt">Kitchen</div><div class="rd">Mid-sized &middot; 200 sq ft</div></div>
-              <div class="row" style="top:640px"><div class="rt">Siding</div><div class="rd">Vinyl &middot; whole house</div></div>
-            <div class="tot"><div class="tl">TOTAL</div><div class="chip b" id="chipB">OPTION B</div><div class="tv">$590,279</div></div>
+            <div class="row" style="top: 196px">
+              <div class="rt">Second-story addition</div>
+              <div class="rd">3 bed &middot; primary bath &middot; full bath &middot; laundry</div>
+            </div>
+            <div class="row" style="top: 344px">
+              <div class="rt">First floor + basement</div>
+              <div class="rd">Gut remodel</div>
+            </div>
+            <div class="row" style="top: 492px">
+              <div class="rt">Kitchen</div>
+              <div class="rd">Mid-sized &middot; 200 sq ft</div>
+            </div>
+            <div class="row" style="top: 640px">
+              <div class="rt">Siding</div>
+              <div class="rd">Vinyl &middot; whole house</div>
+            </div>
+            <div class="tot">
+              <div class="tl">TOTAL</div>
+              <div class="chip b" id="chipB">OPTION B</div>
+              <div class="tv">$590,279</div>
+            </div>
             <div class="fine">Example project &mdash; every project&rsquo;s estimate differs.</div>
           </div>
           <div class="scr" id="scr2">
-            <div class="bar"><div class="ti">Kitchen</div><div class="tag">Mid-sized &middot; 200 sq ft</div></div>
+            <div class="bar">
+              <div class="ti">Kitchen</div>
+              <div class="tag">Mid-sized &middot; 200 sq ft</div>
+            </div>
             <div class="kick">ADD-ONS</div>
-              <div class="row opt" style="top:196px"><div class="cb" id="cb0"><span id="ck0">&#10003;</span></div><div class="ot">Sink disposal</div></div>
-              <div class="row opt" style="top:322px"><div class="cb" id="cb1"><span id="ck1">&#10003;</span></div><div class="ot">Under-cabinet lights</div></div>
-              <div class="row opt" style="top:448px"><div class="cb" id="cb2"><span id="ck2">&#10003;</span></div><div class="ot">Pot filler</div></div>
-              <div class="row opt" style="top:574px"><div class="cb" id="cb3"><span id="ck3">&#10003;</span></div><div class="ot">Second sink</div></div>
-              <div class="row opt" style="top:700px"><div class="cb" id="cb4"><span id="ck4">&#10003;</span></div><div class="ot">Sound solution</div></div>
-              <div class="row opt" style="top:826px"><div class="cb" id="cb5"><span id="ck5">&#10003;</span></div><div class="ot">Reverse osmosis filter</div></div>
+            <div class="row opt" style="top: 196px">
+              <div class="cb" id="cb0"><span id="ck0">&#10003;</span></div>
+              <div class="ot">Sink disposal</div>
+            </div>
+            <div class="row opt" style="top: 322px">
+              <div class="cb" id="cb1"><span id="ck1">&#10003;</span></div>
+              <div class="ot">Under-cabinet lights</div>
+            </div>
+            <div class="row opt" style="top: 448px">
+              <div class="cb" id="cb2"><span id="ck2">&#10003;</span></div>
+              <div class="ot">Pot filler</div>
+            </div>
+            <div class="row opt" style="top: 574px">
+              <div class="cb" id="cb3"><span id="ck3">&#10003;</span></div>
+              <div class="ot">Second sink</div>
+            </div>
+            <div class="row opt" style="top: 700px">
+              <div class="cb" id="cb4"><span id="ck4">&#10003;</span></div>
+              <div class="ot">Sound solution</div>
+            </div>
+            <div class="row opt" style="top: 826px">
+              <div class="cb" id="cb5"><span id="ck5">&#10003;</span></div>
+              <div class="ot">Reverse osmosis filter</div>
+            </div>
           </div>
           <div class="scr" id="scr3">
-            <div class="bar"><div class="ti">Siding</div><div class="tag">By elevation</div></div>
+            <div class="bar">
+              <div class="ti">Siding</div>
+              <div class="tag">By elevation</div>
+            </div>
             <div class="kick">MATERIAL PER SIDE</div>
-              <div class="row side" style="top:196px"><div class="rt">Front</div><div class="sv" id="sv0">Vinyl</div></div>
-              <div class="row side" style="top:362px"><div class="rt">Left side</div><div class="sv" id="sv1">Vinyl</div></div>
-              <div class="row side" style="top:528px"><div class="rt">Right side</div><div class="sv" id="sv2">Vinyl</div></div>
-              <div class="row side" style="top:694px"><div class="rt">Back</div><div class="sv" id="sv3">Vinyl</div></div>
+            <div class="row side" style="top: 196px">
+              <div class="rt">Front</div>
+              <div class="sv" id="sv0">Vinyl</div>
+            </div>
+            <div class="row side" style="top: 362px">
+              <div class="rt">Left side</div>
+              <div class="sv" id="sv1">Vinyl</div>
+            </div>
+            <div class="row side" style="top: 528px">
+              <div class="rt">Right side</div>
+              <div class="sv" id="sv2">Vinyl</div>
+            </div>
+            <div class="row side" style="top: 694px">
+              <div class="rt">Back</div>
+              <div class="sv" id="sv3">Vinyl</div>
+            </div>
           </div>
           <div class="scr" id="scr4">
-            <div class="bar"><div class="ti">Project estimate</div><div class="tag">Option A</div></div>
+            <div class="bar">
+              <div class="ti">Project estimate</div>
+              <div class="tag">Option A</div>
+            </div>
             <div class="kick">SCOPE &middot; RANCH HOUSE</div>
-              <div class="row" style="top:196px"><div class="rt">Second-story addition</div><div class="rd">3 bed &middot; primary bath &middot; full bath &middot; laundry</div></div>
-              <div class="row" style="top:344px"><div class="rt">First floor + basement</div><div class="rd">Gut remodel</div></div>
-              <div class="row" style="top:492px"><div class="rt">Kitchen</div><div class="rd">Mid-sized &middot; 200 sq ft &middot; 3 add-ons</div></div>
-              <div class="row" style="top:640px"><div class="rt">Siding</div><div class="rd">Vinyl 3 sides &middot; Hardie front &middot; stone base</div></div>
-            <div class="tot"><div class="tl">TOTAL</div><div class="chip a" id="chipA">OPTION A</div>
-              <div class="upd" id="upd">Updating&hellip;</div><div class="tv" id="tvA" style="opacity:0">$606,982</div></div>
+            <div class="row" style="top: 196px">
+              <div class="rt">Second-story addition</div>
+              <div class="rd">3 bed &middot; primary bath &middot; full bath &middot; laundry</div>
+            </div>
+            <div class="row" style="top: 344px">
+              <div class="rt">First floor + basement</div>
+              <div class="rd">Gut remodel</div>
+            </div>
+            <div class="row" style="top: 492px">
+              <div class="rt">Kitchen</div>
+              <div class="rd">Mid-sized &middot; 200 sq ft &middot; 3 add-ons</div>
+            </div>
+            <div class="row" style="top: 640px">
+              <div class="rt">Siding</div>
+              <div class="rd">Vinyl 3 sides &middot; Hardie front &middot; stone base</div>
+            </div>
+            <div class="tot">
+              <div class="tl">TOTAL</div>
+              <div class="chip a" id="chipA">OPTION A</div>
+              <div class="upd" id="upd">Updating&hellip;</div>
+              <div class="tv" id="tvA" style="opacity: 0">$606,982</div>
+            </div>
             <div class="fine">Example project &mdash; every project&rsquo;s estimate differs.</div>
           </div>
-            <div class="gbox" id="bx_sid" style="left:36px;top:632px;width:1008px;height:148px"></div>
-            <div class="gbox" id="bx_tb" style="left:36px;top:788px;width:1008px;height:184px"></div>
-            <div class="gbox" id="bx_k0" style="left:36px;top:188px;width:1008px;height:126px"></div>
-            <div class="gbox" id="bx_k1" style="left:36px;top:314px;width:1008px;height:126px"></div>
-            <div class="gbox" id="bx_k2" style="left:36px;top:440px;width:1008px;height:126px"></div>
-            <div class="gbox" id="bx_s3" style="left:36px;top:354px;width:1008px;height:498px"></div>
-            <div class="gbox" id="bx_sf" style="left:36px;top:188px;width:1008px;height:166px"></div>
-            <div class="gbox" id="bx_sb" style="left:36px;top:686px;width:1008px;height:166px"></div>
-            <div class="gbox" id="bx_ta" style="left:36px;top:788px;width:1008px;height:184px"></div>
+          <div
+            class="gbox"
+            id="bx_sid"
+            style="left: 36px; top: 632px; width: 1008px; height: 148px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_tb"
+            style="left: 36px; top: 788px; width: 1008px; height: 184px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_k0"
+            style="left: 36px; top: 188px; width: 1008px; height: 126px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_k1"
+            style="left: 36px; top: 314px; width: 1008px; height: 126px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_k2"
+            style="left: 36px; top: 440px; width: 1008px; height: 126px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_s3"
+            style="left: 36px; top: 354px; width: 1008px; height: 498px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_sf"
+            style="left: 36px; top: 188px; width: 1008px; height: 166px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_sb"
+            style="left: 36px; top: 686px; width: 1008px; height: 166px"
+          ></div>
+          <div
+            class="gbox"
+            id="bx_ta"
+            style="left: 36px; top: 788px; width: 1008px; height: 184px"
+          ></div>
         </div>
         <div id="hook">
           <div class="hs" id="h1">Your client loves</div>
@@ -160,34 +648,88 @@
           <div id="h3">Show them both.</div>
           <div class="hs" id="h4">before they fall for the plan.</div>
         </div>
-        <div class="cap" id="c0"><span id="w0_0">Start</span> <span id="w0_1">with</span> <span id="w0_2">the</span> <span id="w0_3">base</span> <span id="w0_4">scope,</span></div>
-        <div class="cap" id="c1"><span id="w1_0">vinyl</span> <span id="w1_1">siding</span> <span id="w1_2">on</span></div>
-        <div class="cap" id="c2"><span id="w2_0">the</span> <span id="w2_1">whole</span> <span id="w2_2">house.</span></div>
+        <div class="cap" id="c0">
+          <span id="w0_0">Start</span> <span id="w0_1">with</span> <span id="w0_2">the</span>
+          <span id="w0_3">base</span> <span id="w0_4">scope,</span>
+        </div>
+        <div class="cap" id="c1">
+          <span id="w1_0">vinyl</span> <span id="w1_1">siding</span> <span id="w1_2">on</span>
+        </div>
+        <div class="cap" id="c2">
+          <span id="w2_0">the</span> <span id="w2_1">whole</span> <span id="w2_2">house.</span>
+        </div>
         <div class="cap" id="c3"><span id="w3_0">$590,279.</span></div>
-        <div class="cap" id="c4"><span id="w4_0">Now,</span> <span id="w4_1">add</span> <span id="w4_2">it</span> <span id="w4_3">by</span> <span id="w4_4">voice.</span></div>
+        <div class="cap" id="c4">
+          <span id="w4_0">Now,</span> <span id="w4_1">add</span> <span id="w4_2">it</span>
+          <span id="w4_3">by</span> <span id="w4_4">voice.</span>
+        </div>
         <div class="cap" id="c5"><span id="w5_0">Sink</span> <span id="w5_1">disposal.</span></div>
-        <div class="cap" id="c6"><span id="w6_0">Under-cabinet</span> <span id="w6_1">lights.</span></div>
-        <div class="cap" id="c7"><span id="w7_0">A</span> <span id="w7_1">pot</span> <span id="w7_2">filler.</span></div>
-        <div class="cap" id="c8"><span id="w8_0">Change</span> <span id="w8_1">the</span> <span id="w8_2">siding.</span></div>
-        <div class="cap" id="c9"><span id="w9_0">Vinyl</span> <span id="w9_1">on</span> <span id="w9_2">three</span> <span id="w9_3">sides,</span></div>
-        <div class="cap" id="c10"><span id="w10_0">Hardie</span> <span id="w10_1">plank</span> <span id="w10_2">on</span> <span id="w10_3">the</span> <span id="w10_4">front,</span></div>
-        <div class="cap" id="c11"><span id="w11_0">and</span> <span id="w11_1">a</span> <span id="w11_2">three-foot</span> <span id="w11_3">stone</span></div>
-        <div class="cap" id="c12"><span id="w12_0">base</span> <span id="w12_1">at</span> <span id="w12_2">the</span> <span id="w12_3">back.</span></div>
-        <div class="cap" id="c13"><span id="w13_0">Ask</span> <span id="w13_1">for</span> <span id="w13_2">the</span> <span id="w13_3">updated</span> <span id="w13_4">price.</span></div>
+        <div class="cap" id="c6">
+          <span id="w6_0">Under-cabinet</span> <span id="w6_1">lights.</span>
+        </div>
+        <div class="cap" id="c7">
+          <span id="w7_0">A</span> <span id="w7_1">pot</span> <span id="w7_2">filler.</span>
+        </div>
+        <div class="cap" id="c8">
+          <span id="w8_0">Change</span> <span id="w8_1">the</span> <span id="w8_2">siding.</span>
+        </div>
+        <div class="cap" id="c9">
+          <span id="w9_0">Vinyl</span> <span id="w9_1">on</span> <span id="w9_2">three</span>
+          <span id="w9_3">sides,</span>
+        </div>
+        <div class="cap" id="c10">
+          <span id="w10_0">Hardie</span> <span id="w10_1">plank</span> <span id="w10_2">on</span>
+          <span id="w10_3">the</span> <span id="w10_4">front,</span>
+        </div>
+        <div class="cap" id="c11">
+          <span id="w11_0">and</span> <span id="w11_1">a</span> <span id="w11_2">three-foot</span>
+          <span id="w11_3">stone</span>
+        </div>
+        <div class="cap" id="c12">
+          <span id="w12_0">base</span> <span id="w12_1">at</span> <span id="w12_2">the</span>
+          <span id="w12_3">back.</span>
+        </div>
+        <div class="cap" id="c13">
+          <span id="w13_0">Ask</span> <span id="w13_1">for</span> <span id="w13_2">the</span>
+          <span id="w13_3">updated</span> <span id="w13_4">price.</span>
+        </div>
         <div class="cap" id="c14"><span id="w14_0">$606,982.</span></div>
         <div id="cmp">
-          <div class="pnl" id="pB"><div class="pk">OPTION B &middot; Base scope</div><div class="pv">$590,279</div></div>
-          <div class="pnl" id="pA"><div class="pk">OPTION A &middot; Upgraded kitchen + siding</div><div class="pv">$606,982</div></div>
-          <div id="dif"><div class="dk">DIFFERENCE</div><div class="dv">+$16,703</div></div>
+          <div class="pnl" id="pB">
+            <div class="pk">OPTION B &middot; Base scope</div>
+            <div class="pv">$590,279</div>
+          </div>
+          <div class="pnl" id="pA">
+            <div class="pk">OPTION A &middot; Upgraded kitchen + siding</div>
+            <div class="pv">$606,982</div>
+          </div>
+          <div id="dif">
+            <div class="dk">DIFFERENCE</div>
+            <div class="dv">+$16,703</div>
+          </div>
           <div id="cfine">Example project &mdash; every project&rsquo;s estimate differs.</div>
         </div>
-        <div class="cap" id="c15"><span id="w15_0">Change</span> <span id="w15_1">the</span> <span id="w15_2">scope</span> <span id="w15_3">out</span> <span id="w15_4">loud.</span></div>
-        <div class="cap" id="c16"><span id="w16_0">Watch</span> <span id="w16_1">the</span> <span id="w16_2">total</span> <span id="w16_3">move.</span></div>
+        <div class="cap" id="c15">
+          <span id="w15_0">Change</span> <span id="w15_1">the</span> <span id="w15_2">scope</span>
+          <span id="w15_3">out</span> <span id="w15_4">loud.</span>
+        </div>
+        <div class="cap" id="c16">
+          <span id="w16_0">Watch</span> <span id="w16_1">the</span> <span id="w16_2">total</span>
+          <span id="w16_3">move.</span>
+        </div>
       </section>
 
       <section id="outro" class="clip" data-start="35.90" data-duration="3.60" data-track-index="2">
         <div id="outro-in">
-          <div id="outro-logo"><div class="lg" data-layout-allow-overflow style="width:560px;height:392.3px"><img src="assets/logo.png" alt="Home Estimator" style="width:909.6px;height:909.6px;left:-177.2px;top:-225.5px" /></div></div>
+          <div id="outro-logo">
+            <div class="lg" data-layout-allow-overflow style="width: 560px; height: 392.3px">
+              <img
+                src="assets/logo.png"
+                alt="Home Estimator"
+                style="width: 909.6px; height: 909.6px; left: -177.2px; top: -225.5px"
+              />
+            </div>
+          </div>
           <div id="outro-rule"></div>
           <div id="outro-line">Visit HomeEstimator.ai to learn more</div>
           <div id="outro-cta">BOOK A DEMO</div>
@@ -205,7 +747,12 @@
       tl.set("#scr1", { opacity: 0.06 }, 0);
       tl.set("#win", { backgroundColor: "#171a2e" }, 0);
       tl.fromTo("#h2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 2.18);
-      tl.fromTo("#hb2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 3.38);
+      tl.fromTo(
+        "#hb2",
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        3.38,
+      );
       tl.fromTo("#h3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 4.34);
       tl.fromTo("#h4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 5.54);
       tl.to("#hook", { opacity: 0, duration: 0.3, ease: OUT }, 7.22);
@@ -216,22 +763,42 @@
 
       // screens: static per beat, swapped on the cue word
       tl.to("#scr1", { opacity: 0, duration: 0.3, ease: OUT }, 14.75);
-      tl.fromTo("#scr2", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 14.90);
+      tl.fromTo("#scr2", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 14.9);
       tl.to("#scr2", { opacity: 0, duration: 0.3, ease: OUT }, 20.32);
       tl.fromTo("#scr3", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 20.47);
       tl.to("#scr3", { opacity: 0, duration: 0.3, ease: OUT }, 26.72);
       tl.fromTo("#scr4", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 26.87);
 
       // step 1: base total, OPTION B chip
-      tl.fromTo("#chipB", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.45, ease: IN }, 11.52);
+      tl.fromTo(
+        "#chipB",
+        { opacity: 0, x: -16 },
+        { opacity: 1, x: 0, duration: 0.45, ease: IN },
+        11.52,
+      );
 
       // step 2: tick the add-ons
       tl.set("#cb0", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 16.64);
-      tl.fromTo("#ck0", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: IN }, 16.64);
+      tl.fromTo(
+        "#ck0",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: IN },
+        16.64,
+      );
       tl.set("#cb1", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 17.92);
-      tl.fromTo("#ck1", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: IN }, 17.92);
+      tl.fromTo(
+        "#ck1",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: IN },
+        17.92,
+      );
       tl.set("#cb2", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 19.35);
-      tl.fromTo("#ck2", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: IN }, 19.35);
+      tl.fromTo(
+        "#ck2",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: IN },
+        19.35,
+      );
 
       // step 3: Hardie front, stone base at the back
       tl.set("#sv0", { textContent: "Hardie plank" }, 23.19);
@@ -239,14 +806,24 @@
 
       // result: updated total, OPTION A chip
       tl.set("#upd", { opacity: 0 }, 28.81);
-      tl.fromTo("#tvA", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 28.81);
-      tl.fromTo("#chipA", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.45, ease: IN }, 28.81);
+      tl.fromTo(
+        "#tvA",
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        28.81,
+      );
+      tl.fromTo(
+        "#chipA",
+        { opacity: 0, x: -16 },
+        { opacity: 1, x: 0, duration: 0.45, ease: IN },
+        28.81,
+      );
 
       // highlight boxes
       tl.fromTo("#bx_sid", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 9.27);
       tl.to("#bx_sid", { opacity: 0, duration: 0.2, ease: OUT }, 11.32);
       tl.fromTo("#bx_tb", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 11.52);
-      tl.to("#bx_tb", { opacity: 0, duration: 0.2, ease: OUT }, 14.70);
+      tl.to("#bx_tb", { opacity: 0, duration: 0.2, ease: OUT }, 14.7);
       tl.fromTo("#bx_k0", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 16.64);
       tl.to("#bx_k0", { opacity: 0, duration: 0.2, ease: OUT }, 17.72);
       tl.fromTo("#bx_k1", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 17.92);
@@ -260,17 +837,37 @@
       tl.fromTo("#bx_sb", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 24.55);
       tl.to("#bx_sb", { opacity: 0, duration: 0.2, ease: OUT }, 26.67);
       tl.fromTo("#bx_ta", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: IN }, 28.81);
-      tl.to("#bx_ta", { opacity: 0, duration: 0.2, ease: OUT }, 32.00);
+      tl.to("#bx_ta", { opacity: 0, duration: 0.2, ease: OUT }, 32.0);
 
       // step labels
-      tl.fromTo("#st1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 7.67);
-      tl.to("#st1", { opacity: 0, duration: 0.2, ease: OUT }, 14.70);
-      tl.fromTo("#st2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 14.90);
+      tl.fromTo(
+        "#st1",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        7.67,
+      );
+      tl.to("#st1", { opacity: 0, duration: 0.2, ease: OUT }, 14.7);
+      tl.fromTo(
+        "#st2",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        14.9,
+      );
       tl.to("#st2", { opacity: 0, duration: 0.2, ease: OUT }, 20.27);
-      tl.fromTo("#st3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 20.47);
+      tl.fromTo(
+        "#st3",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        20.47,
+      );
       tl.to("#st3", { opacity: 0, duration: 0.2, ease: OUT }, 26.67);
-      tl.fromTo("#st4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 26.87);
-      tl.to("#st4", { opacity: 0, duration: 0.2, ease: OUT }, 32.00);
+      tl.fromTo(
+        "#st4",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        26.87,
+      );
+      tl.to("#st4", { opacity: 0, duration: 0.2, ease: OUT }, 32.0);
 
       // captions
       tl.set("#c0", { opacity: 1 }, 7.67);
@@ -299,11 +896,11 @@
       tl.set("#w2_1", { color: "#ffffff" }, 10.63);
       tl.set("#w2_2", { color: "#d4af37" }, 10.63);
       tl.set("#c3", { opacity: 1 }, 11.52);
-      tl.set("#c3", { opacity: 0 }, 14.90);
+      tl.set("#c3", { opacity: 0 }, 14.9);
       tl.set("#w3_0", { color: "#d4af37" }, 11.52);
-      tl.set("#c4", { opacity: 1 }, 14.90);
+      tl.set("#c4", { opacity: 1 }, 14.9);
       tl.set("#c4", { opacity: 0 }, 16.64);
-      tl.set("#w4_0", { color: "#d4af37" }, 14.90);
+      tl.set("#w4_0", { color: "#d4af37" }, 14.9);
       tl.set("#w4_0", { color: "#ffffff" }, 15.46);
       tl.set("#w4_1", { color: "#d4af37" }, 15.46);
       tl.set("#w4_1", { color: "#ffffff" }, 15.62);
@@ -315,8 +912,8 @@
       tl.set("#c5", { opacity: 1 }, 16.64);
       tl.set("#c5", { opacity: 0 }, 17.92);
       tl.set("#w5_0", { color: "#d4af37" }, 16.64);
-      tl.set("#w5_0", { color: "#ffffff" }, 17.20);
-      tl.set("#w5_1", { color: "#d4af37" }, 17.20);
+      tl.set("#w5_0", { color: "#ffffff" }, 17.2);
+      tl.set("#w5_1", { color: "#d4af37" }, 17.2);
       tl.set("#c6", { opacity: 1 }, 17.92);
       tl.set("#c6", { opacity: 0 }, 19.35);
       tl.set("#w6_0", { color: "#d4af37" }, 17.92);
@@ -386,7 +983,7 @@
       tl.set("#w13_3", { color: "#ffffff" }, 27.91);
       tl.set("#w13_4", { color: "#d4af37" }, 27.91);
       tl.set("#c14", { opacity: 1 }, 28.81);
-      tl.set("#c14", { opacity: 0 }, 32.20);
+      tl.set("#c14", { opacity: 0 }, 32.2);
       tl.set("#w14_0", { color: "#d4af37" }, 28.81);
       tl.set("#c15", { opacity: 1 }, 32.27);
       tl.set("#c15", { opacity: 0 }, 34.26);
@@ -410,18 +1007,48 @@
       tl.set("#w16_3", { color: "#d4af37" }, 35.22);
 
       // comparison card
-      tl.fromTo("#cmp", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 32.20);
-      tl.fromTo("#pB", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 32.25);
-      tl.fromTo("#pA", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 32.83);
-      tl.fromTo("#dif", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 34.26);
-      tl.fromTo("#cfine", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 32.50);
+      tl.fromTo("#cmp", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IN }, 32.2);
+      tl.fromTo(
+        "#pB",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        32.25,
+      );
+      tl.fromTo(
+        "#pA",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        32.83,
+      );
+      tl.fromTo(
+        "#dif",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        34.26,
+      );
+      tl.fromTo("#cfine", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 32.5);
       tl.set("#win", { visibility: "hidden" }, 32.55);
 
       // end card
-      tl.fromTo("#outro-logo", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 35.95);
-      tl.fromTo("#outro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: IN }, 36.30);
-      tl.fromTo("#outro-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 36.55);
-      tl.fromTo("#outro-cta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 36.80);
+      tl.fromTo(
+        "#outro-logo",
+        { opacity: 0, scale: 0.96 },
+        { opacity: 1, scale: 1, duration: 0.6, ease: IN },
+        35.95,
+      );
+      tl.fromTo("#outro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: IN }, 36.3);
+      tl.fromTo(
+        "#outro-line",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        36.55,
+      );
+      tl.fromTo(
+        "#outro-cta",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.45, ease: IN },
+        36.8,
+      );
 
       window.__timelines["main"] = tl;
     </script>
