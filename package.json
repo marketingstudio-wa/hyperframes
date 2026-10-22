@@ -65,6 +65,9 @@
     "prepare": "test -d .git && lefthook install || true",
     "lint:registry-items": "node scripts/lint-registry-items.mjs"
   },
+  "dependencies": {
+    "@higgsfield/client": "^0.2.6"
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
