@@ -92,9 +92,9 @@
       #stage {
         position: absolute;
         left: 0;
-        top: 430px;
+        top: 540px;
         width: 1080px;
-        height: 1060px;
+        height: 960px;
         perspective: 2200px;
       }
       #float {
@@ -104,6 +104,59 @@
         width: 960px;
         height: 1040px;
         transform-style: preserve-3d;
+        transform-origin: 50% 0;
+      }
+      #voice {
+        position: absolute;
+        left: 108px;
+        top: 432px;
+        width: 864px;
+        height: 88px;
+        border-radius: 44px;
+        background: var(--card);
+        border: 2px solid var(--line);
+        display: flex;
+        align-items: center;
+        padding: 0 30px 0 14px;
+        opacity: 0;
+      }
+      #mic {
+        width: 62px;
+        height: 62px;
+        border-radius: 31px;
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+      }
+      #vt {
+        position: relative;
+        margin-left: 24px;
+        flex: 1;
+        height: 88px;
+      }
+      #vl,
+      .vq {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 88px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      #vl {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--gray);
+        letter-spacing: 1px;
+      }
+      .vq {
+        font-size: 38px;
+        font-weight: 800;
+        color: var(--white);
       }
       .scr {
         position: absolute;
@@ -519,6 +572,33 @@
             <span class="k">RESULT</span><span class="t">Updated price</span>
           </div>
         </div>
+        <div id="voice">
+          <div id="mic">
+            <svg
+              width="30"
+              height="38"
+              viewBox="0 0 30 38"
+              fill="none"
+              stroke="#171a2e"
+              stroke-width="3.5"
+              stroke-linecap="round"
+            >
+              <rect x="8.5" y="2" width="13" height="22" rx="6.5" fill="#171a2e" />
+              <path d="M3 17a12 12 0 0 0 24 0M15 29v7" />
+            </svg>
+          </div>
+          <div id="vt">
+            <span id="vl">Listening&hellip;</span>
+            <span class="vq" id="vq0">&ldquo;Vinyl siding on the whole house.&rdquo;</span>
+            <span class="vq" id="vq1">&ldquo;Add a sink disposal.&rdquo;</span>
+            <span class="vq" id="vq2">&ldquo;Add under-cabinet lights.&rdquo;</span>
+            <span class="vq" id="vq3">&ldquo;Add a pot filler.&rdquo;</span>
+            <span class="vq" id="vq4">&ldquo;Vinyl on three sides.&rdquo;</span>
+            <span class="vq" id="vq5">&ldquo;Hardie plank on the front.&rdquo;</span>
+            <span class="vq" id="vq6">&ldquo;3 ft stone base at the back.&rdquo;</span>
+            <span class="vq" id="vq7">&ldquo;What&rsquo;s the updated price?&rdquo;</span>
+          </div>
+        </div>
         <div
           id="stage"
           data-layout-allow-occlusion
@@ -858,8 +938,8 @@
       // the app window floats gently while the steps play
       tl.fromTo(
         "#float",
-        { rotationX: 7, rotationY: -8, y: 6 },
-        { rotationX: 3, rotationY: -3, y: -8, duration: 24.48, ease: "sine.inOut" },
+        { scale: 0.9, rotationX: 7, rotationY: -8, y: 6 },
+        { scale: 0.9, rotationX: 3, rotationY: -3, y: -8, duration: 24.48, ease: "sine.inOut" },
         7.57,
       );
 
@@ -1063,6 +1143,102 @@
         { opacity: 1, x: 0, duration: 0.45, ease: IN },
         29.01,
       );
+
+      // voice cue
+      tl.fromTo(
+        "#voice",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: IN },
+        7.87,
+      );
+      tl.to("#voice", { opacity: 0, duration: 0.25, ease: OUT }, 31.9);
+      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 7.82);
+      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 9.17);
+      tl.fromTo("#vq0", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 9.32);
+      tl.to("#vq0", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 15.1);
+      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 15.25);
+      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 16.54);
+      tl.fromTo(
+        "#vq1",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.3, ease: IN },
+        16.69,
+      );
+      tl.to("#vq1", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 17.82);
+      tl.fromTo(
+        "#vq2",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.3, ease: IN },
+        17.97,
+      );
+      tl.to("#vq2", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 19.25);
+      tl.fromTo("#vq3", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 19.4);
+      tl.to("#vq3", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 20.67);
+      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 20.82);
+      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 21.57);
+      tl.fromTo(
+        "#vq4",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.3, ease: IN },
+        21.72,
+      );
+      tl.to("#vq4", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 23.09);
+      tl.fromTo(
+        "#vq5",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.3, ease: IN },
+        23.24,
+      );
+      tl.to("#vq5", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 24.45);
+      tl.fromTo("#vq6", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 24.6);
+      tl.to("#vq6", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 26.77);
+      tl.fromTo(
+        "#vq7",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.3, ease: IN },
+        26.92,
+      );
+      tl.to("#vq7", { opacity: 0, duration: 0.2, ease: OUT }, 31.9);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 7.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 8.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 9.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 9.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 10.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 10.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 11.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 12.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 12.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 13.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 13.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 14.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 15.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 15.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 16.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 16.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 17.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 18.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 18.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 19.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 19.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 20.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 21.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 21.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 22.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 22.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 23.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 24.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 24.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 25.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 25.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 26.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 27.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 27.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 28.37);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 28.97);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 29.57);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 30.17);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 30.77);
+      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 31.37);
 
       // step labels
       tl.fromTo(

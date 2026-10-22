@@ -158,6 +158,34 @@ for i, (s, t) in enumerate(SCREENS):
                      f'{{ opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.06 }}, {r(t_in + 0.04)});')
 
 
+# voice cue: a "Listening..." pill above the window; the spoken request shows at each cue word
+VOICE = [
+    ("Vinyl siding on the whole house.", mw(5)),
+    ("Add a sink disposal.", mw(17)),
+    ("Add under-cabinet lights.", mw(19)),
+    ("Add a pot filler.", mw(22)),
+    ("Vinyl on three sides.", mw(28)),
+    ("Hardie plank on the front.", mw(32)),
+    ("3 ft stone base at the back.", mw(37)),
+    ("What&rsquo;s the updated price?", mw(45)),
+]
+LISTEN = [S1, S2, S3]  # back to "Listening..." at each new step
+vq_html = "\n".join(f'            <span class="vq" id="vq{i}">&ldquo;{t}&rdquo;</span>' for i, (t, _) in enumerate(VOICE))
+events = sorted([(t, f"#vq{i}") for i, (_, t) in enumerate(VOICE)] + [(t + (0.1 if t == S1 else 0.3), "#vl") for t in LISTEN])
+voice_js, cur = [], None
+for t, el in events:
+    if cur:
+        voice_js.append(f'      tl.to("{cur}", {{ opacity: 0, y: -18, duration: 0.15, ease: OUT }}, {r(t - 0.1)});')
+    voice_js.append(f'      tl.fromTo("{el}", {{ opacity: 0, y: 18 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: IN }}, {r(t + 0.05)});')
+    cur = el
+voice_js.append(f'      tl.to("{cur}", {{ opacity: 0, duration: 0.2, ease: OUT }}, {r(CMP - 0.3)});')
+# mic pulses while listening: one soft scale beat per music beat (0.6 s)
+pulse_t, t = [], S1 + 0.3
+while t < CMP - 0.6:
+    pulse_t.append(t); t += 0.6
+voice_js += [f'      tl.to("#mic", {{ scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }}, {r(x)});' for x in pulse_t]
+
+
 def logo(cls, width):
     s = width / 1182
     return (f'<div class="{cls}" data-layout-allow-overflow style="width:{width}px;height:{828 * s:.1f}px">'
@@ -201,8 +229,15 @@ doc = f"""<!doctype html>
       .step {{ position: absolute; left: 0; top: 0; width: 1080px; text-align: center; opacity: 0; }}
       .step .k {{ display: block; font-size: 32px; font-weight: 800; letter-spacing: 6px; color: var(--gold); }}
       .step .t {{ display: block; margin-top: 4px; font-size: 52px; font-weight: 900; letter-spacing: -1px; }}
-      #stage {{ position: absolute; left: 0; top: 430px; width: 1080px; height: 1060px; perspective: 2200px; }}
-      #float {{ position: absolute; left: 60px; top: 0; width: 960px; height: 1040px; transform-style: preserve-3d; }}
+      #stage {{ position: absolute; left: 0; top: 540px; width: 1080px; height: 960px; perspective: 2200px; }}
+      #float {{ position: absolute; left: 60px; top: 0; width: 960px; height: 1040px; transform-style: preserve-3d; transform-origin: 50% 0; }}
+      #voice {{ position: absolute; left: 108px; top: 432px; width: 864px; height: 88px; border-radius: 44px; background: var(--card);
+        border: 2px solid var(--line); display: flex; align-items: center; padding: 0 30px 0 14px; opacity: 0; }}
+      #mic {{ width: 62px; height: 62px; border-radius: 31px; background: var(--gold); display: flex; align-items: center; justify-content: center; flex: none; }}
+      #vt {{ position: relative; margin-left: 24px; flex: 1; height: 88px; }}
+      #vl, .vq {{ position: absolute; left: 0; top: 0; height: 88px; display: flex; align-items: center; white-space: nowrap; opacity: 0; }}
+      #vl {{ font-size: 36px; font-weight: 700; color: var(--gray); letter-spacing: 1px; }}
+      .vq {{ font-size: 38px; font-weight: 800; color: var(--white); }}
       .scr {{ position: absolute; inset: 0; border-radius: 34px; overflow: hidden; background: #f3f4f9; opacity: 0;
         box-shadow: 0 50px 90px rgba(5, 6, 14, 0.55), 0 12px 24px rgba(5, 6, 14, 0.35); }}
       .bar {{ position: absolute; left: 0; top: 0; width: 960px; height: 104px; background: #ffffff; border-bottom: 2px solid #e1e4ec;
@@ -277,6 +312,14 @@ doc = f"""<!doctype html>
         <div id="top">{logo("lg", 91)}</div>
         <div id="steps">
 {steps_html}
+        </div>
+        <div id="voice">
+          <div id="mic"><svg width="30" height="38" viewBox="0 0 30 38" fill="none" stroke="#171a2e" stroke-width="3.5" stroke-linecap="round">
+            <rect x="8.5" y="2" width="13" height="22" rx="6.5" fill="#171a2e" /><path d="M3 17a12 12 0 0 0 24 0M15 29v7" /></svg></div>
+          <div id="vt">
+            <span id="vl">Listening&hellip;</span>
+{vq_html}
+          </div>
         </div>
         <div id="stage" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
           <div id="float">
@@ -357,7 +400,7 @@ doc = f"""<!doctype html>
       tl.fromTo("#top", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.4, ease: IN }}, {r(S1)});
 
       // the app window floats gently while the steps play
-      tl.fromTo("#float", {{ rotationX: 7, rotationY: -8, y: 6 }}, {{ rotationX: 3, rotationY: -3, y: -8, duration: {r(CMP - S1 - 0.05)}, ease: "sine.inOut" }}, {r(S1 - 0.1)});
+      tl.fromTo("#float", {{ scale: 0.9, rotationX: 7, rotationY: -8, y: 6 }}, {{ scale: 0.9, rotationX: 3, rotationY: -3, y: -8, duration: {r(CMP - S1 - 0.05)}, ease: "sine.inOut" }}, {r(S1 - 0.1)});
 
       // screens turn and slide into each other
 {chr(10).join(screen_js)}
@@ -392,6 +435,11 @@ doc = f"""<!doctype html>
       tl.set("#tvA", {{ textContent: "{A_TOTAL}" }}, {r(mw(50) + 1.0)});
       tl.to("#chipB2", {{ opacity: 0, x: 16, duration: 0.25, ease: OUT }}, {r(mw(50))});
       tl.fromTo("#chipA", {{ opacity: 0, x: -16 }}, {{ opacity: 1, x: 0, duration: 0.45, ease: IN }}, {r(mw(50) + 0.2)});
+
+      // voice cue
+      tl.fromTo("#voice", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: IN }}, {r(S1 + 0.2)});
+      tl.to("#voice", {{ opacity: 0, duration: 0.25, ease: OUT }}, {r(CMP - 0.3)});
+{chr(10).join(voice_js)}
 
       // step labels
 {chr(10).join(steps_js)}
