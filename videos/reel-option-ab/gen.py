@@ -230,7 +230,7 @@ doc = f"""<!doctype html>
       #labA .big {{ color: var(--gold); }}
       #lab0 {{ top: 40px; }}
       #lab0 .big {{ font-size: 84px; letter-spacing: -2px; color: var(--white); }}
-      #stage {{ position: absolute; left: 0; top: 560px; width: 1080px; height: 940px; perspective: 2200px; }}
+      #stage {{ position: absolute; left: 0; top: 548px; width: 1080px; height: 920px; perspective: 2200px; }}
       #float {{ position: absolute; left: 60px; top: 0; width: 960px; height: 1040px; transform-style: preserve-3d; transform-origin: 50% 0; }}
       .scr {{ position: absolute; inset: 0; border-radius: 34px; overflow: hidden; background: #f3f4f9; opacity: 0;
         box-shadow: 0 50px 90px rgba(5, 6, 14, 0.55), 0 12px 24px rgba(5, 6, 14, 0.35); }}
@@ -274,7 +274,7 @@ doc = f"""<!doctype html>
       #hb2 {{ color: var(--sand); }}
       #h3 {{ font-size: 72px; font-weight: 900; margin-top: 6px; }}
       #h4 {{ margin-top: 16px; font-size: 46px; font-weight: 600; color: var(--gray); }}
-      .cap {{ position: absolute; left: 40px; top: 1508px; width: 1000px; text-align: center; font-size: 56px; font-weight: 900;
+      .cap {{ position: absolute; left: 40px; top: 1520px; width: 1000px; text-align: center; font-size: 56px; font-weight: 900;
         letter-spacing: -1px; line-height: 1.1; white-space: nowrap; opacity: 0; }}
       #cmp {{ position: absolute; inset: 0; perspective: 2000px; }}
       .pnl {{ position: absolute; left: 80px; width: 920px; height: 236px; background: var(--card); border: 2px solid var(--line);
@@ -382,7 +382,7 @@ doc = f"""<!doctype html>
       tl.to("#labA", {{ opacity: 0, duration: 0.3, ease: OUT }}, {r(CMP - 0.3)});
 
       // the app window floats gently while the options play
-      tl.fromTo("#float", {{ scale: 0.9, rotationX: 7, rotationY: -8, y: 6 }}, {{ scale: 0.9, rotationX: 3, rotationY: -3, y: -8, duration: {r(CMP - M0 - 0.1)}, ease: "sine.inOut" }}, {r(M0 - 0.1)});
+      tl.fromTo("#float", {{ scale: 0.86, rotationX: 7, rotationY: -8, y: 6 }}, {{ scale: 0.86, rotationX: 3, rotationY: -3, y: -8, duration: {r(CMP - M0 - 0.1)}, ease: "sine.inOut" }}, {r(M0 - 0.1)});
 
       // Option B card turns in; Option A card turns in on "Option A"
       tl.fromTo("#b", {{ rotationY: 32, x: 260, z: -220 }}, {{ rotationY: 0, x: 0, z: 0, duration: 0.7, ease: IN }}, {r(M0 - 0.1)});
