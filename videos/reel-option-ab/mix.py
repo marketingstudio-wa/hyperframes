@@ -1,15 +1,16 @@
 """Mix Reel #2 audio: Desmond VO (-16 LUFS) over the StudioKolomna bed, ducked ~12 dB under the voice,
 then master to -14 LUFS / true peak <= -1.5 dBFS.
-Usage: python3 mix.py <src dir> <out.m4a>
-Music: track offset 2.45 puts the drop (10.15) on the first step (7.70); a beat-aligned splice at 33.50
-jumps to track 120.55 so the end hit (122.95) lands on the end card (35.90)."""
+Usage: python3 mix.py <src dir> <out.m4a>   (reads VO placement and music splice from timing.json)
+Music: track offset 2.45 puts the drop (10.15) on the first step (7.70); a beat-aligned splice
+jumps ahead so the end hit (122.95) lands on the end card."""
 import json, subprocess, sys
 import numpy as np, soundfile as sf
 
 SRC, OUT = sys.argv[1], sys.argv[2]
-SR, T = 48000, 39.50
-VO = [("hook_t.wav", 0.10), ("mid_t.wav", 7.70), ("outro_t.wav", 32.35)]
-MUSIC_IN = [(0.0, 33.50, 2.45), (33.50, T, 87.05)]  # (video from, video to, track = video + offset)
+SR = 48000
+# timing.json (written by gen.py): {"T", "vo": [[file, offset], ...], "music": [[from, to, offset], ...]}
+TM = json.load(open("timing.json"))
+T, VO, MUSIC_IN = TM["T"], TM["vo"], TM["music"]  # music: (video from, video to, track = video + offset)
 DUCK_DB, BED_DB = -12.0, -17.0
 
 
