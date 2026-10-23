@@ -59,15 +59,15 @@
         top: 226px;
         opacity: 0;
       }
-      #steps {
+      #labels {
         position: absolute;
         left: 0;
-        top: 296px;
+        top: 300px;
         width: 1080px;
-        height: 120px;
+        height: 240px;
         perspective: 900px;
       }
-      .step {
+      .lab {
         position: absolute;
         left: 0;
         top: 0;
@@ -75,26 +75,40 @@
         text-align: center;
         opacity: 0;
       }
-      .step .k {
+      .lab .big {
         display: block;
-        font-size: 32px;
-        font-weight: 800;
-        letter-spacing: 6px;
+        font-size: 128px;
+        font-weight: 900;
+        letter-spacing: -4px;
+        line-height: 1.02;
+      }
+      .lab .sub {
+        display: block;
+        margin-top: 6px;
+        font-size: 46px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      #labB .big {
+        color: var(--sand);
+      }
+      #labA .big {
         color: var(--gold);
       }
-      .step .t {
-        display: block;
-        margin-top: 4px;
-        font-size: 52px;
-        font-weight: 900;
-        letter-spacing: -1px;
+      #lab0 {
+        top: 40px;
+      }
+      #lab0 .big {
+        font-size: 84px;
+        letter-spacing: -2px;
+        color: var(--white);
       }
       #stage {
         position: absolute;
         left: 0;
-        top: 540px;
+        top: 560px;
         width: 1080px;
-        height: 960px;
+        height: 940px;
         perspective: 2200px;
       }
       #float {
@@ -105,58 +119,6 @@
         height: 1040px;
         transform-style: preserve-3d;
         transform-origin: 50% 0;
-      }
-      #voice {
-        position: absolute;
-        left: 108px;
-        top: 432px;
-        width: 864px;
-        height: 88px;
-        border-radius: 44px;
-        background: var(--card);
-        border: 2px solid var(--line);
-        display: flex;
-        align-items: center;
-        padding: 0 30px 0 14px;
-        opacity: 0;
-      }
-      #mic {
-        width: 62px;
-        height: 62px;
-        border-radius: 31px;
-        background: var(--gold);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: none;
-      }
-      #vt {
-        position: relative;
-        margin-left: 24px;
-        flex: 1;
-        height: 88px;
-      }
-      #vl,
-      .vq {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 88px;
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        opacity: 0;
-      }
-      #vl {
-        font-size: 36px;
-        font-weight: 700;
-        color: var(--gray);
-        letter-spacing: 1px;
-      }
-      .vq {
-        font-size: 38px;
-        font-weight: 800;
-        color: var(--white);
       }
       .scr {
         position: absolute;
@@ -199,11 +161,24 @@
         color: var(--ink);
         letter-spacing: -0.5px;
       }
-      .bar .tag {
+      .bar .btag {
         margin-left: auto;
+        height: 52px;
+        padding: 0 22px;
+        border-radius: 26px;
         font-size: 32px;
-        font-weight: 600;
-        color: var(--muted);
+        font-weight: 900;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+      }
+      #b .btag {
+        border: 3px solid var(--sand);
+        color: #8a6a2e;
+      }
+      #a .btag {
+        background: var(--gold);
+        color: var(--navy);
       }
       .kick {
         position: absolute;
@@ -230,6 +205,7 @@
         font-weight: 800;
         color: var(--ink);
         letter-spacing: -0.5px;
+        white-space: nowrap;
       }
       .rd {
         margin-top: 8px;
@@ -237,6 +213,48 @@
         font-weight: 500;
         color: var(--muted);
         white-space: nowrap;
+      }
+      .rd2 {
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0;
+      }
+      .same {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        background: #eceef4;
+        box-shadow: none;
+      }
+      .same .rt {
+        font-size: 34px;
+        color: var(--muted);
+      }
+      .rs {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 22px;
+        border-radius: 30px;
+        background: #fbf1d2;
+        border: 2px solid var(--gold);
+        font-size: 32px;
+        font-weight: 800;
+        color: #6b4f0a;
+        opacity: 0;
       }
       .tot {
         position: absolute;
@@ -255,28 +273,6 @@
         letter-spacing: 4px;
         color: var(--gray);
       }
-      .chip {
-        position: absolute;
-        left: 32px;
-        top: 82px;
-        height: 52px;
-        padding: 0 22px;
-        border-radius: 26px;
-        font-size: 32px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        display: flex;
-        align-items: center;
-        opacity: 0;
-      }
-      .chip.b {
-        border: 3px solid var(--sand);
-        color: var(--sand);
-      }
-      .chip.a {
-        background: var(--gold);
-        color: var(--navy);
-      }
       .tot .tv {
         position: absolute;
         right: 32px;
@@ -287,66 +283,23 @@
         line-height: 1;
         font-variant-numeric: tabular-nums;
       }
+      .tot .tn {
+        position: absolute;
+        left: 32px;
+        top: 90px;
+        font-size: 32px;
+        font-weight: 700;
+      }
+      #b .tn {
+        color: var(--sand);
+      }
+      #a .tn {
+        color: var(--gold);
+      }
       .fine {
         position: absolute;
         left: 0;
         top: 968px;
-        width: 960px;
-        text-align: center;
-        font-size: 32px;
-        font-weight: 500;
-        color: var(--muted);
-      }
-      .opt {
-        height: 110px;
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        padding: 0 32px;
-      }
-      .cb {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px;
-        border: 3px solid #c3c8d6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 38px;
-        font-weight: 900;
-        color: #ffffff;
-      }
-      .cb span {
-        opacity: 0;
-      }
-      .ot {
-        font-size: 40px;
-        font-weight: 700;
-        color: var(--ink);
-      }
-      .side {
-        height: 148px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .sv {
-        text-align: right;
-        font-size: 40px;
-        font-weight: 800;
-        color: var(--ink);
-        line-height: 1.15;
-      }
-      .sv small {
-        display: block;
-        font-size: 32px;
-        font-weight: 700;
-        color: #8a6a14;
-      }
-      .note {
-        position: absolute;
-        left: 0;
-        top: 880px;
         width: 960px;
         text-align: center;
         font-size: 32px;
@@ -450,23 +403,25 @@
         line-height: 1;
       }
       #pB {
-        top: 470px;
+        top: 430px;
       }
       #pB .pk,
       #pB .pv {
         color: var(--sand);
       }
       #pA {
-        top: 740px;
+        top: 700px;
       }
-      #pA .pk,
+      #pA .pk {
+        color: var(--gold);
+      }
       #pA .pv {
         color: var(--white);
       }
       #dif {
         position: absolute;
         left: 0;
-        top: 1030px;
+        top: 990px;
         width: 1080px;
         text-align: center;
         opacity: 0;
@@ -488,7 +443,7 @@
       #cfine {
         position: absolute;
         left: 0;
-        top: 1290px;
+        top: 1250px;
         width: 1080px;
         text-align: center;
         font-size: 32px;
@@ -558,45 +513,13 @@
             />
           </div>
         </div>
-        <div id="steps">
-          <div class="step" id="st1">
-            <span class="k">STEP 1</span><span class="t">Start with the base scope</span>
+        <div id="labels">
+          <div class="lab" id="lab0"><span class="big">Same house. Two prices.</span></div>
+          <div class="lab" id="labB">
+            <span class="big">OPTION B</span><span class="sub">The base scope</span>
           </div>
-          <div class="step" id="st2">
-            <span class="k">STEP 2</span><span class="t">Add it by voice</span>
-          </div>
-          <div class="step" id="st3">
-            <span class="k">STEP 3</span><span class="t">Change the siding</span>
-          </div>
-          <div class="step" id="st4">
-            <span class="k">RESULT</span><span class="t">Updated price</span>
-          </div>
-        </div>
-        <div id="voice">
-          <div id="mic">
-            <svg
-              width="30"
-              height="38"
-              viewBox="0 0 30 38"
-              fill="none"
-              stroke="#171a2e"
-              stroke-width="3.5"
-              stroke-linecap="round"
-            >
-              <rect x="8.5" y="2" width="13" height="22" rx="6.5" fill="#171a2e" />
-              <path d="M3 17a12 12 0 0 0 24 0M15 29v7" />
-            </svg>
-          </div>
-          <div id="vt">
-            <span id="vl">Listening&hellip;</span>
-            <span class="vq" id="vq0">&ldquo;Vinyl siding on the whole house.&rdquo;</span>
-            <span class="vq" id="vq1">&ldquo;Add a sink disposal.&rdquo;</span>
-            <span class="vq" id="vq2">&ldquo;Add under-cabinet lights.&rdquo;</span>
-            <span class="vq" id="vq3">&ldquo;Add a pot filler.&rdquo;</span>
-            <span class="vq" id="vq4">&ldquo;Vinyl on three sides.&rdquo;</span>
-            <span class="vq" id="vq5">&ldquo;Hardie plank on the front.&rdquo;</span>
-            <span class="vq" id="vq6">&ldquo;3 ft stone base at the back.&rdquo;</span>
-            <span class="vq" id="vq7">&ldquo;What&rsquo;s the updated price?&rdquo;</span>
+          <div class="lab" id="labA">
+            <span class="big">OPTION A</span><span class="sub">What the client wants</span>
           </div>
         </div>
         <div
@@ -606,7 +529,7 @@
           data-layout-allow-overflow
         >
           <div id="float">
-            <div class="scr" id="s1">
+            <div class="scr" id="b">
               <div class="bar">
                 <span class="dots"><i></i><i></i><i></i></span>
                 <div class="lg" data-layout-allow-overflow style="width: 40px; height: 28px">
@@ -617,30 +540,30 @@
                   />
                 </div>
                 <div class="ti">Project estimate</div>
-                <div class="tag">Option B</div>
+                <div class="btag">OPTION B</div>
               </div>
               <div class="ent kick">SCOPE &middot; RANCH HOUSE</div>
-              <div class="ent row" id="s1r0" style="top: 186px">
+              <div class="ent row" id="b_r0" style="top: 186px">
                 <div class="rt">Second-story addition</div>
                 <div class="rd">
                   3 bed &middot; primary bath &middot; full bath &middot; laundry
                 </div>
               </div>
-              <div class="ent row" id="s1r1" style="top: 332px">
+              <div class="ent row" id="b_r1" style="top: 332px">
                 <div class="rt">First floor + basement</div>
                 <div class="rd">Gut remodel</div>
               </div>
-              <div class="ent row" id="s1r2" style="top: 478px">
+              <div class="ent row" id="b_r2" style="top: 478px">
                 <div class="rt">Kitchen</div>
                 <div class="rd">Mid-sized &middot; 200 sq ft</div>
               </div>
-              <div class="ent row" id="s1r3" style="top: 624px">
+              <div class="ent row" id="b_r3" style="top: 624px">
                 <div class="rt">Siding</div>
                 <div class="rd">Vinyl &middot; whole house</div>
               </div>
-              <div class="ent tot" id="s1tot">
+              <div class="ent tot" id="b_tot">
                 <div class="tl">TOTAL</div>
-                <div class="chip b" id="chipB">OPTION B</div>
+                <div class="tn">Base scope</div>
                 <div class="tv">$590,279</div>
               </div>
               <div class="ent fine">
@@ -648,117 +571,16 @@
               </div>
               <div
                 class="fb"
-                id="fb_s10"
+                id="fb_b0"
                 style="left: 26px; top: 614px; width: 908px; height: 150px"
               ></div>
               <div
                 class="fb"
-                id="fb_s11"
+                id="fb_b1"
                 style="left: 26px; top: 770px; width: 908px; height: 180px"
               ></div>
             </div>
-            <div class="scr" id="s2">
-              <div class="bar">
-                <span class="dots"><i></i><i></i><i></i></span>
-                <div class="lg" data-layout-allow-overflow style="width: 40px; height: 28px">
-                  <img
-                    src="assets/logo.png"
-                    alt="Home Estimator"
-                    style="width: 65px; height: 65px; left: -12.7px; top: -16.1px"
-                  />
-                </div>
-                <div class="ti">Kitchen</div>
-                <div class="tag">Mid-sized &middot; 200 sq ft</div>
-              </div>
-              <div class="ent kick">ADD-ONS</div>
-              <div class="ent row opt" id="s2r0" style="top: 186px">
-                <div class="cb" id="cb0"><span id="ck0">&#10003;</span></div>
-                <div class="ot">Sink disposal</div>
-              </div>
-              <div class="ent row opt" id="s2r1" style="top: 310px">
-                <div class="cb" id="cb1"><span id="ck1">&#10003;</span></div>
-                <div class="ot">Under-cabinet lights</div>
-              </div>
-              <div class="ent row opt" id="s2r2" style="top: 434px">
-                <div class="cb" id="cb2"><span id="ck2">&#10003;</span></div>
-                <div class="ot">Pot filler</div>
-              </div>
-              <div class="ent row opt" id="s2r3" style="top: 558px">
-                <div class="cb" id="cb3"><span id="ck3">&#10003;</span></div>
-                <div class="ot">Second sink</div>
-              </div>
-              <div class="ent row opt" id="s2r4" style="top: 682px">
-                <div class="cb" id="cb4"><span id="ck4">&#10003;</span></div>
-                <div class="ot">Sound solution</div>
-              </div>
-              <div class="ent row opt" id="s2r5" style="top: 806px">
-                <div class="cb" id="cb5"><span id="ck5">&#10003;</span></div>
-                <div class="ot">Reverse osmosis filter</div>
-              </div>
-              <div
-                class="fb"
-                id="fb_s20"
-                style="left: 26px; top: 176px; width: 908px; height: 130px"
-              ></div>
-              <div
-                class="fb"
-                id="fb_s21"
-                style="left: 26px; top: 300px; width: 908px; height: 130px"
-              ></div>
-              <div
-                class="fb"
-                id="fb_s22"
-                style="left: 26px; top: 424px; width: 908px; height: 130px"
-              ></div>
-            </div>
-            <div class="scr" id="s3">
-              <div class="bar">
-                <span class="dots"><i></i><i></i><i></i></span>
-                <div class="lg" data-layout-allow-overflow style="width: 40px; height: 28px">
-                  <img
-                    src="assets/logo.png"
-                    alt="Home Estimator"
-                    style="width: 65px; height: 65px; left: -12.7px; top: -16.1px"
-                  />
-                </div>
-                <div class="ti">Siding</div>
-                <div class="tag">By elevation</div>
-              </div>
-              <div class="ent kick">MATERIAL PER SIDE</div>
-              <div class="ent row side" id="s3r0" style="top: 186px">
-                <div class="rt">Front</div>
-                <div class="sv" id="sv0">Vinyl</div>
-              </div>
-              <div class="ent row side" id="s3r1" style="top: 350px">
-                <div class="rt">Left side</div>
-                <div class="sv" id="sv1">Vinyl</div>
-              </div>
-              <div class="ent row side" id="s3r2" style="top: 514px">
-                <div class="rt">Right side</div>
-                <div class="sv" id="sv2">Vinyl</div>
-              </div>
-              <div class="ent row side" id="s3r3" style="top: 678px">
-                <div class="rt">Back</div>
-                <div class="sv" id="sv3">Vinyl</div>
-              </div>
-              <div class="ent note">Base scope: vinyl on the whole house</div>
-              <div
-                class="fb"
-                id="fb_s30"
-                style="left: 26px; top: 340px; width: 908px; height: 496px"
-              ></div>
-              <div
-                class="fb"
-                id="fb_s31"
-                style="left: 26px; top: 176px; width: 908px; height: 168px"
-              ></div>
-              <div
-                class="fb"
-                id="fb_s32"
-                style="left: 26px; top: 668px; width: 908px; height: 168px"
-              ></div>
-            </div>
-            <div class="scr" id="s4">
+            <div class="scr" id="a">
               <div class="bar">
                 <span class="dots"><i></i><i></i><i></i></span>
                 <div class="lg" data-layout-allow-overflow style="width: 40px; height: 28px">
@@ -769,31 +591,33 @@
                   />
                 </div>
                 <div class="ti">Project estimate</div>
-                <div class="tag">Option A</div>
+                <div class="btag">OPTION A</div>
               </div>
               <div class="ent kick">SCOPE &middot; RANCH HOUSE</div>
-              <div class="ent row" id="s4r0" style="top: 186px">
-                <div class="rt">Second-story addition</div>
-                <div class="rd">
-                  3 bed &middot; primary bath &middot; full bath &middot; laundry
+              <div class="ent row same" style="top: 186px; height: 96px">
+                <div class="rt">Addition + gut remodels</div>
+                <div class="rs">Same as Option B</div>
+              </div>
+              <div class="ent row" id="a_kit" style="top: 298px; height: 252px">
+                <div class="rt">
+                  Kitchen <span class="rd2">&middot; mid-sized &middot; 200 sq ft</span>
+                </div>
+                <div class="tags">
+                  <span class="tag" id="kt0">+ Sink disposal</span
+                  ><span class="tag" id="kt1">+ Under-cabinet lights</span
+                  ><span class="tag" id="kt2">+ Pot filler</span>
                 </div>
               </div>
-              <div class="ent row" id="s4r1" style="top: 332px">
-                <div class="rt">First floor + basement</div>
-                <div class="rd">Gut remodel</div>
+              <div class="ent row" id="a_sid" style="top: 566px; height: 196px">
+                <div class="rt">Siding <span class="rd2">&middot; vinyl on 3 sides</span></div>
+                <div class="tags">
+                  <span class="tag" id="st0">+ Hardie plank front</span
+                  ><span class="tag" id="st1">+ 3 ft stone base back</span>
+                </div>
               </div>
-              <div class="ent row" id="s4r2" style="top: 478px">
-                <div class="rt">Kitchen</div>
-                <div class="rd">Mid-sized &middot; 200 sq ft &middot; 3 add-ons</div>
-              </div>
-              <div class="ent row" id="s4r3" style="top: 624px">
-                <div class="rt">Siding</div>
-                <div class="rd">Vinyl 3 sides &middot; Hardie front &middot; stone base</div>
-              </div>
-              <div class="ent tot" id="s4tot">
+              <div class="ent tot" id="a_tot">
                 <div class="tl">TOTAL</div>
-                <div class="chip b" id="chipB2" style="opacity: 1">OPTION B</div>
-                <div class="chip a" id="chipA">OPTION A</div>
+                <div class="tn">With upgrades</div>
                 <div class="tv" id="tvA">$590,279</div>
               </div>
               <div class="ent fine">
@@ -801,7 +625,17 @@
               </div>
               <div
                 class="fb"
-                id="fb_s40"
+                id="fb_a0"
+                style="left: 26px; top: 288px; width: 908px; height: 272px"
+              ></div>
+              <div
+                class="fb"
+                id="fb_a1"
+                style="left: 26px; top: 556px; width: 908px; height: 216px"
+              ></div>
+              <div
+                class="fb"
+                id="fb_a2"
                 style="left: 26px; top: 770px; width: 908px; height: 180px"
               ></div>
             </div>
@@ -815,52 +649,6 @@
           <div id="h3">Show them both.</div>
           <div class="hs" id="h4">before they fall for the plan.</div>
         </div>
-        <div class="cap" id="c0">
-          <span id="w0_0">Start</span> <span id="w0_1">with</span> <span id="w0_2">the</span>
-          <span id="w0_3">base</span> <span id="w0_4">scope,</span>
-        </div>
-        <div class="cap" id="c1">
-          <span id="w1_0">vinyl</span> <span id="w1_1">siding</span> <span id="w1_2">on</span>
-        </div>
-        <div class="cap" id="c2">
-          <span id="w2_0">the</span> <span id="w2_1">whole</span> <span id="w2_2">house.</span>
-        </div>
-        <div class="cap" id="c3"><span id="w3_0">$590,279.</span></div>
-        <div class="cap" id="c4">
-          <span id="w4_0">Now,</span> <span id="w4_1">add</span> <span id="w4_2">it</span>
-          <span id="w4_3">by</span> <span id="w4_4">voice.</span>
-        </div>
-        <div class="cap" id="c5"><span id="w5_0">Sink</span> <span id="w5_1">disposal.</span></div>
-        <div class="cap" id="c6">
-          <span id="w6_0">Under-cabinet</span> <span id="w6_1">lights.</span>
-        </div>
-        <div class="cap" id="c7">
-          <span id="w7_0">A</span> <span id="w7_1">pot</span> <span id="w7_2">filler.</span>
-        </div>
-        <div class="cap" id="c8">
-          <span id="w8_0">Change</span> <span id="w8_1">the</span> <span id="w8_2">siding.</span>
-        </div>
-        <div class="cap" id="c9">
-          <span id="w9_0">Vinyl</span> <span id="w9_1">on</span> <span id="w9_2">three</span>
-          <span id="w9_3">sides,</span>
-        </div>
-        <div class="cap" id="c10">
-          <span id="w10_0">Hardie</span> <span id="w10_1">plank</span> <span id="w10_2">on</span>
-          <span id="w10_3">the</span> <span id="w10_4">front,</span>
-        </div>
-        <div class="cap" id="c11">
-          <span id="w11_0">and</span> <span id="w11_1">a</span> <span id="w11_2">three-foot</span>
-          <span id="w11_3">stone</span>
-        </div>
-        <div class="cap" id="c12">
-          <span id="w12_0">base</span> <span id="w12_1">at</span> <span id="w12_2">the</span>
-          <span id="w12_3">back.</span>
-        </div>
-        <div class="cap" id="c13">
-          <span id="w13_0">Ask</span> <span id="w13_1">for</span> <span id="w13_2">the</span>
-          <span id="w13_3">updated</span> <span id="w13_4">price.</span>
-        </div>
-        <div class="cap" id="c14"><span id="w14_0">$606,982.</span></div>
         <div id="cmp" data-layout-allow-overflow>
           <div class="pnl" id="pB">
             <div class="pk">OPTION B &middot; Base scope</div>
@@ -876,13 +664,53 @@
           </div>
           <div id="cfine">Example project &mdash; every project&rsquo;s estimate differs.</div>
         </div>
-        <div class="cap" id="c15">
-          <span id="w15_0">Change</span> <span id="w15_1">the</span> <span id="w15_2">scope</span>
-          <span id="w15_3">out</span> <span id="w15_4">loud.</span>
+        <div class="cap" id="c0"><span id="w0_0">Same</span> <span id="w0_1">house.</span></div>
+        <div class="cap" id="c1"><span id="w1_0">Two</span> <span id="w1_1">prices.</span></div>
+        <div class="cap" id="c2">
+          <span id="w2_0">Option</span> <span id="w2_1">B</span> <span id="w2_2">is</span>
         </div>
+        <div class="cap" id="c3">
+          <span id="w3_0">the</span> <span id="w3_1">base</span> <span id="w3_2">scope.</span>
+        </div>
+        <div class="cap" id="c4">
+          <span id="w4_0">Vinyl</span> <span id="w4_1">siding</span> <span id="w4_2">all</span>
+          <span id="w4_3">around.</span>
+        </div>
+        <div class="cap" id="c5"><span id="w5_0">$590,279.</span></div>
+        <div class="cap" id="c6">
+          <span id="w6_0">Option</span> <span id="w6_1">A</span> <span id="w6_2">is</span>
+          <span id="w6_3">what</span>
+        </div>
+        <div class="cap" id="c7">
+          <span id="w7_0">the</span> <span id="w7_1">client</span> <span id="w7_2">really</span>
+          <span id="w7_3">wants.</span>
+        </div>
+        <div class="cap" id="c8">
+          <span id="w8_0">A</span> <span id="w8_1">sink</span> <span id="w8_2">disposal,</span>
+        </div>
+        <div class="cap" id="c9">
+          <span id="w9_0">under-cabinet</span> <span id="w9_1">lights,</span>
+        </div>
+        <div class="cap" id="c10">
+          <span id="w10_0">and</span> <span id="w10_1">a</span> <span id="w10_2">pot</span>
+          <span id="w10_3">filler.</span>
+        </div>
+        <div class="cap" id="c11">
+          <span id="w11_0">Hardie</span> <span id="w11_1">plank</span> <span id="w11_2">on</span>
+          <span id="w11_3">the</span> <span id="w11_4">front</span>
+        </div>
+        <div class="cap" id="c12">
+          <span id="w12_0">and</span> <span id="w12_1">a</span> <span id="w12_2">stone</span>
+          <span id="w12_3">base</span>
+        </div>
+        <div class="cap" id="c13">
+          <span id="w13_0">at</span> <span id="w13_1">the</span> <span id="w13_2">back.</span>
+        </div>
+        <div class="cap" id="c14"><span id="w14_0">$606,982.</span></div>
+        <div class="cap" id="c15"><span id="w15_0">$16,703 more.</span></div>
         <div class="cap" id="c16">
-          <span id="w16_0">Watch</span> <span id="w16_1">the</span> <span id="w16_2">total</span>
-          <span id="w16_3">move.</span>
+          <span id="w16_0">Now</span> <span id="w16_1">they</span> <span id="w16_2">can</span>
+          <span id="w16_3">choose.</span>
         </div>
       </section>
 
@@ -931,197 +759,149 @@
         4.34,
       );
       tl.fromTo("#h4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 5.54);
-      tl.to("#hook", { opacity: 0, y: -40, duration: 0.35, ease: OUT }, 7.22);
-      tl.set("#hook", { visibility: "hidden" }, 7.67);
-      tl.fromTo("#top", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 7.67);
+      tl.to("#hook", { opacity: 0, y: -40, duration: 0.35, ease: OUT }, 7.25);
+      tl.set("#hook", { visibility: "hidden" }, 7.7);
+      tl.fromTo("#top", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 7.7);
 
-      // the app window floats gently while the steps play
+      // labels: "Same house. Two prices." -> OPTION B -> OPTION A
+      tl.fromTo(
+        "#lab0",
+        { opacity: 0, rotationX: -70, y: 20 },
+        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
+        7.69,
+      );
+      tl.to("#lab0", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 9.63);
+      tl.fromTo(
+        "#labB",
+        { opacity: 0, rotationX: -70, y: 20 },
+        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
+        9.93,
+      );
+      tl.to("#labB", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 17.22);
+      tl.fromTo(
+        "#labA",
+        { opacity: 0, rotationX: -70, y: 20 },
+        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
+        17.52,
+      );
+      tl.to("#labA", { opacity: 0, duration: 0.3, ease: OUT }, 30.17);
+
+      // the app window floats gently while the options play
       tl.fromTo(
         "#float",
         { scale: 0.9, rotationX: 7, rotationY: -8, y: 6 },
-        { scale: 0.9, rotationX: 3, rotationY: -3, y: -8, duration: 24.48, ease: "sine.inOut" },
-        7.57,
+        { scale: 0.9, rotationX: 3, rotationY: -3, y: -8, duration: 22.67, ease: "sine.inOut" },
+        7.6,
       );
 
-      // screens turn and slide into each other
+      // Option B card turns in; Option A card turns in on "Option A"
       tl.fromTo(
-        "#s1",
+        "#b",
         { rotationY: 32, x: 260, z: -220 },
         { rotationY: 0, x: 0, z: 0, duration: 0.7, ease: IN },
-        7.57,
+        7.6,
       );
-      tl.fromTo("#s1", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 7.57);
+      tl.fromTo("#b", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 7.6);
       tl.fromTo(
-        "#s1 .ent",
+        "#b .ent",
         { opacity: 0, y: 26 },
         { opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.06 },
-        7.61,
+        7.65,
       );
-      tl.to("#s1", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 14.6);
-      tl.to("#s1", { opacity: 0, duration: 0.14, ease: "none" }, 14.78);
+      tl.to("#b", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 17.22);
+      tl.to("#b", { opacity: 0, duration: 0.14, ease: "none" }, 17.4);
       tl.fromTo(
-        "#s2",
+        "#a",
         { rotationY: 32, x: 260, z: -220 },
         { rotationY: 0, x: 0, z: 0, duration: 0.7, ease: IN },
-        14.92,
+        17.54,
       );
-      tl.fromTo("#s2", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 14.92);
+      tl.fromTo("#a", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 17.54);
       tl.fromTo(
-        "#s2 .ent",
+        "#a .ent",
         { opacity: 0, y: 26 },
         { opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.06 },
-        14.96,
-      );
-      tl.to("#s2", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 20.17);
-      tl.to("#s2", { opacity: 0, duration: 0.14, ease: "none" }, 20.35);
-      tl.fromTo(
-        "#s3",
-        { rotationY: 32, x: 260, z: -220 },
-        { rotationY: 0, x: 0, z: 0, duration: 0.7, ease: IN },
-        20.49,
-      );
-      tl.fromTo("#s3", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 20.49);
-      tl.fromTo(
-        "#s3 .ent",
-        { opacity: 0, y: 26 },
-        { opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.06 },
-        20.53,
-      );
-      tl.to("#s3", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 26.57);
-      tl.to("#s3", { opacity: 0, duration: 0.14, ease: "none" }, 26.75);
-      tl.fromTo(
-        "#s4",
-        { rotationY: 32, x: 260, z: -220 },
-        { rotationY: 0, x: 0, z: 0, duration: 0.7, ease: IN },
-        26.89,
-      );
-      tl.fromTo("#s4", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "none" }, 26.89);
-      tl.fromTo(
-        "#s4 .ent",
-        { opacity: 0, y: 26 },
-        { opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.06 },
-        26.93,
+        17.58,
       );
 
       // gold focus box glides to each spoken item; the item lifts
       tl.fromTo(
-        "#fb_s10",
+        "#fb_b0",
         { opacity: 0, scale: 1.04 },
         { opacity: 1, scale: 1, duration: 0.35, ease: IN },
-        9.27,
+        12.18,
       );
-      tl.to(["#s1r3"], { scale: 1.03, duration: 0.35, ease: IN }, 9.27);
-      tl.to(["#s1r3"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 11.42);
-      tl.to("#fb_s10", { y: 156, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 11.42);
+      tl.to(["#b_r3"], { scale: 1.03, duration: 0.35, ease: IN }, 12.18);
+      tl.to(["#b_r3"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 14.15);
+      tl.to("#fb_b0", { y: 156, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 14.15);
       tl.fromTo(
-        "#fb_s11",
+        "#fb_b1",
         { y: -156, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.45, ease: "power3.inOut" },
-        11.42,
+        14.15,
       );
-      tl.to(["#s1tot"], { scale: 1.03, duration: 0.35, ease: IN }, 11.52);
-      tl.to(["#s1tot"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 14.7);
+      tl.to(["#b_tot"], { scale: 1.03, duration: 0.35, ease: IN }, 14.25);
+      tl.to(["#b_tot"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 17.32);
       tl.fromTo(
-        "#fb_s20",
+        "#fb_a0",
         { opacity: 0, scale: 1.04 },
         { opacity: 1, scale: 1, duration: 0.35, ease: IN },
-        16.64,
+        20.69,
       );
-      tl.to(["#s2r0"], { scale: 1.03, duration: 0.35, ease: IN }, 16.64);
-      tl.to(["#s2r0"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 17.82);
-      tl.to("#fb_s20", { y: 124, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 17.82);
+      tl.to(["#a_kit"], { scale: 1.03, duration: 0.35, ease: IN }, 20.69);
+      tl.to(["#a_kit"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 23.79);
+      tl.to("#fb_a0", { y: 268, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 23.79);
       tl.fromTo(
-        "#fb_s21",
-        { y: -124, opacity: 0 },
+        "#fb_a1",
+        { y: -268, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.45, ease: "power3.inOut" },
-        17.82,
+        23.79,
       );
-      tl.to(["#s2r1"], { scale: 1.03, duration: 0.35, ease: IN }, 17.92);
-      tl.to(["#s2r1"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 19.25);
-      tl.to("#fb_s21", { y: 124, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 19.25);
+      tl.to(["#a_sid"], { scale: 1.03, duration: 0.35, ease: IN }, 23.89);
+      tl.to(["#a_sid"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 27.07);
+      tl.to("#fb_a1", { y: 214, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 27.07);
       tl.fromTo(
-        "#fb_s22",
-        { y: -124, opacity: 0 },
+        "#fb_a2",
+        { y: -214, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.45, ease: "power3.inOut" },
-        19.25,
+        27.07,
       );
-      tl.to(["#s2r2"], { scale: 1.03, duration: 0.35, ease: IN }, 19.35);
-      tl.to(["#s2r2"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 20.27);
+      tl.to(["#a_tot"], { scale: 1.03, duration: 0.35, ease: IN }, 27.17);
+      tl.to(["#a_tot"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 30.27);
+
+      // what Option A adds: gold "+" tags pop in as they're named
       tl.fromTo(
-        "#fb_s30",
-        { opacity: 0, scale: 1.04 },
-        { opacity: 1, scale: 1, duration: 0.35, ease: IN },
-        21.67,
+        "#kt0",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" },
+        20.69,
       );
-      tl.to(["#s3r1", "#s3r2", "#s3r3"], { scale: 1.03, duration: 0.35, ease: IN }, 21.67);
-      tl.to(["#s3r1", "#s3r2", "#s3r3"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 23.09);
-      tl.to("#fb_s30", { y: -164, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 23.09);
       tl.fromTo(
-        "#fb_s31",
-        { y: 164, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45, ease: "power3.inOut" },
+        "#kt1",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" },
+        21.73,
+      );
+      tl.fromTo(
+        "#kt2",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" },
         23.09,
       );
-      tl.to(["#s3r0"], { scale: 1.03, duration: 0.35, ease: IN }, 23.19);
-      tl.to(["#s3r0"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 24.45);
-      tl.to("#fb_s31", { y: 492, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 24.45);
       tl.fromTo(
-        "#fb_s32",
-        { y: -492, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45, ease: "power3.inOut" },
-        24.45,
+        "#st0",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" },
+        23.89,
       );
-      tl.to(["#s3r3"], { scale: 1.03, duration: 0.35, ease: IN }, 24.55);
-      tl.to(["#s3r3"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 26.67);
       tl.fromTo(
-        "#fb_s40",
-        { opacity: 0, scale: 1.04 },
-        { opacity: 1, scale: 1, duration: 0.35, ease: IN },
-        28.81,
-      );
-      tl.to(["#s4tot"], { scale: 1.03, duration: 0.35, ease: IN }, 28.81);
-      tl.to(["#s4tot"], { scale: 1, duration: 0.3, ease: "power2.inOut" }, 32.0);
-
-      // step 1: OPTION B chip on the base total
-      tl.fromTo(
-        "#chipB",
-        { opacity: 0, x: -16 },
-        { opacity: 1, x: 0, duration: 0.45, ease: IN },
-        11.52,
+        "#st1",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" },
+        25.49,
       );
 
-      // step 2: tick the add-ons
-      tl.set("#cb0", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 16.64);
-      tl.fromTo(
-        "#ck0",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" },
-        16.64,
-      );
-      tl.set("#cb1", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 17.92);
-      tl.fromTo(
-        "#ck1",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" },
-        17.92,
-      );
-      tl.set("#cb2", { backgroundColor: "#171a2e", borderColor: "#171a2e" }, 19.35);
-      tl.fromTo(
-        "#ck2",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" },
-        19.35,
-      );
-
-      // step 3: Hardie front, stone base at the back
-      tl.fromTo("#sv0", { opacity: 1 }, { opacity: 0, duration: 0.15 }, 23.19);
-      tl.set("#sv0", { textContent: "Hardie plank" }, 23.34);
-      tl.to("#sv0", { opacity: 1, duration: 0.25, ease: IN }, 23.34);
-      tl.fromTo("#sv3", { opacity: 1 }, { opacity: 0, duration: 0.15 }, 24.87);
-      tl.set("#sv3", { innerHTML: "Vinyl<small>+ 3 ft stone base</small>" }, 25.02);
-      tl.to("#sv3", { opacity: 1, duration: 0.25, ease: IN }, 25.02);
-
-      // result: the total moves from Option B to Option A
+      // Option A total moves from the base price to the new one
       const cnt = { v: 590279 };
       tl.to(
         cnt,
@@ -1133,338 +913,182 @@
             document.getElementById("tvA").textContent = fmt(cnt.v);
           },
         },
-        28.81,
+        27.17,
       );
-      tl.set("#tvA", { textContent: "$606,982" }, 29.81);
-      tl.to("#chipB2", { opacity: 0, x: 16, duration: 0.25, ease: OUT }, 28.81);
-      tl.fromTo(
-        "#chipA",
-        { opacity: 0, x: -16 },
-        { opacity: 1, x: 0, duration: 0.45, ease: IN },
-        29.01,
-      );
-
-      // voice cue
-      tl.fromTo(
-        "#voice",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.4, ease: IN },
-        7.87,
-      );
-      tl.to("#voice", { opacity: 0, duration: 0.25, ease: OUT }, 31.9);
-      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 7.82);
-      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 9.17);
-      tl.fromTo("#vq0", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 9.32);
-      tl.to("#vq0", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 15.1);
-      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 15.25);
-      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 16.54);
-      tl.fromTo(
-        "#vq1",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.3, ease: IN },
-        16.69,
-      );
-      tl.to("#vq1", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 17.82);
-      tl.fromTo(
-        "#vq2",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.3, ease: IN },
-        17.97,
-      );
-      tl.to("#vq2", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 19.25);
-      tl.fromTo("#vq3", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 19.4);
-      tl.to("#vq3", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 20.67);
-      tl.fromTo("#vl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 20.82);
-      tl.to("#vl", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 21.57);
-      tl.fromTo(
-        "#vq4",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.3, ease: IN },
-        21.72,
-      );
-      tl.to("#vq4", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 23.09);
-      tl.fromTo(
-        "#vq5",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.3, ease: IN },
-        23.24,
-      );
-      tl.to("#vq5", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 24.45);
-      tl.fromTo("#vq6", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: IN }, 24.6);
-      tl.to("#vq6", { opacity: 0, y: -18, duration: 0.15, ease: OUT }, 26.77);
-      tl.fromTo(
-        "#vq7",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.3, ease: IN },
-        26.92,
-      );
-      tl.to("#vq7", { opacity: 0, duration: 0.2, ease: OUT }, 31.9);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 7.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 8.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 9.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 9.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 10.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 10.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 11.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 12.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 12.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 13.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 13.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 14.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 15.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 15.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 16.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 16.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 17.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 18.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 18.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 19.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 19.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 20.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 21.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 21.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 22.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 22.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 23.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 24.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 24.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 25.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 25.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 26.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 27.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 27.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 28.37);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 28.97);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 29.57);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 30.17);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 30.77);
-      tl.to("#mic", { scale: 1.1, duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 31.37);
-
-      // step labels
-      tl.fromTo(
-        "#st1",
-        { opacity: 0, rotationX: -70, y: 20 },
-        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
-        7.67,
-      );
-      tl.to("#st1", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 14.6);
-      tl.fromTo(
-        "#st2",
-        { opacity: 0, rotationX: -70, y: 20 },
-        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
-        14.9,
-      );
-      tl.to("#st2", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 20.17);
-      tl.fromTo(
-        "#st3",
-        { opacity: 0, rotationX: -70, y: 20 },
-        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
-        20.47,
-      );
-      tl.to("#st3", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 26.57);
-      tl.fromTo(
-        "#st4",
-        { opacity: 0, rotationX: -70, y: 20 },
-        { opacity: 1, rotationX: 0, y: 0, duration: 0.55, ease: IN },
-        26.87,
-      );
-      tl.to("#st4", { opacity: 0, rotationX: 60, duration: 0.3, ease: OUT }, 31.9);
+      tl.set("#tvA", { textContent: "$606,982" }, 28.17);
 
       // captions
-      tl.fromTo("#c0", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 7.67);
-      tl.set("#c0", { opacity: 0 }, 9.27);
-      tl.set("#w0_0", { color: "#d4af37" }, 7.67);
-      tl.set("#w0_0", { color: "#ffffff" }, 7.99);
-      tl.set("#w0_1", { color: "#d4af37" }, 7.99);
-      tl.set("#w0_1", { color: "#ffffff" }, 8.15);
-      tl.set("#w0_2", { color: "#d4af37" }, 8.15);
-      tl.set("#w0_2", { color: "#ffffff" }, 8.31);
-      tl.set("#w0_3", { color: "#d4af37" }, 8.31);
-      tl.set("#w0_3", { color: "#ffffff" }, 8.63);
-      tl.set("#w0_4", { color: "#d4af37" }, 8.63);
-      tl.fromTo("#c1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 9.27);
-      tl.set("#c1", { opacity: 0 }, 10.31);
-      tl.set("#w1_0", { color: "#d4af37" }, 9.27);
-      tl.set("#w1_0", { color: "#ffffff" }, 9.75);
-      tl.set("#w1_1", { color: "#d4af37" }, 9.75);
-      tl.set("#w1_1", { color: "#ffffff" }, 10.15);
-      tl.set("#w1_2", { color: "#d4af37" }, 10.15);
-      tl.fromTo("#c2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 10.31);
-      tl.set("#c2", { opacity: 0 }, 11.52);
-      tl.set("#w2_0", { color: "#d4af37" }, 10.31);
-      tl.set("#w2_0", { color: "#ffffff" }, 10.39);
-      tl.set("#w2_1", { color: "#d4af37" }, 10.39);
-      tl.set("#w2_1", { color: "#ffffff" }, 10.63);
-      tl.set("#w2_2", { color: "#d4af37" }, 10.63);
-      tl.fromTo("#c3", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 11.52);
-      tl.set("#c3", { opacity: 0 }, 14.9);
-      tl.set("#w3_0", { color: "#d4af37" }, 11.52);
-      tl.fromTo("#c4", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 14.9);
-      tl.set("#c4", { opacity: 0 }, 16.64);
-      tl.set("#w4_0", { color: "#d4af37" }, 14.9);
-      tl.set("#w4_0", { color: "#ffffff" }, 15.46);
-      tl.set("#w4_1", { color: "#d4af37" }, 15.46);
-      tl.set("#w4_1", { color: "#ffffff" }, 15.62);
-      tl.set("#w4_2", { color: "#d4af37" }, 15.62);
-      tl.set("#w4_2", { color: "#ffffff" }, 15.78);
-      tl.set("#w4_3", { color: "#d4af37" }, 15.78);
-      tl.set("#w4_3", { color: "#ffffff" }, 15.94);
-      tl.set("#w4_4", { color: "#d4af37" }, 15.94);
-      tl.fromTo("#c5", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 16.64);
-      tl.set("#c5", { opacity: 0 }, 17.92);
-      tl.set("#w5_0", { color: "#d4af37" }, 16.64);
-      tl.set("#w5_0", { color: "#ffffff" }, 17.2);
-      tl.set("#w5_1", { color: "#d4af37" }, 17.2);
-      tl.fromTo("#c6", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 17.92);
-      tl.set("#c6", { opacity: 0 }, 19.35);
-      tl.set("#w6_0", { color: "#d4af37" }, 17.92);
-      tl.set("#w6_0", { color: "#ffffff" }, 18.64);
-      tl.set("#w6_1", { color: "#d4af37" }, 18.64);
-      tl.fromTo("#c7", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 19.35);
-      tl.set("#c7", { opacity: 0 }, 20.47);
-      tl.set("#w7_0", { color: "#d4af37" }, 19.35);
-      tl.set("#w7_0", { color: "#ffffff" }, 19.59);
-      tl.set("#w7_1", { color: "#d4af37" }, 19.59);
-      tl.set("#w7_1", { color: "#ffffff" }, 19.91);
-      tl.set("#w7_2", { color: "#d4af37" }, 19.91);
-      tl.fromTo("#c8", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 20.47);
-      tl.set("#c8", { opacity: 0 }, 21.67);
-      tl.set("#w8_0", { color: "#d4af37" }, 20.47);
-      tl.set("#w8_0", { color: "#ffffff" }, 20.87);
-      tl.set("#w8_1", { color: "#d4af37" }, 20.87);
-      tl.set("#w8_1", { color: "#ffffff" }, 21.03);
-      tl.set("#w8_2", { color: "#d4af37" }, 21.03);
-      tl.fromTo("#c9", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 21.67);
-      tl.set("#c9", { opacity: 0 }, 23.19);
-      tl.set("#w9_0", { color: "#d4af37" }, 21.67);
-      tl.set("#w9_0", { color: "#ffffff" }, 22.23);
-      tl.set("#w9_1", { color: "#d4af37" }, 22.23);
-      tl.set("#w9_1", { color: "#ffffff" }, 22.47);
-      tl.set("#w9_2", { color: "#d4af37" }, 22.47);
-      tl.set("#w9_2", { color: "#ffffff" }, 22.63);
-      tl.set("#w9_3", { color: "#d4af37" }, 22.63);
+      tl.fromTo("#c0", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 7.69);
+      tl.set("#c0", { opacity: 0 }, 8.77);
+      tl.set("#w0_0", { color: "#d4af37" }, 7.69);
+      tl.set("#w0_0", { color: "#ffffff" }, 8.01);
+      tl.set("#w0_1", { color: "#d4af37" }, 8.01);
+      tl.fromTo("#c1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 8.77);
+      tl.set("#c1", { opacity: 0 }, 9.93);
+      tl.set("#w1_0", { color: "#d4af37" }, 8.77);
+      tl.set("#w1_0", { color: "#ffffff" }, 9.09);
+      tl.set("#w1_1", { color: "#d4af37" }, 9.09);
+      tl.fromTo("#c2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 9.93);
+      tl.set("#c2", { opacity: 0 }, 10.97);
+      tl.set("#w2_0", { color: "#d4af37" }, 9.93);
+      tl.set("#w2_0", { color: "#ffffff" }, 10.49);
+      tl.set("#w2_1", { color: "#d4af37" }, 10.49);
+      tl.set("#w2_1", { color: "#ffffff" }, 10.73);
+      tl.set("#w2_2", { color: "#d4af37" }, 10.73);
+      tl.fromTo("#c3", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 10.97);
+      tl.set("#c3", { opacity: 0 }, 12.18);
+      tl.set("#w3_0", { color: "#d4af37" }, 10.97);
+      tl.set("#w3_0", { color: "#ffffff" }, 11.05);
+      tl.set("#w3_1", { color: "#d4af37" }, 11.05);
+      tl.set("#w3_1", { color: "#ffffff" }, 11.37);
+      tl.set("#w3_2", { color: "#d4af37" }, 11.37);
+      tl.fromTo("#c4", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 12.18);
+      tl.set("#c4", { opacity: 0 }, 14.25);
+      tl.set("#w4_0", { color: "#d4af37" }, 12.18);
+      tl.set("#w4_0", { color: "#ffffff" }, 12.66);
+      tl.set("#w4_1", { color: "#d4af37" }, 12.66);
+      tl.set("#w4_1", { color: "#ffffff" }, 13.22);
+      tl.set("#w4_2", { color: "#d4af37" }, 13.22);
+      tl.set("#w4_2", { color: "#ffffff" }, 13.38);
+      tl.set("#w4_3", { color: "#d4af37" }, 13.38);
+      tl.fromTo("#c5", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 14.25);
+      tl.set("#c5", { opacity: 0 }, 17.52);
+      tl.set("#w5_0", { color: "#d4af37" }, 14.25);
+      tl.fromTo("#c6", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 17.52);
+      tl.set("#c6", { opacity: 0 }, 18.8);
+      tl.set("#w6_0", { color: "#d4af37" }, 17.52);
+      tl.set("#w6_0", { color: "#ffffff" }, 18.08);
+      tl.set("#w6_1", { color: "#d4af37" }, 18.08);
+      tl.set("#w6_1", { color: "#ffffff" }, 18.4);
+      tl.set("#w6_2", { color: "#d4af37" }, 18.4);
+      tl.set("#w6_2", { color: "#ffffff" }, 18.64);
+      tl.set("#w6_3", { color: "#d4af37" }, 18.64);
+      tl.fromTo("#c7", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 18.8);
+      tl.set("#c7", { opacity: 0 }, 20.45);
+      tl.set("#w7_0", { color: "#d4af37" }, 18.8);
+      tl.set("#w7_0", { color: "#ffffff" }, 18.88);
+      tl.set("#w7_1", { color: "#d4af37" }, 18.88);
+      tl.set("#w7_1", { color: "#ffffff" }, 19.36);
+      tl.set("#w7_2", { color: "#d4af37" }, 19.36);
+      tl.set("#w7_2", { color: "#ffffff" }, 19.52);
+      tl.set("#w7_3", { color: "#d4af37" }, 19.52);
+      tl.fromTo("#c8", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 20.45);
+      tl.set("#c8", { opacity: 0 }, 21.73);
+      tl.set("#w8_0", { color: "#d4af37" }, 20.45);
+      tl.set("#w8_0", { color: "#ffffff" }, 20.69);
+      tl.set("#w8_1", { color: "#d4af37" }, 20.69);
+      tl.set("#w8_1", { color: "#ffffff" }, 21.01);
+      tl.set("#w8_2", { color: "#d4af37" }, 21.01);
+      tl.fromTo("#c9", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 21.73);
+      tl.set("#c9", { opacity: 0 }, 22.85);
+      tl.set("#w9_0", { color: "#d4af37" }, 21.73);
+      tl.set("#w9_0", { color: "#ffffff" }, 22.45);
+      tl.set("#w9_1", { color: "#d4af37" }, 22.45);
       tl.fromTo(
         "#c10",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        23.19,
+        22.85,
       );
-      tl.set("#c10", { opacity: 0 }, 24.55);
-      tl.set("#w10_0", { color: "#d4af37" }, 23.19);
-      tl.set("#w10_0", { color: "#ffffff" }, 23.59);
-      tl.set("#w10_1", { color: "#d4af37" }, 23.59);
-      tl.set("#w10_1", { color: "#ffffff" }, 23.91);
-      tl.set("#w10_2", { color: "#d4af37" }, 23.91);
-      tl.set("#w10_2", { color: "#ffffff" }, 24.07);
-      tl.set("#w10_3", { color: "#d4af37" }, 24.07);
-      tl.set("#w10_3", { color: "#ffffff" }, 24.15);
-      tl.set("#w10_4", { color: "#d4af37" }, 24.15);
+      tl.set("#c10", { opacity: 0 }, 23.89);
+      tl.set("#w10_0", { color: "#d4af37" }, 22.85);
+      tl.set("#w10_0", { color: "#ffffff" }, 23.01);
+      tl.set("#w10_1", { color: "#d4af37" }, 23.01);
+      tl.set("#w10_1", { color: "#ffffff" }, 23.09);
+      tl.set("#w10_2", { color: "#d4af37" }, 23.09);
+      tl.set("#w10_2", { color: "#ffffff" }, 23.33);
+      tl.set("#w10_3", { color: "#d4af37" }, 23.33);
       tl.fromTo(
         "#c11",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        24.55,
+        23.89,
       );
-      tl.set("#c11", { opacity: 0 }, 25.75);
-      tl.set("#w11_0", { color: "#d4af37" }, 24.55);
-      tl.set("#w11_0", { color: "#ffffff" }, 24.71);
-      tl.set("#w11_1", { color: "#d4af37" }, 24.71);
-      tl.set("#w11_1", { color: "#ffffff" }, 24.87);
-      tl.set("#w11_2", { color: "#d4af37" }, 24.87);
-      tl.set("#w11_2", { color: "#ffffff" }, 25.43);
-      tl.set("#w11_3", { color: "#d4af37" }, 25.43);
+      tl.set("#c11", { opacity: 0 }, 25.17);
+      tl.set("#w11_0", { color: "#d4af37" }, 23.89);
+      tl.set("#w11_0", { color: "#ffffff" }, 24.29);
+      tl.set("#w11_1", { color: "#d4af37" }, 24.29);
+      tl.set("#w11_1", { color: "#ffffff" }, 24.69);
+      tl.set("#w11_2", { color: "#d4af37" }, 24.69);
+      tl.set("#w11_2", { color: "#ffffff" }, 24.77);
+      tl.set("#w11_3", { color: "#d4af37" }, 24.77);
+      tl.set("#w11_3", { color: "#ffffff" }, 24.85);
+      tl.set("#w11_4", { color: "#d4af37" }, 24.85);
       tl.fromTo(
         "#c12",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        25.75,
+        25.17,
       );
-      tl.set("#c12", { opacity: 0 }, 26.87);
-      tl.set("#w12_0", { color: "#d4af37" }, 25.75);
-      tl.set("#w12_0", { color: "#ffffff" }, 26.15);
-      tl.set("#w12_1", { color: "#d4af37" }, 26.15);
-      tl.set("#w12_1", { color: "#ffffff" }, 26.31);
-      tl.set("#w12_2", { color: "#d4af37" }, 26.31);
-      tl.set("#w12_2", { color: "#ffffff" }, 26.39);
-      tl.set("#w12_3", { color: "#d4af37" }, 26.39);
+      tl.set("#c12", { opacity: 0 }, 26.13);
+      tl.set("#w12_0", { color: "#d4af37" }, 25.17);
+      tl.set("#w12_0", { color: "#ffffff" }, 25.33);
+      tl.set("#w12_1", { color: "#d4af37" }, 25.33);
+      tl.set("#w12_1", { color: "#ffffff" }, 25.49);
+      tl.set("#w12_2", { color: "#d4af37" }, 25.49);
+      tl.set("#w12_2", { color: "#ffffff" }, 25.81);
+      tl.set("#w12_3", { color: "#d4af37" }, 25.81);
       tl.fromTo(
         "#c13",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        26.87,
+        26.13,
       );
-      tl.set("#c13", { opacity: 0 }, 28.81);
-      tl.set("#w13_0", { color: "#d4af37" }, 26.87);
-      tl.set("#w13_0", { color: "#ffffff" }, 27.19);
-      tl.set("#w13_1", { color: "#d4af37" }, 27.19);
-      tl.set("#w13_1", { color: "#ffffff" }, 27.27);
-      tl.set("#w13_2", { color: "#d4af37" }, 27.27);
-      tl.set("#w13_2", { color: "#ffffff" }, 27.43);
-      tl.set("#w13_3", { color: "#d4af37" }, 27.43);
-      tl.set("#w13_3", { color: "#ffffff" }, 27.91);
-      tl.set("#w13_4", { color: "#d4af37" }, 27.91);
+      tl.set("#c13", { opacity: 0 }, 27.17);
+      tl.set("#w13_0", { color: "#d4af37" }, 26.13);
+      tl.set("#w13_0", { color: "#ffffff" }, 26.21);
+      tl.set("#w13_1", { color: "#d4af37" }, 26.21);
+      tl.set("#w13_1", { color: "#ffffff" }, 26.29);
+      tl.set("#w13_2", { color: "#d4af37" }, 26.29);
       tl.fromTo(
         "#c14",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        28.81,
+        27.17,
       );
-      tl.set("#c14", { opacity: 0 }, 32.2);
-      tl.set("#w14_0", { color: "#d4af37" }, 28.81);
+      tl.set("#c14", { opacity: 0 }, 30.49);
+      tl.set("#w14_0", { color: "#d4af37" }, 27.17);
       tl.fromTo(
         "#c15",
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        32.27,
+        30.72,
       );
-      tl.set("#c15", { opacity: 0 }, 34.26);
-      tl.set("#w15_0", { color: "#d4af37" }, 32.27);
-      tl.set("#w15_0", { color: "#ffffff" }, 32.67);
-      tl.set("#w15_1", { color: "#d4af37" }, 32.67);
-      tl.set("#w15_1", { color: "#ffffff" }, 32.83);
-      tl.set("#w15_2", { color: "#d4af37" }, 32.83);
-      tl.set("#w15_2", { color: "#ffffff" }, 33.23);
-      tl.set("#w15_3", { color: "#d4af37" }, 33.23);
-      tl.set("#w15_3", { color: "#ffffff" }, 33.47);
-      tl.set("#w15_4", { color: "#d4af37" }, 33.47);
-      tl.fromTo(
-        "#c16",
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.2, ease: IN },
-        34.26,
-      );
-      tl.set("#c16", { opacity: 0 }, 36.22);
-      tl.set("#w16_0", { color: "#d4af37" }, 34.26);
-      tl.set("#w16_0", { color: "#ffffff" }, 34.66);
-      tl.set("#w16_1", { color: "#d4af37" }, 34.66);
-      tl.set("#w16_1", { color: "#ffffff" }, 34.82);
-      tl.set("#w16_2", { color: "#d4af37" }, 34.82);
-      tl.set("#w16_2", { color: "#ffffff" }, 35.22);
-      tl.set("#w16_3", { color: "#d4af37" }, 35.22);
+      tl.set("#c15", { opacity: 0 }, 34.0);
+      tl.set("#w15_0", { color: "#d4af37" }, 30.72);
+      tl.fromTo("#c16", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: IN }, 34.0);
+      tl.set("#c16", { opacity: 0 }, 35.56);
+      tl.set("#w16_0", { color: "#d4af37" }, 34.0);
+      tl.set("#w16_0", { color: "#ffffff" }, 34.24);
+      tl.set("#w16_1", { color: "#d4af37" }, 34.24);
+      tl.set("#w16_1", { color: "#ffffff" }, 34.4);
+      tl.set("#w16_2", { color: "#d4af37" }, 34.4);
+      tl.set("#w16_2", { color: "#ffffff" }, 34.56);
+      tl.set("#w16_3", { color: "#d4af37" }, 34.56);
 
-      // comparison card: the window turns away, two 3D panels turn in
-      tl.to("#s4", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 31.9);
-      tl.to("#s4", { opacity: 0, duration: 0.14, ease: "none" }, 32.08);
-      tl.to("#top", { opacity: 0, duration: 0.3, ease: OUT }, 32.1);
+      // side-by-side: the card turns away, both options turn in, the difference pops
+      tl.to("#a", { rotationY: -32, x: -260, z: -220, duration: 0.32, ease: OUT }, 30.17);
+      tl.to("#a", { opacity: 0, duration: 0.14, ease: "none" }, 30.35);
+      tl.to("#top", { opacity: 0, duration: 0.3, ease: OUT }, 30.37);
       tl.fromTo(
         "#pB",
         { opacity: 0, rotationY: 35, x: 160 },
         { opacity: 1, rotationY: 0, x: 0, duration: 0.6, ease: IN },
-        32.25,
+        30.52,
       );
-      tl.fromTo("#cfine", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 32.5);
       tl.fromTo(
         "#pA",
         { opacity: 0, rotationY: 35, x: 160 },
         { opacity: 1, rotationY: 0, x: 0, duration: 0.6, ease: IN },
-        32.83,
+        30.67,
       );
       tl.fromTo(
         "#dif",
         { opacity: 0, scale: 0.85, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" },
-        34.26,
+        30.72,
       );
+      tl.fromTo("#cfine", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: IN }, 31.02);
 
       // end card
       tl.fromTo(

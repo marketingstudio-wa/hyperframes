@@ -12,8 +12,10 @@ SRC = sys.argv[1] if len(sys.argv) > 1 else "../../../reel2/in4"
 HOOK = json.load(open(f"{SRC}/hook_tw.json"))
 MID = json.load(open(f"{SRC}/mid_tw.json"))
 OUTRO = json.load(open(f"{SRC}/outro_tw.json"))
-MID_LEN = float(open(f"{SRC}/mid_len.txt").read()) if len(sys.argv) > 2 else MID[-1]["e"] + 0.2
+MID_LEN = MID[-1]["e"] + 0.2
 OUTRO_LEN = 3.52
+# the 40 s cap: the outro line only fits when the middle line is short enough
+USE_OUTRO = 7.70 + MID_LEN + 0.2 + OUTRO_LEN + 0.1 + 0.6 + 3.6 <= 40.0
 
 LEAD = 0.08
 r = lambda x: f"{x:.2f}"
@@ -34,7 +36,7 @@ def find(word, nth=1, after=0):
 H0, M0 = 0.10, 7.70
 MID_END = M0 + MID_LEN
 # the end card must land on a music beat that leads into the 122.95 end hit (beats every 0.6 s from 7.70)
-END0 = 7.70 + 0.6 * -(-(MID_END + 0.2 + OUTRO_LEN + 0.1 - 7.70) // 0.6)
+END0 = 7.70 + 0.6 * -(-(MID_END + (0.2 + OUTRO_LEN + 0.1 if USE_OUTRO else 0.3) - 7.70) // 0.6)
 O0 = END0 - OUTRO_LEN - 0.1
 T = round(END0 + 3.6, 2)
 SPLICE = END0 - 2.4  # beat-aligned jump to the track's last phrase
@@ -49,7 +51,8 @@ FINE = "Example project &mdash; every project&rsquo;s estimate differs."
 iSAME = 0
 iOB = find("option", 1)
 iVINYL = find("vinyl")
-iFIVE = find("five")
+is_money = lambda i, pre: MID[i]["w"].startswith(pre)  # ASR may already write a figure as "$590,279."
+iFIVE = next(i for i, w in enumerate(MID) if is_money(i, "$590") or norm(w["w"]) == "five")
 iOA = find("option", 2)
 iSINK = find("sink")
 iUNDER = next(i for i in range(iSINK, len(MID)) if norm(MID[i]["w"]).startswith("under"))
@@ -57,13 +60,15 @@ iPOT = find("pot")
 iHARDIE = find("hardie")
 iSTONE = find("stone")
 iSIX = find("six", 1, iSTONE)
-iSIXTEEN = find("sixteen")
+iSIXTEEN = next(i for i, w in enumerate(MID) if is_money(i, "$16") or norm(w["w"]) == "sixteen")
 iNOW = find("now", 1, iSIXTEEN)
 CMP = mw(iSIXTEEN) - 0.25  # side-by-side comes in as the difference is spoken
 
 
 def money_end(i):
     j = i
+    if MID[i]["w"].startswith("$"):
+        return i
     while not norm(MID[j]["w"]).startswith("dollar"):
         j += 1
     return j
@@ -88,19 +93,27 @@ def mid_chunks():
         disp = {"hardy": "Hardie"}.get(w.lower().strip(".,"), w)
         if disp != w and w[-1] in ".,":
             disp += w[-1]
-        cur.append((disp, i, i))
-        if w[-1] in ".,?" or len(cur) == 5:
-            out.append(cur); cur = []
-        i += 1
+        if i == iSINK - 1 and disp == "a":
+            disp = "A"
+        j = i
+        if norm(w) == "under" and i + 1 < len(MID) and norm(MID[i + 1]["w"]) == "cabinet":
+            disp, j = "under-" + MID[i + 1]["w"], i + 1
+        cur.append((disp, i, j))
+        if MID[j]["w"][-1] in ".,?" or norm(MID[j]["w"]) == "front":  # the take has no comma after "front"
+            n = -(-len(cur) // 5)  # balance long phrases into <= 5-word lines
+            k = -(-len(cur) // n)
+            out += [cur[x:x + k] for x in range(0, len(cur), k)]
+            cur = []
+        i = j + 1
     if cur:
         out.append(cur)
     return [{"words": [d for d, _, _ in c], "starts": [mw(a) for _, a, _ in c], "end": M0 + MID[c[-1][2]]["e"]} for c in out]
 
 
-CAPS = mid_chunks() + [
+CAPS = mid_chunks() + ([] if not USE_OUTRO else [
     {"words": ["Change", "the", "scope", "out", "loud."], "starts": [ow(k) for k in range(5)], "end": O0 + OUTRO[4]["e"]},
     {"words": ["Watch", "the", "total", "move."], "starts": [ow(k) for k in range(5, 9)], "end": O0 + OUTRO[8]["e"]},
-]
+])
 cap_html, cap_js = [], []
 for c, ch in enumerate(CAPS):
     a = ch["starts"][0]
@@ -178,7 +191,7 @@ def bar(title, tag_text):
             f'<div class="ti">{title}</div><div class="btag">{tag_text}</div></div>')
 
 
-json.dump({"T": T, "vo": [["hook_t.wav", H0], ["mid_t.wav", M0], ["outro_t.wav", O0]],
+json.dump({"T": T, "vo": [["hook_t.wav", H0], ["mid_t.wav", M0]] + ([["outro_t.wav", O0]] if USE_OUTRO else []),
            "music": [[0.0, round(SPLICE, 2), 2.45], [round(SPLICE, 2), T, round(122.95 - END0, 2)]]},
           open("timing.json", "w"))
 
@@ -418,4 +431,4 @@ doc = f"""<!doctype html>
 </html>
 """
 open("index.html", "w").write(doc)
-print("T", T, "mid end", r(MID_END), "outro", r(O0), "end card", r(END0), "captions", len(CAPS))
+print("outro", USE_OUTRO, "T", T, "mid end", r(MID_END), "outro", r(O0), "end card", r(END0), "captions", len(CAPS))
