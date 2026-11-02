@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Real Call Clip</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #1a1a2e;
+        --card: #2d2d44;
+        --line: #3a3a55;
+        --sand: #c9a96e;
+        --gold: #d4af37;
+        --gray: #a0aab2;
+        --white: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      body { font-family: "Inter", sans-serif; color: var(--white); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #base { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: fill; }
+      #rail { position: absolute; left: 40px; top: 90px; width: 1000px; height: 120px; display: flex;
+        align-items: center; justify-content: space-between; opacity: 0; }
+      #rail-logo { height: 112px; width: auto; }
+      #live { display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: 5px; color: var(--sand); }
+      #live i { width: 18px; height: 18px; border-radius: 50%; background: #e5484d; display: block; }
+      #hook { position: absolute; left: 40px; top: 52px; width: 1000px; height: 190px; display: flex; align-items: center;
+        font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1.04; }
+      #hook span { color: var(--gold); }
+      #facebox { position: absolute; left: 34px; top: 244px; width: 1012px; height: 574px; border: 6px solid var(--gold); }
+      #appbox { position: absolute; left: 36px; top: 846px; width: 1008px; height: 604px; border: 4px solid var(--line); }
+      #note { position: absolute; left: 36px; top: 1462px; width: 1008px; font-size: 26px; font-weight: 500; color: var(--gray); white-space: nowrap; }
+      .lt { position: absolute; left: 70px; top: 700px; padding: 14px 26px 14px 22px; background: rgba(26, 26, 46, 0.94);
+        border-left: 6px solid var(--gold); opacity: 0; }
+      .lt .n { display: block; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; }
+      .lt .r { display: block; margin-top: 2px; font-size: 26px; font-weight: 700; letter-spacing: 3px; color: var(--sand); text-transform: uppercase; }
+      .cap { position: absolute; left: 50px; top: 1620px; width: 980px; text-align: center; font-size: 70px; font-weight: 900;
+        letter-spacing: -1px; line-height: 1.1; opacity: 0; text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55); }
+      #chap { position: absolute; left: 40px; top: 1810px; width: 1000px; }
+      .ch { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; text-align: center; }
+      .ch .k { display: block; font-size: 26px; font-weight: 800; letter-spacing: 5px; color: var(--gold); }
+      .ch .t { display: inline; margin-top: 10px; font-size: 34px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; }
+      #outro { position: absolute; inset: 0; background: var(--navy); opacity: 0; }
+      #outro-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      #outro-logo { width: 560px; height: auto; }
+      #outro-rule { width: 390px; height: 4px; background: var(--gold); margin: 70px 0 56px; }
+      #outro-line { font-size: 54px; font-weight: 500; }
+      #outro-cta { margin-top: 30px; font-size: 56px; font-weight: 900; color: var(--gold); letter-spacing: 0.5px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.80" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/mix.m4a" data-start="0" data-duration="38.80" data-track-index="10" data-volume="1"></audio>
+      <video id="base" class="clip" src="assets/base.mp4" data-start="0" data-duration="35.20" data-track-index="1" muted playsinline></video>
+      <section id="call">
+        <div id="facebox"></div>
+        <div id="appbox"></div>
+        <div id="note">Example project &mdash; every project&rsquo;s estimate differs.</div>
+          <div class="lt" id="lt0"><span class="n">CEO &amp; Owner</span><span class="r">23 yrs in construction</span></div>
+          <div class="lt" id="lt1"><span class="n">Partner Architect</span><span class="r"></span></div>
+          <div class="lt" id="lt2"><span class="n">CEO &amp; Owner</span><span class="r">23 yrs in construction</span></div>
+        <div id="rail"><img id="rail-logo" src="assets/logo-rail.png" alt="Home Estimator" /><div id="live"><i></i>REAL DEMO CALL</div></div>
+        <div id="hook"><div>No keyboard. No mouse. Just talk.</div></div>
+        <div class="cap" id="c0"><span id="w0_0">Alex,</span> <span id="w0_1">let&#x27;s</span> <span id="w0_2">start</span> <span id="w0_3">a</span></div>
+        <div class="cap" id="c1"><span id="w1_0">new</span> <span id="w1_1">project.</span></div>
+        <div class="cap" id="c2"><span id="w2_0">I</span> <span id="w2_1">have</span> <span id="w2_2">a</span> <span id="w2_3">ranch,</span></div>
+        <div class="cap" id="c3"><span id="w3_0">1,500</span> <span id="w3_1">square</span> <span id="w3_2">feet</span> <span id="w3_3">area,</span></div>
+        <div class="cap" id="c4"><span id="w4_0">and</span> <span id="w4_1">I</span> <span id="w4_2">want</span> <span id="w4_3">to</span></div>
+        <div class="cap" id="c5"><span id="w5_0">remodel</span> <span id="w5_1">my</span> <span id="w5_2">kitchen</span> <span id="w5_3">and</span></div>
+        <div class="cap" id="c6"><span id="w6_0">a</span> <span id="w6_1">full</span> <span id="w6_2">bath</span> <span id="w6_3">and</span></div>
+        <div class="cap" id="c7"><span id="w7_0">replace</span> <span id="w7_1">the</span> <span id="w7_2">hardwood</span> <span id="w7_3">floors.</span></div>
+        <div class="cap" id="c8"><span id="w8_0">And</span> <span id="w8_1">let&#x27;s</span> <span id="w8_2">do</span> <span id="w8_3">the</span></div>
+        <div class="cap" id="c9"><span id="w9_0">paint</span> <span id="w9_1">for</span> <span id="w9_2">the</span> <span id="w9_3">whole</span></div>
+        <div class="cap" id="c10"><span id="w10_0">house</span> <span id="w10_1">as</span> <span id="w10_2">well.</span></div>
+        <div class="cap" id="c11"><span id="w11_0">Are</span> <span id="w11_1">you</span> <span id="w11_2">looking</span> <span id="w11_3">at</span></div>
+        <div class="cap" id="c12"><span id="w12_0">it?</span></div>
+        <div class="cap" id="c13"><span id="w13_0">Yeah.</span></div>
+        <div class="cap" id="c14"><span id="w14_0">So</span> <span id="w14_1">it</span> <span id="w14_2">gave</span> <span id="w14_3">you</span></div>
+        <div class="cap" id="c15"><span id="w15_0">all</span> <span id="w15_1">of</span> <span id="w15_2">this.</span></div>
+        <div class="cap" id="c16"><span id="w16_0">Wow.</span></div>
+        <div class="cap" id="c17"><span id="w17_0">It</span> <span id="w17_1">changed</span> <span id="w17_2">the</span> <span id="w17_3">screen</span></div>
+        <div class="cap" id="c18"><span id="w18_0">automatically,</span> <span id="w18_1">selected</span> <span id="w18_2">the</span> <span id="w18_3">data</span></div>
+        <div class="cap" id="c19"><span id="w19_0">on</span> <span id="w19_1">auto.</span></div>
+        <div class="cap" id="c20"><span id="w20_0">My</span> <span id="w20_1">hands</span> <span id="w20_2">are</span> <span id="w20_3">there.</span></div>
+        <div class="cap" id="c21"><span id="w21_0">Is</span> <span id="w21_1">there</span> <span id="w21_2">anything</span> <span id="w21_3">else</span></div>
+        <div class="cap" id="c22"><span id="w22_0">you</span> <span id="w22_1">want</span> <span id="w22_2">to</span> <span id="w22_3">add</span></div>
+        <div class="cap" id="c23"><span id="w23_0">or</span> <span id="w23_1">change</span> <span id="w23_2">before</span> <span id="w23_3">I</span></div>
+        <div class="cap" id="c24"><span id="w24_0">price</span> <span id="w24_1">this?</span></div>
+        <div class="cap" id="c25"><span id="w25_0">No,</span> <span id="w25_1">I</span> <span id="w25_2">think</span> <span id="w25_3">we&#x27;re</span></div>
+        <div class="cap" id="c26"><span id="w26_0">done.</span></div>
+        <div class="cap" id="c27"><span id="w27_0">Just</span> <span id="w27_1">give</span> <span id="w27_2">me</span> <span id="w27_3">the</span></div>
+        <div class="cap" id="c28"><span id="w28_0">price.</span></div>
+        <div class="cap" id="c29"><span id="w29_0">Generate</span> <span id="w29_1">the</span> <span id="w29_2">estimate</span> <span id="w29_3">now?</span></div>
+        <div class="cap" id="c30"><span id="w30_0">Yes.</span></div>
+        <div class="cap" id="c31"><span id="w31_0">And</span> <span id="w31_1">there</span> <span id="w31_2">you</span> <span id="w31_3">go.</span></div>
+        <div id="chap">
+
+        </div>
+      </section>
+
+      <section id="outro">
+        <div id="outro-in">
+          <img id="outro-logo" src="assets/logo-end.png" alt="Home Estimator" />
+          <div id="outro-rule"></div>
+          <div id="outro-line">Try our hands-free mode</div>
+          <div id="outro-cta">GO TO HOMEESTIMATOR.AI</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const IN = "power3.out";
+      const OUT = "power2.in";
+
+      // hook: lands on frame 1 over the live call, then hands the top rail to the logo
+      tl.fromTo("#hook", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: IN }, 0.05);
+      tl.to("#hook", { opacity: 0, y: -20, duration: 0.3, ease: OUT }, 2.90);
+      tl.set("#hook", { opacity: 0 }, 3.20);
+      tl.fromTo("#rail", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: IN }, 3.20);
+
+      // layout per segment (split: face + app, face: full camera)
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 0.00);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 0.00);
+      tl.set(".lt", { left: 70, top: 700 }, 0.00);
+      tl.set("#chap", { visibility: "visible" }, 0.00);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 15.30);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 15.30);
+      tl.set(".lt", { left: 70, top: 700 }, 15.30);
+      tl.set("#chap", { visibility: "visible" }, 15.30);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 20.40);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 20.40);
+      tl.set(".lt", { left: 70, top: 700 }, 20.40);
+      tl.set("#chap", { visibility: "visible" }, 20.40);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 26.70);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 26.70);
+      tl.set(".lt", { left: 70, top: 700 }, 26.70);
+      tl.set("#chap", { visibility: "visible" }, 26.70);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 31.60);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 31.60);
+      tl.set(".lt", { left: 70, top: 700 }, 31.60);
+      tl.set("#chap", { visibility: "visible" }, 31.60);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 34.20);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 34.20);
+      tl.set(".lt", { left: 70, top: 700 }, 34.20);
+      tl.set("#chap", { visibility: "visible" }, 34.20);
+
+      // speaker lower-thirds
+      tl.fromTo("#lt0", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 0.30);
+      tl.to("#lt0", { opacity: 0, duration: 0.2, ease: OUT }, 16.50);
+      tl.set("#lt0", { opacity: 0 }, 16.70);
+      tl.fromTo("#lt1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 16.85);
+      tl.to("#lt1", { opacity: 0, duration: 0.2, ease: OUT }, 20.40);
+      tl.set("#lt1", { opacity: 0 }, 20.60);
+      tl.fromTo("#lt2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 20.75);
+      tl.to("#lt2", { opacity: 0, duration: 0.2, ease: OUT }, 35.00);
+      tl.set("#lt2", { opacity: 0 }, 35.20);
+
+      // chapter titles
+
+
+      // captions (active word gold)
+      tl.set("#c0", { opacity: 1 }, 0.00);
+      tl.set("#c0", { opacity: 0 }, 1.34);
+      tl.set("#w0_0", { color: "#d4af37" }, 0.00);
+      tl.set("#w0_0", { color: "#ffffff" }, 0.42);
+      tl.set("#w0_1", { color: "#d4af37" }, 0.42);
+      tl.set("#w0_1", { color: "#ffffff" }, 0.72);
+      tl.set("#w0_2", { color: "#d4af37" }, 0.72);
+      tl.set("#w0_2", { color: "#ffffff" }, 1.14);
+      tl.set("#w0_3", { color: "#d4af37" }, 1.14);
+      tl.set("#c1", { opacity: 1 }, 1.34);
+      tl.set("#c1", { opacity: 0 }, 2.18);
+      tl.set("#w1_0", { color: "#d4af37" }, 1.34);
+      tl.set("#w1_0", { color: "#ffffff" }, 1.50);
+      tl.set("#w1_1", { color: "#d4af37" }, 1.50);
+      tl.set("#c2", { opacity: 1 }, 2.18);
+      tl.set("#c2", { opacity: 0 }, 3.57);
+      tl.set("#w2_0", { color: "#d4af37" }, 2.18);
+      tl.set("#w2_0", { color: "#ffffff" }, 2.22);
+      tl.set("#w2_1", { color: "#d4af37" }, 2.22);
+      tl.set("#w2_1", { color: "#ffffff" }, 2.34);
+      tl.set("#w2_2", { color: "#d4af37" }, 2.34);
+      tl.set("#w2_2", { color: "#ffffff" }, 2.58);
+      tl.set("#w2_3", { color: "#d4af37" }, 2.58);
+      tl.set("#c3", { opacity: 1 }, 3.57);
+      tl.set("#c3", { opacity: 0 }, 5.44);
+      tl.set("#w3_0", { color: "#d4af37" }, 3.57);
+      tl.set("#w3_0", { color: "#ffffff" }, 4.16);
+      tl.set("#w3_1", { color: "#d4af37" }, 4.16);
+      tl.set("#w3_1", { color: "#ffffff" }, 4.58);
+      tl.set("#w3_2", { color: "#d4af37" }, 4.58);
+      tl.set("#w3_2", { color: "#ffffff" }, 4.86);
+      tl.set("#w3_3", { color: "#d4af37" }, 4.86);
+      tl.set("#c4", { opacity: 1 }, 5.44);
+      tl.set("#c4", { opacity: 0 }, 6.80);
+      tl.set("#w4_0", { color: "#d4af37" }, 5.44);
+      tl.set("#w4_0", { color: "#ffffff" }, 6.10);
+      tl.set("#w4_1", { color: "#d4af37" }, 6.10);
+      tl.set("#w4_1", { color: "#ffffff" }, 6.54);
+      tl.set("#w4_2", { color: "#d4af37" }, 6.54);
+      tl.set("#w4_2", { color: "#ffffff" }, 6.65);
+      tl.set("#w4_3", { color: "#d4af37" }, 6.65);
+      tl.set("#c5", { opacity: 1 }, 6.80);
+      tl.set("#c5", { opacity: 0 }, 8.62);
+      tl.set("#w5_0", { color: "#d4af37" }, 6.80);
+      tl.set("#w5_0", { color: "#ffffff" }, 7.64);
+      tl.set("#w5_1", { color: "#d4af37" }, 7.64);
+      tl.set("#w5_1", { color: "#ffffff" }, 7.92);
+      tl.set("#w5_2", { color: "#d4af37" }, 7.92);
+      tl.set("#w5_2", { color: "#ffffff" }, 8.38);
+      tl.set("#w5_3", { color: "#d4af37" }, 8.38);
+      tl.set("#c6", { opacity: 1 }, 8.62);
+      tl.set("#c6", { opacity: 0 }, 9.86);
+      tl.set("#w6_0", { color: "#d4af37" }, 8.62);
+      tl.set("#w6_0", { color: "#ffffff" }, 8.74);
+      tl.set("#w6_1", { color: "#d4af37" }, 8.74);
+      tl.set("#w6_1", { color: "#ffffff" }, 8.90);
+      tl.set("#w6_2", { color: "#d4af37" }, 8.90);
+      tl.set("#w6_2", { color: "#ffffff" }, 9.32);
+      tl.set("#w6_3", { color: "#d4af37" }, 9.32);
+      tl.set("#c7", { opacity: 1 }, 9.86);
+      tl.set("#c7", { opacity: 0 }, 12.24);
+      tl.set("#w7_0", { color: "#d4af37" }, 9.86);
+      tl.set("#w7_0", { color: "#ffffff" }, 10.38);
+      tl.set("#w7_1", { color: "#d4af37" }, 10.38);
+      tl.set("#w7_1", { color: "#ffffff" }, 10.77);
+      tl.set("#w7_2", { color: "#d4af37" }, 10.77);
+      tl.set("#w7_2", { color: "#ffffff" }, 10.88);
+      tl.set("#w7_3", { color: "#d4af37" }, 10.88);
+      tl.set("#c8", { opacity: 1 }, 12.30);
+      tl.set("#c8", { opacity: 0 }, 13.78);
+      tl.set("#w8_0", { color: "#d4af37" }, 12.30);
+      tl.set("#w8_0", { color: "#ffffff" }, 12.70);
+      tl.set("#w8_1", { color: "#d4af37" }, 12.70);
+      tl.set("#w8_1", { color: "#ffffff" }, 13.18);
+      tl.set("#w8_2", { color: "#d4af37" }, 13.18);
+      tl.set("#w8_2", { color: "#ffffff" }, 13.34);
+      tl.set("#w8_3", { color: "#d4af37" }, 13.34);
+      tl.set("#c9", { opacity: 1 }, 13.78);
+      tl.set("#c9", { opacity: 0 }, 14.56);
+      tl.set("#w9_0", { color: "#d4af37" }, 13.78);
+      tl.set("#w9_0", { color: "#ffffff" }, 14.12);
+      tl.set("#w9_1", { color: "#d4af37" }, 14.12);
+      tl.set("#w9_1", { color: "#ffffff" }, 14.30);
+      tl.set("#w9_2", { color: "#d4af37" }, 14.30);
+      tl.set("#w9_2", { color: "#ffffff" }, 14.40);
+      tl.set("#w9_3", { color: "#d4af37" }, 14.40);
+      tl.set("#c10", { opacity: 1 }, 14.56);
+      tl.set("#c10", { opacity: 0 }, 15.60);
+      tl.set("#w10_0", { color: "#d4af37" }, 14.56);
+      tl.set("#w10_0", { color: "#ffffff" }, 14.80);
+      tl.set("#w10_1", { color: "#d4af37" }, 14.80);
+      tl.set("#w10_1", { color: "#ffffff" }, 15.00);
+      tl.set("#w10_2", { color: "#d4af37" }, 15.00);
+      tl.set("#c11", { opacity: 1 }, 15.60);
+      tl.set("#c11", { opacity: 0 }, 16.46);
+      tl.set("#w11_0", { color: "#d4af37" }, 15.60);
+      tl.set("#w11_0", { color: "#ffffff" }, 15.66);
+      tl.set("#w11_1", { color: "#d4af37" }, 15.66);
+      tl.set("#w11_1", { color: "#ffffff" }, 15.76);
+      tl.set("#w11_2", { color: "#d4af37" }, 15.76);
+      tl.set("#w11_2", { color: "#ffffff" }, 16.02);
+      tl.set("#w11_3", { color: "#d4af37" }, 16.02);
+      tl.set("#c12", { opacity: 1 }, 16.46);
+      tl.set("#c12", { opacity: 0 }, 16.68);
+      tl.set("#w12_0", { color: "#d4af37" }, 16.46);
+      tl.set("#c13", { opacity: 1 }, 16.68);
+      tl.set("#c13", { opacity: 0 }, 17.94);
+      tl.set("#w13_0", { color: "#d4af37" }, 16.68);
+      tl.set("#c14", { opacity: 1 }, 18.04);
+      tl.set("#c14", { opacity: 0 }, 18.92);
+      tl.set("#w14_0", { color: "#d4af37" }, 18.04);
+      tl.set("#w14_0", { color: "#ffffff" }, 18.38);
+      tl.set("#w14_1", { color: "#d4af37" }, 18.38);
+      tl.set("#w14_1", { color: "#ffffff" }, 18.58);
+      tl.set("#w14_2", { color: "#d4af37" }, 18.58);
+      tl.set("#w14_2", { color: "#ffffff" }, 18.78);
+      tl.set("#w14_3", { color: "#d4af37" }, 18.78);
+      tl.set("#c15", { opacity: 1 }, 18.92);
+      tl.set("#c15", { opacity: 0 }, 19.90);
+      tl.set("#w15_0", { color: "#d4af37" }, 18.92);
+      tl.set("#w15_0", { color: "#ffffff" }, 19.24);
+      tl.set("#w15_1", { color: "#d4af37" }, 19.24);
+      tl.set("#w15_1", { color: "#ffffff" }, 19.42);
+      tl.set("#w15_2", { color: "#d4af37" }, 19.42);
+      tl.set("#c16", { opacity: 1 }, 19.90);
+      tl.set("#c16", { opacity: 0 }, 20.54);
+      tl.set("#w16_0", { color: "#d4af37" }, 19.90);
+      tl.set("#c17", { opacity: 1 }, 20.54);
+      tl.set("#c17", { opacity: 0 }, 21.74);
+      tl.set("#w17_0", { color: "#d4af37" }, 20.54);
+      tl.set("#w17_0", { color: "#ffffff" }, 20.70);
+      tl.set("#w17_1", { color: "#d4af37" }, 20.70);
+      tl.set("#w17_1", { color: "#ffffff" }, 21.20);
+      tl.set("#w17_2", { color: "#d4af37" }, 21.20);
+      tl.set("#w17_2", { color: "#ffffff" }, 21.44);
+      tl.set("#w17_3", { color: "#d4af37" }, 21.44);
+      tl.set("#c18", { opacity: 1 }, 21.74);
+      tl.set("#c18", { opacity: 0 }, 24.10);
+      tl.set("#w18_0", { color: "#d4af37" }, 21.74);
+      tl.set("#w18_0", { color: "#ffffff" }, 22.62);
+      tl.set("#w18_1", { color: "#d4af37" }, 22.62);
+      tl.set("#w18_1", { color: "#ffffff" }, 23.06);
+      tl.set("#w18_2", { color: "#d4af37" }, 23.06);
+      tl.set("#w18_2", { color: "#ffffff" }, 23.42);
+      tl.set("#w18_3", { color: "#d4af37" }, 23.42);
+      tl.set("#c19", { opacity: 1 }, 24.10);
+      tl.set("#c19", { opacity: 0 }, 25.76);
+      tl.set("#w19_0", { color: "#d4af37" }, 24.10);
+      tl.set("#w19_0", { color: "#ffffff" }, 24.58);
+      tl.set("#w19_1", { color: "#d4af37" }, 24.58);
+      tl.set("#c20", { opacity: 1 }, 25.76);
+      tl.set("#c20", { opacity: 0 }, 26.92);
+      tl.set("#w20_0", { color: "#d4af37" }, 25.76);
+      tl.set("#w20_0", { color: "#ffffff" }, 25.86);
+      tl.set("#w20_1", { color: "#d4af37" }, 25.86);
+      tl.set("#w20_1", { color: "#ffffff" }, 26.34);
+      tl.set("#w20_2", { color: "#d4af37" }, 26.34);
+      tl.set("#w20_2", { color: "#ffffff" }, 26.50);
+      tl.set("#w20_3", { color: "#d4af37" }, 26.50);
+      tl.set("#c21", { opacity: 1 }, 26.92);
+      tl.set("#c21", { opacity: 0 }, 27.56);
+      tl.set("#w21_0", { color: "#d4af37" }, 26.92);
+      tl.set("#w21_0", { color: "#ffffff" }, 27.02);
+      tl.set("#w21_1", { color: "#d4af37" }, 27.02);
+      tl.set("#w21_1", { color: "#ffffff" }, 27.12);
+      tl.set("#w21_2", { color: "#d4af37" }, 27.12);
+      tl.set("#w21_2", { color: "#ffffff" }, 27.38);
+      tl.set("#w21_3", { color: "#d4af37" }, 27.38);
+      tl.set("#c22", { opacity: 1 }, 27.56);
+      tl.set("#c22", { opacity: 0 }, 28.12);
+      tl.set("#w22_0", { color: "#d4af37" }, 27.56);
+      tl.set("#w22_0", { color: "#ffffff" }, 27.70);
+      tl.set("#w22_1", { color: "#d4af37" }, 27.70);
+      tl.set("#w22_1", { color: "#ffffff" }, 27.79);
+      tl.set("#w22_2", { color: "#d4af37" }, 27.79);
+      tl.set("#w22_2", { color: "#ffffff" }, 27.90);
+      tl.set("#w22_3", { color: "#d4af37" }, 27.90);
+      tl.set("#c23", { opacity: 1 }, 28.12);
+      tl.set("#c23", { opacity: 0 }, 28.94);
+      tl.set("#w23_0", { color: "#d4af37" }, 28.12);
+      tl.set("#w23_0", { color: "#ffffff" }, 28.26);
+      tl.set("#w23_1", { color: "#d4af37" }, 28.26);
+      tl.set("#w23_1", { color: "#ffffff" }, 28.48);
+      tl.set("#w23_2", { color: "#d4af37" }, 28.48);
+      tl.set("#w23_2", { color: "#ffffff" }, 28.76);
+      tl.set("#w23_3", { color: "#d4af37" }, 28.76);
+      tl.set("#c24", { opacity: 1 }, 28.94);
+      tl.set("#c24", { opacity: 0 }, 29.40);
+      tl.set("#w24_0", { color: "#d4af37" }, 28.94);
+      tl.set("#w24_0", { color: "#ffffff" }, 29.14);
+      tl.set("#w24_1", { color: "#d4af37" }, 29.14);
+      tl.set("#c25", { opacity: 1 }, 29.40);
+      tl.set("#c25", { opacity: 0 }, 30.50);
+      tl.set("#w25_0", { color: "#d4af37" }, 29.40);
+      tl.set("#w25_0", { color: "#ffffff" }, 30.04);
+      tl.set("#w25_1", { color: "#d4af37" }, 30.04);
+      tl.set("#w25_1", { color: "#ffffff" }, 30.10);
+      tl.set("#w25_2", { color: "#d4af37" }, 30.10);
+      tl.set("#w25_2", { color: "#ffffff" }, 30.28);
+      tl.set("#w25_3", { color: "#d4af37" }, 30.28);
+      tl.set("#c26", { opacity: 1 }, 30.50);
+      tl.set("#c26", { opacity: 0 }, 30.64);
+      tl.set("#w26_0", { color: "#d4af37" }, 30.50);
+      tl.set("#c27", { opacity: 1 }, 30.64);
+      tl.set("#c27", { opacity: 0 }, 31.34);
+      tl.set("#w27_0", { color: "#d4af37" }, 30.64);
+      tl.set("#w27_0", { color: "#ffffff" }, 30.90);
+      tl.set("#w27_1", { color: "#d4af37" }, 30.90);
+      tl.set("#w27_1", { color: "#ffffff" }, 31.08);
+      tl.set("#w27_2", { color: "#d4af37" }, 31.08);
+      tl.set("#w27_2", { color: "#ffffff" }, 31.18);
+      tl.set("#w27_3", { color: "#d4af37" }, 31.18);
+      tl.set("#c28", { opacity: 1 }, 31.34);
+      tl.set("#c28", { opacity: 0 }, 32.24);
+      tl.set("#w28_0", { color: "#d4af37" }, 31.34);
+      tl.set("#c29", { opacity: 1 }, 32.24);
+      tl.set("#c29", { opacity: 0 }, 33.78);
+      tl.set("#w29_0", { color: "#d4af37" }, 32.24);
+      tl.set("#w29_0", { color: "#ffffff" }, 32.62);
+      tl.set("#w29_1", { color: "#d4af37" }, 32.62);
+      tl.set("#w29_1", { color: "#ffffff" }, 32.82);
+      tl.set("#w29_2", { color: "#d4af37" }, 32.82);
+      tl.set("#w29_2", { color: "#ffffff" }, 33.12);
+      tl.set("#w29_3", { color: "#d4af37" }, 33.12);
+      tl.set("#c30", { opacity: 1 }, 33.78);
+      tl.set("#c30", { opacity: 0 }, 34.34);
+      tl.set("#w30_0", { color: "#d4af37" }, 33.78);
+      tl.set("#c31", { opacity: 1 }, 34.34);
+      tl.set("#c31", { opacity: 0 }, 35.20);
+      tl.set("#w31_0", { color: "#d4af37" }, 34.34);
+      tl.set("#w31_0", { color: "#ffffff" }, 34.52);
+      tl.set("#w31_1", { color: "#d4af37" }, 34.52);
+      tl.set("#w31_1", { color: "#ffffff" }, 34.68);
+      tl.set("#w31_2", { color: "#d4af37" }, 34.68);
+      tl.set("#w31_2", { color: "#ffffff" }, 34.84);
+      tl.set("#w31_3", { color: "#d4af37" }, 34.84);
+
+      // end card
+      tl.set("#outro", { opacity: 1 }, 35.20);
+      tl.set("#call", { opacity: 0 }, 35.20);
+      tl.fromTo("#outro-logo", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 35.25);
+      tl.fromTo("#outro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: IN }, 35.60);
+      tl.fromTo("#outro-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 35.85);
+      tl.fromTo("#outro-cta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 36.10);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -31,6 +31,8 @@ CHAPS = EDL.get("chapters", [])
 
 CTA = {
     "c2-just-talk": ("Try our hands-free mode", "GO TO HOMEESTIMATOR.AI"),
+    "hands-free": ("Try our hands-free mode", "GO TO HOMEESTIMATOR.AI"),
+    "hands-free-16x9": ("Try our hands-free mode", "GO TO HOMEESTIMATOR.AI"),
 }.get(NAME, ("See it on your next project", "BOOK A DEMO AT HOMEESTIMATOR.AI"))
 
 # ---------- layout windows (split vs face) ----------
@@ -40,7 +42,7 @@ for s in SG["segs"]:
     fx, fy, fw, fh = G[s["mode"]]
     lx, ly = G["lt_" + s["mode"]]
     lay_js.append(f'      tl.set("#facebox", {{ left: {fx}, top: {fy}, width: {fw}, height: {fh} }}, {r(a)});')
-    lay_js.append(f'      tl.set("#appbox", {{ opacity: {1 if s["mode"] == "split" else 0} }}, {r(a)});')
+    lay_js.append(f'      tl.set(["#appbox", "#note"], {{ opacity: {1 if s["mode"] == "split" else 0} }}, {r(a)});')
     lay_js.append(f'      tl.set(".lt", {{ left: {lx}, top: {ly} }}, {r(a)});')
     lay_js.append(f'      tl.set("#chap", {{ visibility: "{"visible" if s["mode"] == "split" else "hidden"}" }}, {r(a)});')
 
@@ -140,6 +142,7 @@ doc = f"""<!doctype html>
       #hook span {{ color: var(--gold); }}
       #facebox {{ position: absolute; left: {G["split"][0]}px; top: {G["split"][1]}px; width: {G["split"][2]}px; height: {G["split"][3]}px; border: 6px solid var(--gold); }}
       #appbox {{ position: absolute; left: {G["app"][0]}px; top: {G["app"][1]}px; width: {G["app"][2]}px; height: {APP_H + 8}px; border: 4px solid var(--line); }}
+      #note {{ position: absolute; left: {G["app"][0]}px; top: {G["app"][1] + APP_H + 20}px; width: {G["app"][2]}px; font-size: {22 if LAND else 26}px; font-weight: 500; color: var(--gray); white-space: nowrap; }}
       .lt {{ position: absolute; left: {G["lt_split"][0]}px; top: {G["lt_split"][1]}px; padding: 14px 26px 14px 22px; background: rgba(26, 26, 46, 0.94);
         border-left: 6px solid var(--gold); opacity: 0; }}
       .lt .n {{ display: block; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; }}
@@ -165,6 +168,7 @@ doc = f"""<!doctype html>
       <section id="call">
         <div id="facebox"></div>
         <div id="appbox"></div>
+        <div id="note">Example project &mdash; every project&rsquo;s estimate differs.</div>
 {chr(10).join(lt_html)}
         <div id="rail"><img id="rail-logo" src="assets/logo-rail.png" alt="Home Estimator" /><div id="live"><i></i>REAL DEMO CALL</div></div>
         <div id="hook"><div>{hook}</div></div>

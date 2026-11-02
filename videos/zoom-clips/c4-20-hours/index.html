@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Real Call Clip</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #1a1a2e;
+        --card: #2d2d44;
+        --line: #3a3a55;
+        --sand: #c9a96e;
+        --gold: #d4af37;
+        --gray: #a0aab2;
+        --white: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      body { font-family: "Inter", sans-serif; color: var(--white); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #base { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: fill; }
+      #rail { position: absolute; left: 40px; top: 90px; width: 1000px; height: 120px; display: flex;
+        align-items: center; justify-content: space-between; opacity: 0; }
+      #rail-logo { height: 112px; width: auto; }
+      #live { display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: 5px; color: var(--sand); }
+      #live i { width: 18px; height: 18px; border-radius: 50%; background: #e5484d; display: block; }
+      #hook { position: absolute; left: 40px; top: 52px; width: 1000px; height: 190px; display: flex; align-items: center;
+        font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1.04; }
+      #hook span { color: var(--gold); }
+      #facebox { position: absolute; left: 34px; top: 244px; width: 1012px; height: 574px; border: 6px solid var(--gold); }
+      #appbox { position: absolute; left: 36px; top: 846px; width: 1008px; height: 722px; border: 4px solid var(--line); }
+      #note { position: absolute; left: 36px; top: 1580px; width: 1008px; font-size: 26px; font-weight: 500; color: var(--gray); white-space: nowrap; }
+      .lt { position: absolute; left: 70px; top: 700px; padding: 14px 26px 14px 22px; background: rgba(26, 26, 46, 0.94);
+        border-left: 6px solid var(--gold); opacity: 0; }
+      .lt .n { display: block; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; }
+      .lt .r { display: block; margin-top: 2px; font-size: 26px; font-weight: 700; letter-spacing: 3px; color: var(--sand); text-transform: uppercase; }
+      .cap { position: absolute; left: 50px; top: 1620px; width: 980px; text-align: center; font-size: 70px; font-weight: 900;
+        letter-spacing: -1px; line-height: 1.1; opacity: 0; text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55); }
+      #chap { position: absolute; left: 40px; top: 1810px; width: 1000px; }
+      .ch { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; text-align: center; }
+      .ch .k { display: block; font-size: 26px; font-weight: 800; letter-spacing: 5px; color: var(--gold); }
+      .ch .t { display: inline; margin-top: 10px; font-size: 34px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; }
+      #outro { position: absolute; inset: 0; background: var(--navy); opacity: 0; }
+      #outro-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      #outro-logo { width: 560px; height: auto; }
+      #outro-rule { width: 390px; height: 4px; background: var(--gold); margin: 70px 0 56px; }
+      #outro-line { font-size: 54px; font-weight: 500; }
+      #outro-cta { margin-top: 30px; font-size: 56px; font-weight: 900; color: var(--gold); letter-spacing: 0.5px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="27.90" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/mix.m4a" data-start="0" data-duration="27.90" data-track-index="10" data-volume="1"></audio>
+      <video id="base" class="clip" src="assets/base.mp4" data-start="0" data-duration="24.30" data-track-index="1" muted playsinline></video>
+      <section id="call">
+        <div id="facebox"></div>
+        <div id="appbox"></div>
+        <div id="note">Example project &mdash; every project&rsquo;s estimate differs.</div>
+          <div class="lt" id="lt0"><span class="n">Partner Architect</span><span class="r"></span></div>
+          <div class="lt" id="lt2"><span class="n">Partner Architect</span><span class="r"></span></div>
+          <div class="lt" id="lt3"><span class="n">CEO &amp; Owner</span><span class="r">23 yrs in construction</span></div>
+        <div id="rail"><img id="rail-logo" src="assets/logo-rail.png" alt="Home Estimator" /><div id="live"><i></i>REAL DEMO CALL</div></div>
+        <div id="hook"><div>20 hours of estimating work. Now a homeowner can do it.</div></div>
+        <div class="cap" id="c0"><span id="w0_0">That&#x27;s</span> <span id="w0_1">an</span> <span id="w0_2">enormous</span> <span id="w0_3">amount</span></div>
+        <div class="cap" id="c1"><span id="w1_0">of</span> <span id="w1_1">data</span> <span id="w1_2">that</span> <span id="w1_3">you</span></div>
+        <div class="cap" id="c2"><span id="w2_0">guys…</span></div>
+        <div class="cap" id="c3"><span id="w3_0">Yeah,</span> <span id="w3_1">you</span> <span id="w3_2">haven&#x27;t</span> <span id="w3_3">seen</span></div>
+        <div class="cap" id="c4"><span id="w4_0">much</span> <span id="w4_1">as</span> <span id="w4_2">of</span> <span id="w4_3">now.</span></div>
+        <div class="cap" id="c5"><span id="w5_0">Wow.</span></div>
+        <div class="cap" id="c6"><span id="w6_0">If</span> <span id="w6_1">I&#x27;m</span> <span id="w6_2">providing</span> <span id="w6_3">all</span></div>
+        <div class="cap" id="c7"><span id="w7_0">of</span> <span id="w7_1">that</span> <span id="w7_2">data,</span></div>
+        <div class="cap" id="c8"><span id="w8_0">it&#x27;s</span> <span id="w8_1">going</span> <span id="w8_2">to</span> <span id="w8_3">take</span></div>
+        <div class="cap" id="c9"><span id="w9_0">me</span> <span id="w9_1">at</span> <span id="w9_2">least,</span></div>
+        <div class="cap" id="c10"><span id="w10_0">at</span> <span id="w10_1">least</span> <span id="w10_2">20</span> <span id="w10_3">hours</span></div>
+        <div class="cap" id="c11"><span id="w11_0">of</span> <span id="w11_1">work,</span></div>
+        <div class="cap" id="c12"><span id="w12_0">having</span> <span id="w12_1">23</span> <span id="w12_2">years</span> <span id="w12_3">of</span></div>
+        <div class="cap" id="c13"><span id="w13_0">experience.</span></div>
+        <div class="cap" id="c14"><span id="w14_0">A</span> <span id="w14_1">homeowner</span> <span id="w14_2">just</span> <span id="w14_3">using</span></div>
+        <div class="cap" id="c15"><span id="w15_0">it,</span> <span id="w15_1">they</span> <span id="w15_2">can</span> <span id="w15_3">get</span></div>
+        <div class="cap" id="c16"><span id="w16_0">that</span> <span id="w16_1">as</span> <span id="w16_2">well.</span></div>
+        <div class="cap" id="c17"><span id="w17_0">So</span> <span id="w17_1">in</span> <span id="w17_2">other</span> <span id="w17_3">words,</span></div>
+        <div class="cap" id="c18"><span id="w18_0">if</span> <span id="w18_1">you</span> <span id="w18_2">talk</span> <span id="w18_3">about</span></div>
+        <div class="cap" id="c19"><span id="w19_0">all</span> <span id="w19_1">the</span> <span id="w19_2">collection</span> <span id="w19_3">of</span></div>
+        <div class="cap" id="c20"><span id="w20_0">the</span> <span id="w20_1">knowledge</span> <span id="w20_2">and</span> <span id="w20_3">the</span></div>
+        <div class="cap" id="c21"><span id="w21_0">data,</span> <span id="w21_1">it&#x27;s</span> <span id="w21_2">been</span> <span id="w21_3">three</span></div>
+        <div class="cap" id="c22"><span id="w22_0">years.</span></div>
+        <div class="cap" id="c23"><span id="w23_0">Wow.</span></div>
+        <div id="chap">
+
+        </div>
+      </section>
+
+      <section id="outro">
+        <div id="outro-in">
+          <img id="outro-logo" src="assets/logo-end.png" alt="Home Estimator" />
+          <div id="outro-rule"></div>
+          <div id="outro-line">See it on your next project</div>
+          <div id="outro-cta">BOOK A DEMO AT HOMEESTIMATOR.AI</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const IN = "power3.out";
+      const OUT = "power2.in";
+
+      // hook: lands on frame 1 over the live call, then hands the top rail to the logo
+      tl.fromTo("#hook", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: IN }, 0.05);
+      tl.to("#hook", { opacity: 0, y: -20, duration: 0.3, ease: OUT }, 2.90);
+      tl.set("#hook", { opacity: 0 }, 3.20);
+      tl.fromTo("#rail", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: IN }, 3.20);
+
+      // layout per segment (split: face + app, face: full camera)
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 0.00);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 0.00);
+      tl.set(".lt", { left: 70, top: 700 }, 0.00);
+      tl.set("#chap", { visibility: "visible" }, 0.00);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 6.90);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 6.90);
+      tl.set(".lt", { left: 70, top: 700 }, 6.90);
+      tl.set("#chap", { visibility: "visible" }, 6.90);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 12.10);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 12.10);
+      tl.set(".lt", { left: 70, top: 700 }, 12.10);
+      tl.set("#chap", { visibility: "visible" }, 12.10);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 14.00);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 14.00);
+      tl.set(".lt", { left: 70, top: 700 }, 14.00);
+      tl.set("#chap", { visibility: "visible" }, 14.00);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 17.40);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 17.40);
+      tl.set(".lt", { left: 70, top: 700 }, 17.40);
+      tl.set("#chap", { visibility: "visible" }, 17.40);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 23.70);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 23.70);
+      tl.set(".lt", { left: 70, top: 700 }, 23.70);
+      tl.set("#chap", { visibility: "visible" }, 23.70);
+
+      // speaker lower-thirds
+      tl.fromTo("#lt0", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 0.30);
+      tl.to("#lt0", { opacity: 0, duration: 0.2, ease: OUT }, 1.60);
+      tl.set("#lt0", { opacity: 0 }, 1.80);
+      tl.fromTo("#lt2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 2.55);
+      tl.to("#lt2", { opacity: 0, duration: 0.2, ease: OUT }, 4.40);
+      tl.set("#lt2", { opacity: 0 }, 4.60);
+      tl.fromTo("#lt3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 4.75);
+      tl.to("#lt3", { opacity: 0, duration: 0.2, ease: OUT }, 24.10);
+      tl.set("#lt3", { opacity: 0 }, 24.30);
+
+      // chapter titles
+
+
+      // captions (active word gold)
+      tl.set("#c0", { opacity: 1 }, 0.00);
+      tl.set("#c0", { opacity: 0 }, 1.82);
+      tl.set("#w0_0", { color: "#d4af37" }, 0.00);
+      tl.set("#w0_0", { color: "#ffffff" }, 0.82);
+      tl.set("#w0_1", { color: "#d4af37" }, 0.82);
+      tl.set("#w0_1", { color: "#ffffff" }, 0.96);
+      tl.set("#w0_2", { color: "#d4af37" }, 0.96);
+      tl.set("#w0_2", { color: "#ffffff" }, 1.46);
+      tl.set("#w0_3", { color: "#d4af37" }, 1.46);
+      tl.set("#c1", { opacity: 1 }, 1.82);
+      tl.set("#c1", { opacity: 0 }, 3.28);
+      tl.set("#w1_0", { color: "#d4af37" }, 1.82);
+      tl.set("#w1_0", { color: "#ffffff" }, 2.54);
+      tl.set("#w1_1", { color: "#d4af37" }, 2.54);
+      tl.set("#w1_1", { color: "#ffffff" }, 2.82);
+      tl.set("#w1_2", { color: "#d4af37" }, 2.82);
+      tl.set("#w1_2", { color: "#ffffff" }, 3.10);
+      tl.set("#w1_3", { color: "#d4af37" }, 3.10);
+      tl.set("#c2", { opacity: 1 }, 3.28);
+      tl.set("#c2", { opacity: 0 }, 3.78);
+      tl.set("#w2_0", { color: "#d4af37" }, 3.28);
+      tl.set("#c3", { opacity: 1 }, 3.78);
+      tl.set("#c3", { opacity: 0 }, 5.24);
+      tl.set("#w3_0", { color: "#d4af37" }, 3.78);
+      tl.set("#w3_0", { color: "#ffffff" }, 4.56);
+      tl.set("#w3_1", { color: "#d4af37" }, 4.56);
+      tl.set("#w3_1", { color: "#ffffff" }, 4.72);
+      tl.set("#w3_2", { color: "#d4af37" }, 4.72);
+      tl.set("#w3_2", { color: "#ffffff" }, 5.08);
+      tl.set("#w3_3", { color: "#d4af37" }, 5.08);
+      tl.set("#c4", { opacity: 1 }, 5.24);
+      tl.set("#c4", { opacity: 0 }, 6.66);
+      tl.set("#w4_0", { color: "#d4af37" }, 5.24);
+      tl.set("#w4_0", { color: "#ffffff" }, 5.50);
+      tl.set("#w4_1", { color: "#d4af37" }, 5.50);
+      tl.set("#w4_1", { color: "#ffffff" }, 5.70);
+      tl.set("#w4_2", { color: "#d4af37" }, 5.70);
+      tl.set("#w4_2", { color: "#ffffff" }, 5.86);
+      tl.set("#w4_3", { color: "#d4af37" }, 5.86);
+      tl.set("#c5", { opacity: 1 }, 6.66);
+      tl.set("#c5", { opacity: 0 }, 7.00);
+      tl.set("#w5_0", { color: "#d4af37" }, 6.66);
+      tl.set("#c6", { opacity: 1 }, 7.00);
+      tl.set("#c6", { opacity: 0 }, 7.98);
+      tl.set("#w6_0", { color: "#d4af37" }, 7.00);
+      tl.set("#w6_0", { color: "#ffffff" }, 7.14);
+      tl.set("#w6_1", { color: "#d4af37" }, 7.14);
+      tl.set("#w6_1", { color: "#ffffff" }, 7.40);
+      tl.set("#w6_2", { color: "#d4af37" }, 7.40);
+      tl.set("#w6_2", { color: "#ffffff" }, 7.74);
+      tl.set("#w6_3", { color: "#d4af37" }, 7.74);
+      tl.set("#c7", { opacity: 1 }, 7.98);
+      tl.set("#c7", { opacity: 0 }, 9.12);
+      tl.set("#w7_0", { color: "#d4af37" }, 7.98);
+      tl.set("#w7_0", { color: "#ffffff" }, 8.16);
+      tl.set("#w7_1", { color: "#d4af37" }, 8.16);
+      tl.set("#w7_1", { color: "#ffffff" }, 8.36);
+      tl.set("#w7_2", { color: "#d4af37" }, 8.36);
+      tl.set("#c8", { opacity: 1 }, 9.12);
+      tl.set("#c8", { opacity: 0 }, 9.92);
+      tl.set("#w8_0", { color: "#d4af37" }, 9.12);
+      tl.set("#w8_0", { color: "#ffffff" }, 9.50);
+      tl.set("#w8_1", { color: "#d4af37" }, 9.50);
+      tl.set("#w8_1", { color: "#ffffff" }, 9.60);
+      tl.set("#w8_2", { color: "#d4af37" }, 9.60);
+      tl.set("#w8_2", { color: "#ffffff" }, 9.72);
+      tl.set("#w8_3", { color: "#d4af37" }, 9.72);
+      tl.set("#c9", { opacity: 1 }, 9.92);
+      tl.set("#c9", { opacity: 0 }, 10.70);
+      tl.set("#w9_0", { color: "#d4af37" }, 9.92);
+      tl.set("#w9_0", { color: "#ffffff" }, 10.10);
+      tl.set("#w9_1", { color: "#d4af37" }, 10.10);
+      tl.set("#w9_1", { color: "#ffffff" }, 10.28);
+      tl.set("#w9_2", { color: "#d4af37" }, 10.28);
+      tl.set("#c10", { opacity: 1 }, 10.70);
+      tl.set("#c10", { opacity: 0 }, 11.78);
+      tl.set("#w10_0", { color: "#d4af37" }, 10.70);
+      tl.set("#w10_0", { color: "#ffffff" }, 10.96);
+      tl.set("#w10_1", { color: "#d4af37" }, 10.96);
+      tl.set("#w10_1", { color: "#ffffff" }, 11.14);
+      tl.set("#w10_2", { color: "#d4af37" }, 11.14);
+      tl.set("#w10_2", { color: "#ffffff" }, 11.46);
+      tl.set("#w10_3", { color: "#d4af37" }, 11.46);
+      tl.set("#c11", { opacity: 1 }, 11.78);
+      tl.set("#c11", { opacity: 0 }, 12.52);
+      tl.set("#w11_0", { color: "#d4af37" }, 11.78);
+      tl.set("#w11_0", { color: "#ffffff" }, 11.98);
+      tl.set("#w11_1", { color: "#d4af37" }, 11.98);
+      tl.set("#c12", { opacity: 1 }, 12.52);
+      tl.set("#c12", { opacity: 0 }, 13.90);
+      tl.set("#w12_0", { color: "#d4af37" }, 12.52);
+      tl.set("#w12_0", { color: "#ffffff" }, 12.76);
+      tl.set("#w12_1", { color: "#d4af37" }, 12.76);
+      tl.set("#w12_1", { color: "#ffffff" }, 13.22);
+      tl.set("#w12_2", { color: "#d4af37" }, 13.22);
+      tl.set("#w12_2", { color: "#ffffff" }, 13.72);
+      tl.set("#w12_3", { color: "#d4af37" }, 13.72);
+      tl.set("#c13", { opacity: 1 }, 13.90);
+      tl.set("#c13", { opacity: 0 }, 14.07);
+      tl.set("#w13_0", { color: "#d4af37" }, 13.90);
+      tl.set("#c14", { opacity: 1 }, 14.07);
+      tl.set("#c14", { opacity: 0 }, 15.60);
+      tl.set("#w14_0", { color: "#d4af37" }, 14.07);
+      tl.set("#w14_0", { color: "#ffffff" }, 14.43);
+      tl.set("#w14_1", { color: "#d4af37" }, 14.43);
+      tl.set("#w14_1", { color: "#ffffff" }, 14.96);
+      tl.set("#w14_2", { color: "#d4af37" }, 14.96);
+      tl.set("#w14_2", { color: "#ffffff" }, 15.24);
+      tl.set("#w14_3", { color: "#d4af37" }, 15.24);
+      tl.set("#c15", { opacity: 1 }, 15.60);
+      tl.set("#c15", { opacity: 0 }, 16.88);
+      tl.set("#w15_0", { color: "#d4af37" }, 15.60);
+      tl.set("#w15_0", { color: "#ffffff" }, 16.03);
+      tl.set("#w15_1", { color: "#d4af37" }, 16.03);
+      tl.set("#w15_1", { color: "#ffffff" }, 16.52);
+      tl.set("#w15_2", { color: "#d4af37" }, 16.52);
+      tl.set("#w15_2", { color: "#ffffff" }, 16.70);
+      tl.set("#w15_3", { color: "#d4af37" }, 16.70);
+      tl.set("#c16", { opacity: 1 }, 16.88);
+      tl.set("#c16", { opacity: 0 }, 17.74);
+      tl.set("#w16_0", { color: "#d4af37" }, 16.88);
+      tl.set("#w16_0", { color: "#ffffff" }, 17.08);
+      tl.set("#w16_1", { color: "#d4af37" }, 17.08);
+      tl.set("#w16_1", { color: "#ffffff" }, 17.26);
+      tl.set("#w16_2", { color: "#d4af37" }, 17.26);
+      tl.set("#c17", { opacity: 1 }, 17.74);
+      tl.set("#c17", { opacity: 0 }, 18.74);
+      tl.set("#w17_0", { color: "#d4af37" }, 17.74);
+      tl.set("#w17_0", { color: "#ffffff" }, 17.96);
+      tl.set("#w17_1", { color: "#d4af37" }, 17.96);
+      tl.set("#w17_1", { color: "#ffffff" }, 18.26);
+      tl.set("#w17_2", { color: "#d4af37" }, 18.26);
+      tl.set("#w17_2", { color: "#ffffff" }, 18.44);
+      tl.set("#w17_3", { color: "#d4af37" }, 18.44);
+      tl.set("#c18", { opacity: 1 }, 18.74);
+      tl.set("#c18", { opacity: 0 }, 19.46);
+      tl.set("#w18_0", { color: "#d4af37" }, 18.74);
+      tl.set("#w18_0", { color: "#ffffff" }, 18.84);
+      tl.set("#w18_1", { color: "#d4af37" }, 18.84);
+      tl.set("#w18_1", { color: "#ffffff" }, 18.98);
+      tl.set("#w18_2", { color: "#d4af37" }, 18.98);
+      tl.set("#w18_2", { color: "#ffffff" }, 19.20);
+      tl.set("#w18_3", { color: "#d4af37" }, 19.20);
+      tl.set("#c19", { opacity: 1 }, 19.46);
+      tl.set("#c19", { opacity: 0 }, 21.20);
+      tl.set("#w19_0", { color: "#d4af37" }, 19.46);
+      tl.set("#w19_0", { color: "#ffffff" }, 19.66);
+      tl.set("#w19_1", { color: "#d4af37" }, 19.66);
+      tl.set("#w19_1", { color: "#ffffff" }, 19.84);
+      tl.set("#w19_2", { color: "#d4af37" }, 19.84);
+      tl.set("#w19_2", { color: "#ffffff" }, 20.42);
+      tl.set("#w19_3", { color: "#d4af37" }, 20.42);
+      tl.set("#c20", { opacity: 1 }, 21.20);
+      tl.set("#c20", { opacity: 0 }, 22.14);
+      tl.set("#w20_0", { color: "#d4af37" }, 21.20);
+      tl.set("#w20_0", { color: "#ffffff" }, 21.42);
+      tl.set("#w20_1", { color: "#d4af37" }, 21.42);
+      tl.set("#w20_1", { color: "#ffffff" }, 21.72);
+      tl.set("#w20_2", { color: "#d4af37" }, 21.72);
+      tl.set("#w20_2", { color: "#ffffff" }, 21.98);
+      tl.set("#w20_3", { color: "#d4af37" }, 21.98);
+      tl.set("#c21", { opacity: 1 }, 22.14);
+      tl.set("#c21", { opacity: 0 }, 23.54);
+      tl.set("#w21_0", { color: "#d4af37" }, 22.14);
+      tl.set("#w21_0", { color: "#ffffff" }, 22.58);
+      tl.set("#w21_1", { color: "#d4af37" }, 22.58);
+      tl.set("#w21_1", { color: "#ffffff" }, 23.20);
+      tl.set("#w21_2", { color: "#d4af37" }, 23.20);
+      tl.set("#w21_2", { color: "#ffffff" }, 23.32);
+      tl.set("#w21_3", { color: "#d4af37" }, 23.32);
+      tl.set("#c22", { opacity: 1 }, 23.54);
+      tl.set("#c22", { opacity: 0 }, 23.90);
+      tl.set("#w22_0", { color: "#d4af37" }, 23.54);
+      tl.set("#c23", { opacity: 1 }, 23.90);
+      tl.set("#c23", { opacity: 0 }, 24.30);
+      tl.set("#w23_0", { color: "#d4af37" }, 23.90);
+
+      // end card
+      tl.set("#outro", { opacity: 1 }, 24.30);
+      tl.set("#call", { opacity: 0 }, 24.30);
+      tl.fromTo("#outro-logo", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 24.35);
+      tl.fromTo("#outro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: IN }, 24.70);
+      tl.fromTo("#outro-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 24.95);
+      tl.fromTo("#outro-cta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 25.20);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

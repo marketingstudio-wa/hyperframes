@@ -6,18 +6,27 @@ import numpy as np
 
 for d in sys.argv[1:]:
     land = "16x9" in d
-    raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", f"{d}/base.mp4", "-vf",
-                          "fps=5," + ("crop=740:400:70:180" if land else "crop=1000:540:40:260") + ",scale=20:10", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
-                         capture_output=True).stdout
-    a = np.frombuffer(raw, np.uint8).reshape(-1, 10, 20, 3).astype(float).mean((1, 2))
-    g = a[:, 1] - (a[:, 0] + a[:, 2]) / 2
+    segs = json.load(open(f"{d}/segs.json"))["segs"]
+    regions = {("split", False): "crop=1000:540:40:260", ("face", False): "crop=1000:380:40:260",
+               ("split", True): "crop=740:400:70:180", ("face", True): "crop=1280:280:320:150"}
+    g, ts = [], []
+    for s in segs:
+        a, b = s["out"]
+        raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", f"{d}/base.mp4",
+                              "-vf", "fps=5," + regions[(s["mode"], land)] + ",scale=20:10", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                             capture_output=True).stdout
+        px = np.frombuffer(raw, np.uint8).reshape(-1, 10, 20, 3).astype(float).mean((1, 2))
+        n = min(len(px), int(round((b - a) * 5)))
+        g += list(px[:n, 1] - (px[:n, 0] + px[:n, 2]) / 2)
+        ts += [a + i / 5 for i in range(n)]
+    g = np.array(g)
     lab = ["A" if x > 3 else "P" for x in g]
     runs = []
     for i, l in enumerate(lab):
         if runs and runs[-1]["who"] == l:
-            runs[-1]["e"] = (i + 1) / 5
+            runs[-1]["e"] = ts[i] + 0.2
         else:
-            runs.append({"who": l, "t": i / 5, "e": (i + 1) / 5})
+            runs.append({"who": l, "t": ts[i], "e": ts[i] + 0.2})
     changed = True
     while changed and len(runs) > 1:
         changed = False

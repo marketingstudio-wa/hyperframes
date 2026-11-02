@@ -7,7 +7,7 @@ OUT = sys.argv[1]
 m = WhisperModel("medium.en", device="cpu", compute_type="int8", cpu_threads=4)
 for name in sorted(os.listdir(OUT)):
     p = os.path.join(OUT, name, "voice.wav")
-    if not os.path.exists(p):
+    if not os.path.exists(p) or os.path.exists(os.path.join(OUT, name, "words.json")):
         continue
     a, sr = sf.read(p, dtype="float32")
     import scipy.signal as ss

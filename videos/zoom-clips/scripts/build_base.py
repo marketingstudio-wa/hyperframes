@@ -29,7 +29,9 @@ def patch_filters(a, b):
         x0, y0, x1, y1 = p["box"]
         en = f"between(t,{max(p['t0'] - a, 0):.3f},{p['t1'] - a:.3f})"
         fs.append(f"drawbox=x={x0:.0f}:y={y0:.0f}:w={x1 - x0:.0f}:h={y1 - y0:.0f}:color={p['bg']}:t=fill:enable='{en}'")
-        txt = p["new"].replace(":", r"\:").replace(",", r"\,")
+        if not p["new"]:
+            continue
+        txt = p["new"].replace(":", r"\:").replace(",", r"\,").replace("&", r"\&")
         fs.append(f"drawtext=fontfile={FONT}:text='{txt}':x={x0 + 1:.0f}:y={y0:.0f}+({y1 - y0:.0f}-th)/2:"
                   f"fontsize={max(int((y1 - y0) * 0.8), 6)}:fontcolor={p['fg']}:enable='{en}'")
     return fs

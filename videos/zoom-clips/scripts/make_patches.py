@@ -4,7 +4,8 @@ Groups hits by clip + position, covers [first-0.3, last+0.3] inside the segment,
 import collections, json, re, subprocess, sys
 import numpy as np
 
-EDL = json.load(open(sys.argv[1])); HITS = json.load(open(sys.argv[2])); OUTP = sys.argv[3]
+EDL = json.load(open(sys.argv[1])); OUTP = sys.argv[-1]
+HITS = [h for f in sys.argv[2:-1] for h in json.load(open(f))]
 SRC = EDL["source"]
 
 
@@ -17,6 +18,10 @@ def seg_of(clip, t):
 
 def new_text(txts):
     j = " ".join(txts)
+    if re.search(r"contact", j, re.I):
+        return "Contact: CEO & Founder"
+    if re.search(r"ema", j, re.I):
+        return ""  # blank the email line
     if re.search(r"welcome", j, re.I):
         return "Welcome back"
     digits = collections.Counter(m for t in txts for m in re.findall(r"(?:has\w*?)([0-9oc?D]{2,3})", t, re.I)).most_common(1)
@@ -53,7 +58,7 @@ for g in groups:
         by_seg[seg_of(g["clip"], t)].append(t)
     x0, y0, x1, y1 = g["box"]; x0 -= 2; y0 -= 2; x1 += 3; y1 += 2
     for (a, b), ts in by_seg.items():
-        t0, t1 = max(a, min(ts) - 0.3), min(b, max(ts) + 0.3)
+        t0, t1 = a, b  # cover the whole segment: a missed OCR frame must never let the name through
         img = frame((min(ts) + max(ts)) / 2)
         xi0, yi0, xi1, yi1 = int(x0), int(max(y0, 0)), int(x1), int(y1)
         border = np.concatenate([img[max(yi0 - 1, 0), xi0:xi1], img[min(yi1 + 1, 719), xi0:xi1]])

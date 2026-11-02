@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Real Call Clip</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #1a1a2e;
+        --card: #2d2d44;
+        --line: #3a3a55;
+        --sand: #c9a96e;
+        --gold: #d4af37;
+        --gray: #a0aab2;
+        --white: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      body { font-family: "Inter", sans-serif; color: var(--white); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #base { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: fill; }
+      #rail { position: absolute; left: 40px; top: 90px; width: 1000px; height: 120px; display: flex;
+        align-items: center; justify-content: space-between; opacity: 0; }
+      #rail-logo { height: 112px; width: auto; }
+      #live { display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: 5px; color: var(--sand); }
+      #live i { width: 18px; height: 18px; border-radius: 50%; background: #e5484d; display: block; }
+      #hook { position: absolute; left: 40px; top: 52px; width: 1000px; height: 190px; display: flex; align-items: center;
+        font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1.04; }
+      #hook span { color: var(--gold); }
+      #facebox { position: absolute; left: 34px; top: 244px; width: 1012px; height: 574px; border: 6px solid var(--gold); }
+      #appbox { position: absolute; left: 36px; top: 846px; width: 1008px; height: 722px; border: 4px solid var(--line); }
+      #note { position: absolute; left: 36px; top: 1580px; width: 1008px; font-size: 26px; font-weight: 500; color: var(--gray); white-space: nowrap; }
+      .lt { position: absolute; left: 70px; top: 700px; padding: 14px 26px 14px 22px; background: rgba(26, 26, 46, 0.94);
+        border-left: 6px solid var(--gold); opacity: 0; }
+      .lt .n { display: block; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; }
+      .lt .r { display: block; margin-top: 2px; font-size: 26px; font-weight: 700; letter-spacing: 3px; color: var(--sand); text-transform: uppercase; }
+      .cap { position: absolute; left: 50px; top: 1620px; width: 980px; text-align: center; font-size: 70px; font-weight: 900;
+        letter-spacing: -1px; line-height: 1.1; opacity: 0; text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55); }
+      #chap { position: absolute; left: 40px; top: 1810px; width: 1000px; }
+      .ch { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; text-align: center; }
+      .ch .k { display: block; font-size: 26px; font-weight: 800; letter-spacing: 5px; color: var(--gold); }
+      .ch .t { display: inline; margin-top: 10px; font-size: 34px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; }
+      #outro { position: absolute; inset: 0; background: var(--navy); opacity: 0; }
+      #outro-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      #outro-logo { width: 560px; height: auto; }
+      #outro-rule { width: 390px; height: 4px; background: var(--gold); margin: 70px 0 56px; }
+      #outro-line { font-size: 54px; font-weight: 500; }
+      #outro-cta { margin-top: 30px; font-size: 56px; font-weight: 900; color: var(--gold); letter-spacing: 0.5px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="29.10" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/mix.m4a" data-start="0" data-duration="29.10" data-track-index="10" data-volume="1"></audio>
+      <video id="base" class="clip" src="assets/base.mp4" data-start="0" data-duration="25.50" data-track-index="1" muted playsinline></video>
+      <section id="call">
+        <div id="facebox"></div>
+        <div id="appbox"></div>
+        <div id="note">Example project &mdash; every project&rsquo;s estimate differs.</div>
+          <div class="lt" id="lt0"><span class="n">CEO &amp; Owner</span><span class="r">23 yrs in construction</span></div>
+          <div class="lt" id="lt1"><span class="n">Partner Architect</span><span class="r"></span></div>
+          <div class="lt" id="lt2"><span class="n">CEO &amp; Owner</span><span class="r">23 yrs in construction</span></div>
+        <div id="rail"><img id="rail-logo" src="assets/logo-rail.png" alt="Home Estimator" /><div id="live"><i></i>REAL DEMO CALL</div></div>
+        <div id="hook"><div>His reaction when he saw hands-free mode</div></div>
+        <div class="cap" id="c0"><span id="w0_0">Once</span> <span id="w0_1">you</span> <span id="w0_2">click</span> <span id="w0_3">this,</span></div>
+        <div class="cap" id="c1"><span id="w1_0">this</span> <span id="w1_1">is</span> <span id="w1_2">a</span> <span id="w1_3">hands-free</span></div>
+        <div class="cap" id="c2"><span id="w2_0">mode.</span></div>
+        <div class="cap" id="c3"><span id="w3_0">So</span> <span id="w3_1">you&#x27;re</span> <span id="w3_2">going</span> <span id="w3_3">to</span></div>
+        <div class="cap" id="c4"><span id="w4_0">talk</span> <span id="w4_1">conversationally</span> <span id="w4_2">with</span> <span id="w4_3">that.</span></div>
+        <div class="cap" id="c5"><span id="w5_0">Oh,</span> <span id="w5_1">nice.</span></div>
+        <div class="cap" id="c6"><span id="w6_0">And</span> <span id="w6_1">it&#x27;s</span> <span id="w6_2">going</span> <span id="w6_3">to</span></div>
+        <div class="cap" id="c7"><span id="w7_0">select</span> <span id="w7_1">the</span> <span id="w7_2">things</span> <span id="w7_3">automatically.</span></div>
+        <div class="cap" id="c8"><span id="w8_0">Oh,</span> <span id="w8_1">yeah.</span></div>
+        <div class="cap" id="c9"><span id="w9_0">Wow.</span></div>
+        <div class="cap" id="c10"><span id="w10_0">You</span> <span id="w10_1">guys</span> <span id="w10_2">actually</span> <span id="w10_3">created</span></div>
+        <div class="cap" id="c11"><span id="w11_0">the</span> <span id="w11_1">software?</span></div>
+        <div class="cap" id="c12"><span id="w12_0">Yes,</span> <span id="w12_1">sir.</span></div>
+        <div class="cap" id="c13"><span id="w13_0">Wow.</span></div>
+        <div class="cap" id="c14"><span id="w14_0">That&#x27;s</span> <span id="w14_1">amazing.</span></div>
+        <div class="cap" id="c15"><span id="w15_0">If</span> <span id="w15_1">you&#x27;re</span> <span id="w15_2">going</span> <span id="w15_3">to</span></div>
+        <div class="cap" id="c16"><span id="w16_0">say,</span> <span id="w16_1">oh,</span></div>
+        <div class="cap" id="c17"><span id="w17_0">show</span> <span id="w17_1">me</span> <span id="w17_2">the</span> <span id="w17_3">analysis,</span></div>
+        <div class="cap" id="c18"><span id="w18_0">show</span> <span id="w18_1">me</span> <span id="w18_2">the</span> <span id="w18_3">price</span></div>
+        <div class="cap" id="c19"><span id="w19_0">analysis</span> <span id="w19_1">or</span> <span id="w19_2">the</span> <span id="w19_3">allowances</span></div>
+        <div class="cap" id="c20"><span id="w20_0">or</span> <span id="w20_1">the</span> <span id="w20_2">kitchen,</span></div>
+        <div class="cap" id="c21"><span id="w21_0">it&#x27;s</span> <span id="w21_1">going</span> <span id="w21_2">to</span> <span id="w21_3">take</span></div>
+        <div class="cap" id="c22"><span id="w22_0">you</span> <span id="w22_1">to</span> <span id="w22_2">that</span> <span id="w22_3">card.</span></div>
+        <div class="cap" id="c23"><span id="w23_0">So</span> <span id="w23_1">the</span> <span id="w23_2">learning</span> <span id="w23_3">curve</span></div>
+        <div class="cap" id="c24"><span id="w24_0">is</span> <span id="w24_1">not</span> <span id="w24_2">there.</span></div>
+        <div id="chap">
+
+        </div>
+      </section>
+
+      <section id="outro">
+        <div id="outro-in">
+          <img id="outro-logo" src="assets/logo-end.png" alt="Home Estimator" />
+          <div id="outro-rule"></div>
+          <div id="outro-line">See it on your next project</div>
+          <div id="outro-cta">BOOK A DEMO AT HOMEESTIMATOR.AI</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const IN = "power3.out";
+      const OUT = "power2.in";
+
+      // hook: lands on frame 1 over the live call, then hands the top rail to the logo
+      tl.fromTo("#hook", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: IN }, 0.05);
+      tl.to("#hook", { opacity: 0, y: -20, duration: 0.3, ease: OUT }, 2.90);
+      tl.set("#hook", { opacity: 0 }, 3.20);
+      tl.fromTo("#rail", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: IN }, 3.20);
+
+      // layout per segment (split: face + app, face: full camera)
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 0.00);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 0.00);
+      tl.set(".lt", { left: 70, top: 700 }, 0.00);
+      tl.set("#chap", { visibility: "visible" }, 0.00);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 3.20);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 3.20);
+      tl.set(".lt", { left: 70, top: 700 }, 3.20);
+      tl.set("#chap", { visibility: "visible" }, 3.20);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 6.50);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 6.50);
+      tl.set(".lt", { left: 70, top: 700 }, 6.50);
+      tl.set("#chap", { visibility: "visible" }, 6.50);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 10.80);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 10.80);
+      tl.set(".lt", { left: 70, top: 700 }, 10.80);
+      tl.set("#chap", { visibility: "visible" }, 10.80);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 16.40);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 16.40);
+      tl.set(".lt", { left: 70, top: 700 }, 16.40);
+      tl.set("#chap", { visibility: "visible" }, 16.40);
+      tl.set("#facebox", { left: 34, top: 244, width: 1012, height: 574 }, 23.40);
+      tl.set(["#appbox", "#note"], { opacity: 1 }, 23.40);
+      tl.set(".lt", { left: 70, top: 700 }, 23.40);
+      tl.set("#chap", { visibility: "visible" }, 23.40);
+
+      // speaker lower-thirds
+      tl.fromTo("#lt0", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 0.30);
+      tl.to("#lt0", { opacity: 0, duration: 0.2, ease: OUT }, 9.30);
+      tl.set("#lt0", { opacity: 0 }, 9.50);
+      tl.fromTo("#lt1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 9.65);
+      tl.to("#lt1", { opacity: 0, duration: 0.2, ease: OUT }, 16.20);
+      tl.set("#lt1", { opacity: 0 }, 16.40);
+      tl.fromTo("#lt2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: IN }, 16.55);
+      tl.to("#lt2", { opacity: 0, duration: 0.2, ease: OUT }, 25.30);
+      tl.set("#lt2", { opacity: 0 }, 25.50);
+
+      // chapter titles
+
+
+      // captions (active word gold)
+      tl.set("#c0", { opacity: 1 }, 0.00);
+      tl.set("#c0", { opacity: 0 }, 1.78);
+      tl.set("#w0_0", { color: "#d4af37" }, 0.00);
+      tl.set("#w0_0", { color: "#ffffff" }, 0.41);
+      tl.set("#w0_1", { color: "#d4af37" }, 0.41);
+      tl.set("#w0_1", { color: "#ffffff" }, 0.54);
+      tl.set("#w0_2", { color: "#d4af37" }, 0.54);
+      tl.set("#w0_2", { color: "#ffffff" }, 0.76);
+      tl.set("#w0_3", { color: "#d4af37" }, 0.76);
+      tl.set("#c1", { opacity: 1 }, 1.78);
+      tl.set("#c1", { opacity: 0 }, 3.04);
+      tl.set("#w1_0", { color: "#d4af37" }, 1.78);
+      tl.set("#w1_0", { color: "#ffffff" }, 2.20);
+      tl.set("#w1_1", { color: "#d4af37" }, 2.20);
+      tl.set("#w1_1", { color: "#ffffff" }, 2.34);
+      tl.set("#w1_2", { color: "#d4af37" }, 2.34);
+      tl.set("#w1_2", { color: "#ffffff" }, 2.79);
+      tl.set("#w1_3", { color: "#d4af37" }, 2.79);
+      tl.set("#c2", { opacity: 1 }, 3.04);
+      tl.set("#c2", { opacity: 0 }, 3.36);
+      tl.set("#w2_0", { color: "#d4af37" }, 3.04);
+      tl.set("#c3", { opacity: 1 }, 3.36);
+      tl.set("#c3", { opacity: 0 }, 3.80);
+      tl.set("#w3_0", { color: "#d4af37" }, 3.36);
+      tl.set("#w3_0", { color: "#ffffff" }, 3.44);
+      tl.set("#w3_1", { color: "#d4af37" }, 3.44);
+      tl.set("#w3_1", { color: "#ffffff" }, 3.70);
+      tl.set("#w3_2", { color: "#d4af37" }, 3.70);
+      tl.set("#w3_2", { color: "#ffffff" }, 3.74);
+      tl.set("#w3_3", { color: "#d4af37" }, 3.74);
+      tl.set("#c4", { opacity: 1 }, 3.80);
+      tl.set("#c4", { opacity: 0 }, 5.81);
+      tl.set("#w4_0", { color: "#d4af37" }, 3.80);
+      tl.set("#w4_0", { color: "#ffffff" }, 4.18);
+      tl.set("#w4_1", { color: "#d4af37" }, 4.18);
+      tl.set("#w4_1", { color: "#ffffff" }, 5.02);
+      tl.set("#w4_2", { color: "#d4af37" }, 5.02);
+      tl.set("#w4_2", { color: "#ffffff" }, 5.20);
+      tl.set("#w4_3", { color: "#d4af37" }, 5.20);
+      tl.set("#c5", { opacity: 1 }, 5.81);
+      tl.set("#c5", { opacity: 0 }, 6.36);
+      tl.set("#w5_0", { color: "#d4af37" }, 5.81);
+      tl.set("#w5_0", { color: "#ffffff" }, 6.27);
+      tl.set("#w5_1", { color: "#d4af37" }, 6.27);
+      tl.set("#c6", { opacity: 1 }, 6.36);
+      tl.set("#c6", { opacity: 0 }, 7.34);
+      tl.set("#w6_0", { color: "#d4af37" }, 6.36);
+      tl.set("#w6_0", { color: "#ffffff" }, 6.46);
+      tl.set("#w6_1", { color: "#d4af37" }, 6.46);
+      tl.set("#w6_1", { color: "#ffffff" }, 7.14);
+      tl.set("#w6_2", { color: "#d4af37" }, 7.14);
+      tl.set("#w6_2", { color: "#ffffff" }, 7.23);
+      tl.set("#w6_3", { color: "#d4af37" }, 7.23);
+      tl.set("#c7", { opacity: 1 }, 7.34);
+      tl.set("#c7", { opacity: 0 }, 9.69);
+      tl.set("#w7_0", { color: "#d4af37" }, 7.34);
+      tl.set("#w7_0", { color: "#ffffff" }, 7.84);
+      tl.set("#w7_1", { color: "#d4af37" }, 7.84);
+      tl.set("#w7_1", { color: "#ffffff" }, 8.04);
+      tl.set("#w7_2", { color: "#d4af37" }, 8.04);
+      tl.set("#w7_2", { color: "#ffffff" }, 8.28);
+      tl.set("#w7_3", { color: "#d4af37" }, 8.28);
+      tl.set("#c8", { opacity: 1 }, 9.69);
+      tl.set("#c8", { opacity: 0 }, 10.10);
+      tl.set("#w8_0", { color: "#d4af37" }, 9.69);
+      tl.set("#w8_0", { color: "#ffffff" }, 9.73);
+      tl.set("#w8_1", { color: "#d4af37" }, 9.73);
+      tl.set("#c9", { opacity: 1 }, 10.10);
+      tl.set("#c9", { opacity: 0 }, 11.18);
+      tl.set("#w9_0", { color: "#d4af37" }, 10.10);
+      tl.set("#c10", { opacity: 1 }, 11.18);
+      tl.set("#c10", { opacity: 0 }, 12.94);
+      tl.set("#w10_0", { color: "#d4af37" }, 11.18);
+      tl.set("#w10_0", { color: "#ffffff" }, 11.52);
+      tl.set("#w10_1", { color: "#d4af37" }, 11.52);
+      tl.set("#w10_1", { color: "#ffffff" }, 11.78);
+      tl.set("#w10_2", { color: "#d4af37" }, 11.78);
+      tl.set("#w10_2", { color: "#ffffff" }, 12.30);
+      tl.set("#w10_3", { color: "#d4af37" }, 12.30);
+      tl.set("#c11", { opacity: 1 }, 12.94);
+      tl.set("#c11", { opacity: 0 }, 14.28);
+      tl.set("#w11_0", { color: "#d4af37" }, 12.94);
+      tl.set("#w11_0", { color: "#ffffff" }, 13.22);
+      tl.set("#w11_1", { color: "#d4af37" }, 13.22);
+      tl.set("#c12", { opacity: 1 }, 14.28);
+      tl.set("#c12", { opacity: 0 }, 15.38);
+      tl.set("#w12_0", { color: "#d4af37" }, 14.28);
+      tl.set("#w12_0", { color: "#ffffff" }, 14.50);
+      tl.set("#w12_1", { color: "#d4af37" }, 14.50);
+      tl.set("#c13", { opacity: 1 }, 15.38);
+      tl.set("#c13", { opacity: 0 }, 15.76);
+      tl.set("#w13_0", { color: "#d4af37" }, 15.38);
+      tl.set("#c14", { opacity: 1 }, 15.76);
+      tl.set("#c14", { opacity: 0 }, 16.68);
+      tl.set("#w14_0", { color: "#d4af37" }, 15.76);
+      tl.set("#w14_0", { color: "#ffffff" }, 16.02);
+      tl.set("#w14_1", { color: "#d4af37" }, 16.02);
+      tl.set("#c15", { opacity: 1 }, 16.68);
+      tl.set("#c15", { opacity: 0 }, 17.06);
+      tl.set("#w15_0", { color: "#d4af37" }, 16.68);
+      tl.set("#w15_0", { color: "#ffffff" }, 16.76);
+      tl.set("#w15_1", { color: "#d4af37" }, 16.76);
+      tl.set("#w15_1", { color: "#ffffff" }, 16.96);
+      tl.set("#w15_2", { color: "#d4af37" }, 16.96);
+      tl.set("#w15_2", { color: "#ffffff" }, 17.00);
+      tl.set("#w15_3", { color: "#d4af37" }, 17.00);
+      tl.set("#c16", { opacity: 1 }, 17.06);
+      tl.set("#c16", { opacity: 0 }, 17.54);
+      tl.set("#w16_0", { color: "#d4af37" }, 17.06);
+      tl.set("#w16_0", { color: "#ffffff" }, 17.46);
+      tl.set("#w16_1", { color: "#d4af37" }, 17.46);
+      tl.set("#c17", { opacity: 1 }, 17.54);
+      tl.set("#c17", { opacity: 0 }, 18.90);
+      tl.set("#w17_0", { color: "#d4af37" }, 17.54);
+      tl.set("#w17_0", { color: "#ffffff" }, 17.76);
+      tl.set("#w17_1", { color: "#d4af37" }, 17.76);
+      tl.set("#w17_1", { color: "#ffffff" }, 17.94);
+      tl.set("#w17_2", { color: "#d4af37" }, 17.94);
+      tl.set("#w17_2", { color: "#ffffff" }, 18.12);
+      tl.set("#w17_3", { color: "#d4af37" }, 18.12);
+      tl.set("#c18", { opacity: 1 }, 18.90);
+      tl.set("#c18", { opacity: 0 }, 19.64);
+      tl.set("#w18_0", { color: "#d4af37" }, 18.90);
+      tl.set("#w18_0", { color: "#ffffff" }, 19.02);
+      tl.set("#w18_1", { color: "#d4af37" }, 19.02);
+      tl.set("#w18_1", { color: "#ffffff" }, 19.22);
+      tl.set("#w18_2", { color: "#d4af37" }, 19.22);
+      tl.set("#w18_2", { color: "#ffffff" }, 19.36);
+      tl.set("#w18_3", { color: "#d4af37" }, 19.36);
+      tl.set("#c19", { opacity: 1 }, 19.64);
+      tl.set("#c19", { opacity: 0 }, 20.86);
+      tl.set("#w19_0", { color: "#d4af37" }, 19.64);
+      tl.set("#w19_0", { color: "#ffffff" }, 20.10);
+      tl.set("#w19_1", { color: "#d4af37" }, 20.10);
+      tl.set("#w19_1", { color: "#ffffff" }, 20.38);
+      tl.set("#w19_2", { color: "#d4af37" }, 20.38);
+      tl.set("#w19_2", { color: "#ffffff" }, 20.56);
+      tl.set("#w19_3", { color: "#d4af37" }, 20.56);
+      tl.set("#c20", { opacity: 1 }, 20.86);
+      tl.set("#c20", { opacity: 0 }, 22.08);
+      tl.set("#w20_0", { color: "#d4af37" }, 20.86);
+      tl.set("#w20_0", { color: "#ffffff" }, 21.14);
+      tl.set("#w20_1", { color: "#d4af37" }, 21.14);
+      tl.set("#w20_1", { color: "#ffffff" }, 21.32);
+      tl.set("#w20_2", { color: "#d4af37" }, 21.32);
+      tl.set("#c21", { opacity: 1 }, 22.08);
+      tl.set("#c21", { opacity: 0 }, 22.62);
+      tl.set("#w21_0", { color: "#d4af37" }, 22.08);
+      tl.set("#w21_0", { color: "#ffffff" }, 22.20);
+      tl.set("#w21_1", { color: "#d4af37" }, 22.20);
+      tl.set("#w21_1", { color: "#ffffff" }, 22.24);
+      tl.set("#w21_2", { color: "#d4af37" }, 22.24);
+      tl.set("#w21_2", { color: "#ffffff" }, 22.32);
+      tl.set("#w21_3", { color: "#d4af37" }, 22.32);
+      tl.set("#c22", { opacity: 1 }, 22.62);
+      tl.set("#c22", { opacity: 0 }, 23.47);
+      tl.set("#w22_0", { color: "#d4af37" }, 22.62);
+      tl.set("#w22_0", { color: "#ffffff" }, 22.80);
+      tl.set("#w22_1", { color: "#d4af37" }, 22.80);
+      tl.set("#w22_1", { color: "#ffffff" }, 23.00);
+      tl.set("#w22_2", { color: "#d4af37" }, 23.00);
+      tl.set("#w22_2", { color: "#ffffff" }, 23.15);
+      tl.set("#w22_3", { color: "#d4af37" }, 23.15);
+      tl.set("#c23", { opacity: 1 }, 23.47);
+      tl.set("#c23", { opacity: 0 }, 24.94);
+      tl.set("#w23_0", { color: "#d4af37" }, 23.47);
+      tl.set("#w23_0", { color: "#ffffff" }, 24.00);
+      tl.set("#w23_1", { color: "#d4af37" }, 24.00);
+      tl.set("#w23_1", { color: "#ffffff" }, 24.32);
+      tl.set("#w23_2", { color: "#d4af37" }, 24.32);
+      tl.set("#w23_2", { color: "#ffffff" }, 24.66);
+      tl.set("#w23_3", { color: "#d4af37" }, 24.66);
+      tl.set("#c24", { opacity: 1 }, 24.94);
+      tl.set("#c24", { opacity: 0 }, 25.50);
+      tl.set("#w24_0", { color: "#d4af37" }, 24.94);
+      tl.set("#w24_0", { color: "#ffffff" }, 25.14);
+      tl.set("#w24_1", { color: "#d4af37" }, 25.14);
+      tl.set("#w24_1", { color: "#ffffff" }, 25.36);
+      tl.set("#w24_2", { color: "#d4af37" }, 25.36);
+
+      // end card
+      tl.set("#outro", { opacity: 1 }, 25.50);
+      tl.set("#call", { opacity: 0 }, 25.50);
+      tl.fromTo("#outro-logo", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 25.55);
+      tl.fromTo("#outro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: IN }, 25.90);
+      tl.fromTo("#outro-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 26.15);
+      tl.fromTo("#outro-cta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: IN }, 26.40);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
