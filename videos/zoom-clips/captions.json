@@ -135,5 +135,65 @@
     ],
     ["P", "We are doing it."],
     ["A", "Nice."]
+  ],
+  "hands-free": [
+    [
+      "P",
+      "Alex, let's start a new project. I have a ranch, 1,500 square feet area, and I want to remodel my kitchen and a full bath and replace the hardwood floors. And let's do the paint for the whole house as well."
+    ],
+    ["P", "Are you looking at it?"],
+    ["A", "Yeah."],
+    ["P", "So it gave you all of this."],
+    ["A", "Wow."],
+    ["P", "It changed the screen automatically, selected the data on auto. My hands are there."],
+    ["X", "Is there anything else you want to add or change before I price this?"],
+    ["P", "No, I think we're done. Just give me the price."],
+    ["P", "And there you go."],
+    [
+      "X",
+      "Want me to walk you through the price analysis, scope of work, or schedule, or fine-tune the selected cards?"
+    ],
+    ["P", "Show me the scope of work."],
+    ["P", "I think, show me the schedule and the payments."],
+    ["X", "Schedule, payments and timeline are open now."],
+    [
+      "P",
+      "You know what, I'm thinking about to replace the siding as well, with the Hardie boards. Can you do that?"
+    ],
+    ["P", "You don't even have to learn which card is where and where to do what."],
+    ["P", "It's a total hands-free kind of option."],
+    ["P", "You see, the estimate has been updated."],
+    ["A", "Nice."],
+    ["X", "The updated estimate is ready."]
+  ],
+  "hands-free-16x9": [
+    [
+      "P",
+      "Alex, let's start a new project. I have a ranch, 1,500 square feet area, and I want to remodel my kitchen and a full bath and replace the hardwood floors. And let's do the paint for the whole house as well."
+    ],
+    ["P", "Are you looking at it?"],
+    ["A", "Yeah."],
+    ["P", "So it gave you all of this."],
+    ["A", "Wow."],
+    ["P", "It changed the screen automatically, selected the data on auto. My hands are there."],
+    ["X", "Is there anything else you want to add or change before I price this?"],
+    ["P", "No, I think we're done. Just give me the price."],
+    ["P", "And there you go."],
+    [
+      "X",
+      "Want me to walk you through the price analysis, scope of work, or schedule, or fine-tune the selected cards?"
+    ],
+    ["P", "Show me the scope of work."],
+    ["P", "I think, show me the schedule and the payments."],
+    ["X", "Schedule, payments and timeline are open now."],
+    [
+      "P",
+      "You know what, I'm thinking about to replace the siding as well, with the Hardie boards. Can you do that?"
+    ],
+    ["P", "You don't even have to learn which card is where and where to do what."],
+    ["P", "It's a total hands-free kind of option."],
+    ["P", "You see, the estimate has been updated."],
+    ["A", "Nice."],
+    ["X", "The updated estimate is ready."]
   ]
 }

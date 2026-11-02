@@ -14,7 +14,7 @@ for name, clip in EDL["clips"].items():
     for s in clip["segs"]:
         a, b = s[0], s[1]
         raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-ss", f"{a:.3f}", "-i", SRC, "-t", f"{b - a:.3f}",
-                              "-vf", "fps=4,scale=2560:1440", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                              "-vf", "fps=2,scale=2560:1440", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
                              capture_output=True).stdout
         frames = np.frombuffer(raw, np.uint8).reshape(-1, 1440, 2560, 3)
         for i, f in enumerate(frames):

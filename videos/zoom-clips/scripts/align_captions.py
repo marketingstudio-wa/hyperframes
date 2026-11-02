@@ -3,7 +3,7 @@
 Timing sources, in order: medium.en words of the cut track (out/<clip>/words.json), then the full-call
 small.en words mapped through segs.json. Each caption word takes the time of its fuzzy match; unmatched words
 are interpolated between neighbours. Output: out/<clip>/caps.json [{w, t, e, spk, line}]."""
-import difflib, json, re, sys
+import difflib, json, os, re, sys
 
 OUT, CAPS, FULL = sys.argv[1], json.load(open(sys.argv[2])), json.load(open(sys.argv[3]))
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower().replace("gonna", "going").replace("wanna", "want"))
@@ -13,6 +13,9 @@ for name, lines in CAPS.items():
     if name == "speakers":
         continue
     d = f"{OUT}/{name}"
+    if not os.path.exists(f"{d}/segs.json") or not os.path.exists(f"{d}/words.json"):
+        print(name, "skipped (not built yet)")
+        continue
     segs = json.load(open(f"{d}/segs.json"))["segs"]
     med = json.load(open(f"{d}/words.json"))
     mapped = []
