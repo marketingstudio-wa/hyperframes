@@ -1,0 +1,38 @@
+"""Who is on camera in the face card of base.mp4, sampled at 5 fps.
+Architect: greenish blurred background (mean G - (R+B)/2 > 3); presenter: grey office.
+Writes out/<clip>/faces.json: runs [{who, t, e}] (runs shorter than 0.6 s are merged)."""
+import json, subprocess, sys
+import numpy as np
+
+for d in sys.argv[1:]:
+    land = "16x9" in d
+    raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", f"{d}/base.mp4", "-vf",
+                          "fps=5," + ("crop=740:400:70:180" if land else "crop=1000:540:40:260") + ",scale=20:10", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                         capture_output=True).stdout
+    a = np.frombuffer(raw, np.uint8).reshape(-1, 10, 20, 3).astype(float).mean((1, 2))
+    g = a[:, 1] - (a[:, 0] + a[:, 2]) / 2
+    lab = ["A" if x > 3 else "P" for x in g]
+    runs = []
+    for i, l in enumerate(lab):
+        if runs and runs[-1]["who"] == l:
+            runs[-1]["e"] = (i + 1) / 5
+        else:
+            runs.append({"who": l, "t": i / 5, "e": (i + 1) / 5})
+    changed = True
+    while changed and len(runs) > 1:
+        changed = False
+        for i, ru in enumerate(runs):
+            if ru["e"] - ru["t"] < 0.6:
+                j = i - 1 if i > 0 else i + 1
+                runs[j]["t"], runs[j]["e"] = min(runs[j]["t"], ru["t"]), max(runs[j]["e"], ru["e"])
+                runs.pop(i); changed = True
+                break
+        merged = []
+        for ru in runs:
+            if merged and merged[-1]["who"] == ru["who"]:
+                merged[-1]["e"] = ru["e"]
+            else:
+                merged.append(ru)
+        runs = merged
+    json.dump(runs, open(f"{d}/faces.json", "w"))
+    print(d.split("/")[-1], [(r["who"], round(r["t"], 1), round(r["e"], 1)) for r in runs], "g range", g.min().round(1), g.max().round(1))

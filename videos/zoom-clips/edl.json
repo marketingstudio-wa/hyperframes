@@ -1,0 +1,120 @@
+{
+  "source": "/home/user/media/zoom-demo/zoom.mp4",
+  "clips": {
+    "c1-sell-this": {
+      "hook": "An architect watched our demo. Then he said this\u2026",
+      "segs": [
+        [1122.7, 1127.9],
+        [1137.9, 1144.45],
+        [1144.45, 1151.6],
+        [1152.2, 1154.4]
+      ]
+    },
+    "c2-just-talk": {
+      "hook": "No keyboard. No mouse. Just talk.",
+      "segs": [
+        [2254.5, 2269.8],
+        [2280.8, 2285.9],
+        [2287.8, 2294.1],
+        [2322.5, 2327.4],
+        [2330.1, 2332.7],
+        [2353.2, 2354.2]
+      ],
+      "crop": "handsfree"
+    },
+    "c3-you-built-this": {
+      "hook": "His reaction when he saw hands-free mode",
+      "segs": [
+        [374.0, 377.2],
+        [379.4, 382.7],
+        [383.4, 387.7],
+        [390.7, 396.3],
+        [399.1, 406.1],
+        [408.0, 410.1]
+      ]
+    },
+    "c4-20-hours": {
+      "hook": "20 hours of estimating work. Now a homeowner can do it.",
+      "segs": [
+        [2022.9, 2029.8],
+        [2042.9, 2048.1],
+        [2051.5, 2053.4],
+        [2056.8, 2060.2],
+        [2213.3, 2219.6],
+        [2220.2, 2220.8]
+      ]
+    },
+    "c5-verdict": {
+      "hook": "An architect's honest reactions to our AI estimator",
+      "segs": [
+        [386.5, 387.7],
+        [390.7, 393.3],
+        [515.0, 516.6],
+        [2023.0, 2025.4],
+        [2597.4, 2600.6],
+        [2603.2, 2605.08],
+        [2605.08, 2606.2, "face", 0]
+      ]
+    },
+    "explainer": {
+      "hook": "45-minute demo call. One architect. Here's what he saw.",
+      "segs": [
+        [2603.2, 2605.08],
+        [2605.08, 2606.2, "face", 0],
+        [2042.9, 2048.1],
+        [2051.5, 2053.4],
+        [374.0, 377.2],
+        [379.4, 382.7],
+        [383.4, 387.7],
+        [2254.5, 2269.8],
+        [2287.8, 2294.1],
+        [499.7, 501.0],
+        [502.7, 516.6],
+        [2056.8, 2060.2],
+        [1144.45, 1151.6],
+        [1152.2, 1154.4]
+      ],
+      "chapters": [
+        [2, "01 \u00b7 THE PROBLEM", "20 hours per estimate"],
+        [4, "02 \u00b7 HANDS-FREE", "Just talk to Alex"],
+        [7, "03 \u00b7 LIVE ON THE CALL", "Priced by voice"],
+        [9, "04 \u00b7 SMART SCOPE", "It adds what the job requires"],
+        [11, "05 \u00b7 FOR EVERYONE", "Homeowners too"]
+      ]
+    },
+    "explainer-16x9": {
+      "hook": "45-minute demo call. One architect. Here's what he saw.",
+      "segs": [
+        [2603.2, 2605.08],
+        [2605.08, 2606.2, "face", 0],
+        [2042.9, 2048.1],
+        [2051.5, 2053.4],
+        [374.0, 377.2],
+        [379.4, 382.7],
+        [383.4, 387.7],
+        [2254.5, 2269.8],
+        [2287.8, 2294.1],
+        [499.7, 501.0],
+        [502.7, 516.6],
+        [2056.8, 2060.2],
+        [1144.45, 1151.6],
+        [1152.2, 1154.4]
+      ],
+      "chapters": [
+        [2, "01 \u00b7 THE PROBLEM", "20 hours per estimate"],
+        [4, "02 \u00b7 HANDS-FREE", "Just talk to Alex"],
+        [7, "03 \u00b7 LIVE ON THE CALL", "Priced by voice"],
+        [9, "04 \u00b7 SMART SCOPE", "It adds what the job requires"],
+        [11, "05 \u00b7 FOR EVERYONE", "Homeowners too"]
+      ],
+      "orient": "landscape"
+    }
+  },
+  "crops": {
+    "default": [90, 46, 932, 666],
+    "handsfree": [100, 62, 1090, 650]
+  },
+  "masks": {
+    "handsfree": [924, 0, 170, 86]
+  }
+}

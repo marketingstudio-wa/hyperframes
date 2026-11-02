@@ -1,0 +1,139 @@
+{
+  "speakers": {
+    "P": "CEO & Owner · 23 yrs in construction",
+    "A": "Partner Architect",
+    "X": "Alex · AI estimator"
+  },
+  "c1-sell-this": [
+    ["P", "So all those formulas, you don't have to be technical to use this software."],
+    ["A", "Yeah. Yeah."],
+    [
+      "P",
+      "It's been designed purely, like, if a homeowner has no clue what they're doing, they can do that."
+    ],
+    [
+      "A",
+      "You should sell this software, you know, like with a subscription to contractors and homeowners."
+    ],
+    ["P", "We are doing it."],
+    ["A", "Nice."]
+  ],
+  "c2-just-talk": [
+    [
+      "P",
+      "Alex, let's start a new project. I have a ranch, 1,500 square feet area, and I want to remodel my kitchen and a full bath and replace the hardwood floors. And let's do the paint for the whole house as well."
+    ],
+    ["P", "Are you looking at it?"],
+    ["A", "Yeah."],
+    ["P", "So it gave you all of this."],
+    ["A", "Wow."],
+    ["P", "It changed the screen automatically, selected the data on auto. My hands are there."],
+    ["X", "Is there anything else you want to add or change before I price this?"],
+    ["P", "No, I think we're done. Just give me the price."],
+    ["X", "Generate the estimate now?"],
+    ["P", "Yes."],
+    ["P", "And there you go."]
+  ],
+  "c3-you-built-this": [
+    [
+      "P",
+      "Once you click this, this is a hands-free mode. So you're going to talk conversationally with that."
+    ],
+    ["A", "Oh, nice."],
+    ["P", "And it's going to select the things automatically."],
+    ["A", "Oh, yeah. Wow. You guys actually created the software?"],
+    ["P", "Yes, sir."],
+    ["A", "Wow. That's amazing."],
+    [
+      "P",
+      "If you're going to say, oh, show me the analysis, show me the price analysis or the allowances or the kitchen, it's going to take you to that card. So the learning curve is not there."
+    ]
+  ],
+  "c4-20-hours": [
+    ["A", "That's an enormous amount of data that you guys…"],
+    ["P", "Yeah, you haven't seen much as of now."],
+    ["A", "Wow."],
+    [
+      "P",
+      "If I'm providing all of that data, it's going to take me at least, at least 20 hours of work, having 23 years of experience."
+    ],
+    ["P", "A homeowner just using it, they can get that as well."],
+    [
+      "P",
+      "So in other words, if you talk about all the collection of the knowledge and the data, it's been three years."
+    ],
+    ["A", "Wow."]
+  ],
+  "c5-verdict": [
+    ["A", "Oh, yeah. Wow."],
+    ["A", "You guys actually created the software?"],
+    ["A", "Yeah. That's a game changer."],
+    ["A", "That's an enormous amount of data."],
+    ["A", "That is very nice. It's much simpler, much easier."],
+    ["A", "Congrats, man, on this software. It's really amazing."]
+  ],
+  "explainer": [
+    ["A", "Congrats, man, on this software. It's really amazing."],
+    [
+      "P",
+      "If I'm providing all of that data, it's going to take me at least, at least 20 hours of work, having 23 years of experience."
+    ],
+    [
+      "P",
+      "Once you click this, this is a hands-free mode. So you're going to talk conversationally with that."
+    ],
+    ["A", "Oh, nice."],
+    ["P", "And it's going to select the things automatically."],
+    ["A", "Oh, yeah. Wow."],
+    [
+      "P",
+      "Alex, let's start a new project. I have a ranch, 1,500 square feet area, and I want to remodel my kitchen and a full bath and replace the hardwood floors. And let's do the paint for the whole house as well."
+    ],
+    ["P", "It changed the screen automatically, selected the data on auto. My hands are there."],
+    ["P", "We need to replace the insulation."],
+    [
+      "P",
+      "So automatically it's going to include the demo of the drywall, the installation of the drywall and the paint on auto. And you cannot even undo that because that's a necessary thing."
+    ],
+    ["A", "Yeah. That's a game changer."],
+    ["P", "A homeowner just using it, they can get that as well."],
+    [
+      "A",
+      "You should sell this software, you know, like with a subscription to contractors and homeowners."
+    ],
+    ["P", "We are doing it."],
+    ["A", "Nice."]
+  ],
+  "explainer-16x9": [
+    ["A", "Congrats, man, on this software. It's really amazing."],
+    [
+      "P",
+      "If I'm providing all of that data, it's going to take me at least, at least 20 hours of work, having 23 years of experience."
+    ],
+    [
+      "P",
+      "Once you click this, this is a hands-free mode. So you're going to talk conversationally with that."
+    ],
+    ["A", "Oh, nice."],
+    ["P", "And it's going to select the things automatically."],
+    ["A", "Oh, yeah. Wow."],
+    [
+      "P",
+      "Alex, let's start a new project. I have a ranch, 1,500 square feet area, and I want to remodel my kitchen and a full bath and replace the hardwood floors. And let's do the paint for the whole house as well."
+    ],
+    ["P", "It changed the screen automatically, selected the data on auto. My hands are there."],
+    ["P", "We need to replace the insulation."],
+    [
+      "P",
+      "So automatically it's going to include the demo of the drywall, the installation of the drywall and the paint on auto. And you cannot even undo that because that's a necessary thing."
+    ],
+    ["A", "Yeah. That's a game changer."],
+    ["P", "A homeowner just using it, they can get that as well."],
+    [
+      "A",
+      "You should sell this software, you know, like with a subscription to contractors and homeowners."
+    ],
+    ["P", "We are doing it."],
+    ["A", "Nice."]
+  ]
+}
