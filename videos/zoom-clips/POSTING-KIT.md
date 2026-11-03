@@ -7,19 +7,17 @@ name fields are patched to "Project0xx" / "Welcome back", and the email line is 
 > **Before posting:** get the architect's OK to use his face and voice publicly. Every totals screen carries
 > "Example project — every project's estimate differs."
 
-## The 9 videos
+## The 7 videos (all 9:16)
 
-| #   | File                             | Format | Length | Best for                                                             |
-| --- | -------------------------------- | ------ | ------ | -------------------------------------------------------------------- |
-| 1   | HEAI-Real-Call-01-sell-this      | 9:16   | 25 s   | Reels, Shorts, FB Reels                                              |
-| 2   | HEAI-Real-Call-02-just-talk      | 9:16   | 39 s   | Reels, Shorts                                                        |
-| 3   | HEAI-Real-Call-03-you-built-this | 9:16   | 29 s   | Reels, Shorts                                                        |
-| 4   | HEAI-Real-Call-04-20-hours       | 9:16   | 28 s   | Reels, Shorts, LinkedIn                                              |
-| 5   | HEAI-Real-Call-05-verdict        | 9:16   | 18 s   | Reels, Stories, Shorts                                               |
-| 6   | HEAI-Real-Call-Explainer-16x9    | 16:9   | 74 s   | YouTube, Facebook feed, LinkedIn, website                            |
-| 7   | HEAI-Real-Call-Explainer-9x16    | 9:16   | 74 s   | Reels, FB Reels                                                      |
-| 8   | HEAI-Hands-Free-Alex-16x9        | 16:9   | 67 s   | YouTube, website hands-free page                                     |
-| 9   | HEAI-Hands-Free-Alex-9x16        | 9:16   | 67 s   | Reels, Shorts (over 60 s, so it posts as a regular video on YouTube) |
+| #   | File                             | Format | Length | Best for                |
+| --- | -------------------------------- | ------ | ------ | ----------------------- |
+| 1   | HEAI-Real-Call-01-sell-this      | 9:16   | 25 s   | Reels, Shorts, FB Reels |
+| 2   | HEAI-Real-Call-02-just-talk      | 9:16   | 39 s   | Reels, Shorts           |
+| 3   | HEAI-Real-Call-03-you-built-this | 9:16   | 29 s   | Reels, Shorts           |
+| 4   | HEAI-Real-Call-04-20-hours       | 9:16   | 28 s   | Reels, Shorts, LinkedIn |
+| 5   | HEAI-Real-Call-05-verdict        | 9:16   | 18 s   | Reels, Stories, Shorts  |
+| 6   | HEAI-Real-Call-Explainer-9x16    | 9:16   | 74 s   | Reels, Shorts, FB Reels |
+| 7   | HEAI-Hands-Free-Alex-9x16        | 9:16   | 67 s   | Reels, Shorts, FB Reels |
 
 ## Why these should outperform the old posts
 
@@ -131,13 +129,13 @@ See it for yourself → https://homeestimator.ai
 
 **Pinned comment:** Want us to run your next project through it live? Comment "DEMO" 👇
 
-## 6 / 7 · Explainer: "45-minute demo call" (74 s)
+## 6 · Explainer: "45-minute demo call" (74 s)
 
-**YouTube title options**
+**Title options**
 
-1. We Demoed Our AI Estimator to an Architect – Here's What Happened
-2. Real Demo Call: An Architect Reacts to an AI Construction Estimator
-3. 20 Hours of Estimating in Minutes – Live AI Demo With an Architect
+1. We Demoed Our AI Estimator to an Architect – Here's What Happened #shorts
+2. Real Demo Call: An Architect Reacts to an AI Construction Estimator #shorts
+3. 20 Hours of Estimating in Minutes – Live AI Demo With an Architect #shorts
 
 **Description**
 We ran a live 45-minute demo of HomeEstimator.ai for a partner architect. Here are the highlights:
@@ -153,17 +151,17 @@ Book a live demo → https://homeestimator.ai
 
 Example project: every project's estimate differs.
 
-#construction #contractor #architect #estimating #AIforContractors #remodeling #homeaddition #constructionbusiness
+#shorts #construction #contractor #architect #estimating #AIforContractors #remodeling #homeaddition #constructionbusiness
 
 **Pinned comment:** Which part would save you the most time: scope, pricing or the schedule? 👇
 
-## 8 / 9 · Hands-free mode with Alex (67 s)
+## 7 · Hands-free mode with Alex (67 s)
 
-**YouTube title options**
+**Title options**
 
-1. Watch Him Price a Remodel Without Touching the Keyboard
-2. Hands-Free Construction Estimating: Talk to Alex, Get a Price
-3. AI Estimator Demo: Describe the Job, Change It by Voice, Get a New Price
+1. Watch Him Price a Remodel Without Touching the Keyboard #shorts
+2. Hands-Free Construction Estimating: Talk to Alex, Get a Price #shorts
+3. AI Estimator Demo: Describe the Job, Change It by Voice, Get a New Price #shorts
 
 **Description**
 No keyboard. No mouse. On a real demo call our CEO prices a remodel entirely by voice with Alex, the AI estimator:
@@ -184,7 +182,7 @@ Try our hands-free mode → https://homeestimator.ai
 
 Example project: every project's estimate differs.
 
-#handsfree #AI #contractor #construction #estimating #remodeling #AIforContractors #homeimprovement
+#shorts #handsfree #AI #contractor #construction #estimating #remodeling #AIforContractors #homeimprovement
 
 **Pinned comment:** What would you ask Alex to change first? 👇
 
@@ -194,18 +192,17 @@ Example project: every project's estimate differs.
 
 Post Reels and Shorts at the same local time on each platform, around 11:30 am or 7:30 pm. Reply to every comment within the first hour.
 
-| Day        | YouTube                 | Instagram                                     | Facebook                       |
-| ---------- | ----------------------- | --------------------------------------------- | ------------------------------ |
-| Mon (wk 1) | Short #5 Verdict        | Reel #5 Verdict                               | Reel #5 Verdict                |
-| Tue        | —                       | Story: poll "Would you trust an AI estimate?" | —                              |
-| Wed        | Short #2 Just talk      | Reel #2 Just talk                             | Reel #2 Just talk              |
-| Thu        | Hands-free 16:9 (#8)    | —                                             | Hands-free 16:9 feed post (#8) |
-| Fri        | Short #1 Sell this      | Reel #1 Sell this                             | Reel #1 Sell this              |
-| Sun        | —                       | Reel #7 Explainer 9:16                        | —                              |
-| Mon (wk 2) | Explainer 16:9 (#6)     | —                                             | Explainer 16:9 (#6)            |
-| Tue        | Short #3 You built this | Reel #3 You built this                        | Reel #3 You built this         |
-| Thu        | Short #4 20 hours       | Reel #4 20 hours                              | Reel #4 20 hours + LinkedIn    |
-| Sat        | —                       | Reel #9 Hands-free 9:16                       | Reel #9 Hands-free 9:16        |
+| Day        | YouTube                 | Instagram                                          | Facebook                    |
+| ---------- | ----------------------- | -------------------------------------------------- | --------------------------- |
+| Mon (wk 1) | Short #5 Verdict        | Reel #5 Verdict                                    | Reel #5 Verdict             |
+| Tue        | —                       | Story: poll "Would you trust an AI estimate?"      | —                           |
+| Wed        | Short #2 Just talk      | Reel #2 Just talk                                  | Reel #2 Just talk           |
+| Thu        | Short #7 Hands-free     | Reel #7 Hands-free                                 | Reel #7 Hands-free          |
+| Fri        | Short #1 Sell this      | Reel #1 Sell this                                  | Reel #1 Sell this           |
+| Mon (wk 2) | Short #6 Explainer      | Reel #6 Explainer                                  | Reel #6 Explainer           |
+| Tue        | Short #3 You built this | Reel #3 You built this                             | Reel #3 You built this      |
+| Thu        | Short #4 20 hours       | Reel #4 20 hours                                   | Reel #4 20 hours + LinkedIn |
+| Sat        | —                       | Story: repost Reel #7 with a "Try it" link sticker | Story: repost Reel #7       |
 
 **Measure after 7 days:** 3-second hold rate, average view duration and shares, against the last 5 motion-graphics posts.
 Whichever hook wins (reaction, proof or "no keyboard") sets the next batch.
